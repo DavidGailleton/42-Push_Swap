@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:32:10 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/08 14:42:04 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/12/08 14:52:37 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,13 @@
 
 void	ra(t_stacks *stacks)
 {
-	if (!stacks)
-		return ;
-	if (stacks->a->next)
+	if (stacks && stacks->a && stacks->a->next)
 		stacks->a = stacks->a->next;
 }
 
 void	rb(t_stacks *stacks)
 {
-	if (!stacks)
-		return ;
-	if (stacks->b->next)
+	if (stacks && stacks->b && stacks->b->next)
 		stacks->b = stacks->b->next;
 }
 
