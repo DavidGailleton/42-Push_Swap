@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/08 14:18:06 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/08 14:39:22 by dgaillet         ###   ########lyon.fr   */
+/*   Created: 2025/12/08 14:32:10 by dgaillet          #+#    #+#             */
+/*   Updated: 2025/12/08 14:42:04 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-typedef struct s_stack
+void	ra(t_stacks *stacks)
 {
-	int		value;
-	s_stack	*next;
-	s_stack	*previous;
-}	t_stack;
+	if (!stacks)
+		return ;
+	if (stacks->a->next)
+		stacks->a = stacks->a->next;
+}
 
-typedef struct s_stacks
+void	rb(t_stacks *stacks)
 {
-	t_stack	*a;
-	t_stack	*b;
-}	t_stacks;
+	if (!stacks)
+		return ;
+	if (stacks->b->next)
+		stacks->b = stacks->b->next;
+}
 
-#endif
+void	rr(t_stacks *stacks)
+{
+	ra(stacks);
+	rb(stacks);
+}
