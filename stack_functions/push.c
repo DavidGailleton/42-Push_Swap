@@ -6,7 +6,7 @@
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 15:09:40 by mteriier          #+#    #+#             */
-/*   Updated: 2025/12/08 15:28:53 by mteriier         ###   ########lyon.fr   */
+/*   Updated: 2025/12/08 15:35:23 by mteriier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	pa(t_stacks *stacks)
 	if (!stacks || !stacks->b)
 		return ;
 	a = stack->a;
-	a-value = stacks->b->value;
+	a->value = stacks->b->value;
 }
 
 void	pb(t_stacks *stacks)
