@@ -6,9 +6,18 @@
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 18:28:17 by mteriier          #+#    #+#             */
-/*   Updated: 2025/12/08 18:30:28 by mteriier         ###   ########.fr       */
+/*   Updated: 2025/12/08 19:30:48 by mteriier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
+
+static int	calcul_sign(char c)
+{
+	if (c == '-')
+		return (-1);
+	return (1);
+}
 
 int	ft_atoi(const char *nptr)
 {

@@ -6,11 +6,11 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:32:10 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/08 14:52:37 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/12/08 19:37:44 by mteriier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	ra(t_stacks *stacks)
 {

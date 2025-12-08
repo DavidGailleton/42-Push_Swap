@@ -6,11 +6,11 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 16:05:27 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/08 16:15:28 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/12/08 19:40:01 by mteriier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 #include <stdlib.h>
 
 void	stack_clear_all(t_stack *stack, t_stack *first)

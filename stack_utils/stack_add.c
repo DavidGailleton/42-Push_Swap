@@ -6,11 +6,11 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 15:52:40 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/08 16:03:54 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/12/08 20:33:58 by mteriier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 #include <stdlib.h>
 
 t_stack	*new_stack(int value)
@@ -26,11 +26,13 @@ t_stack	*new_stack(int value)
 	return (new);
 }
 
+#include <stdio.h>
+
 void	stack_add_back(t_stack **stack, t_stack *new)
 {
 	if (!stack || !new)
 		return ;
-	if (!(*stack))
+	if (*stack == NULL)
 	{
 		(*stack) = new;
 		new->next = new;
@@ -39,7 +41,7 @@ void	stack_add_back(t_stack **stack, t_stack *new)
 	else
 	{
 		(*stack)->previous->next = new;
-		new->previous = *(stack)->previous;
+		new->previous = (*stack)->previous;
 		(*stack)->previous = new;
 		new->next = *stack;
 	}
@@ -47,7 +49,7 @@ void	stack_add_back(t_stack **stack, t_stack *new)
 
 void	stack_add_front(t_stack **stack, t_stack *new)
 {
-	if (!stack || *new)
+	if (!stack || !new)
 		return ;
 	stack_add_back(stack, new);
 	*stack = new;

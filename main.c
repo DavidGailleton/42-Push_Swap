@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/08 16:21:05 by mteriier          #+#    #+#             */
-/*   Updated: 2025/12/08 20:31:37 by mteriier         ###   ########.fr       */
+/*   Created: 2025/12/08 18:32:35 by mteriier          #+#    #+#             */
+/*   Updated: 2025/12/08 20:36:49 by mteriier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdlib.h>
 #include <stdio.h>
 
-t_stack	*parsing(int argc, char **argv)
+void	print_all_stack(t_stack *stack, t_stack *first)
 {
-	size_t	i;
-	int		stock;
-	t_stack	*first;
-	t_stack	*new;
+	t_stack	*tmp;
 
-	i = 1;
-	first = NULL;
-	while (i < argc)
+	tmp = stack;
+	printf("TAB\n");
+	while (tmp->next != first)
 	{
-		stock = ft_atoi(argv[i]);
-		new = new_stack(stock);
-		if (!new && !first)
-			return (NULL);
-		else if (!new)
-		{
-			stack_clear_all(first, first);
-			return (NULL);
-		}
-		stack_add_back(&first, new);
-		i++;
+		printf("[%d] ", tmp->value);
+		tmp = tmp->next;
 	}
-	return (first);
+	printf("[%d] \n", tmp->value);
+}
+
+int	main(int argc, char **argv)
+{
+	t_stack	*first;
+
+	if (argc > 1)
+	{
+		first = parsing(argc, argv);
+		print_all_stack(first, first);
+	}
+	stack_clear_all(first, first);
 }

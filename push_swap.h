@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:18:06 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/08 15:34:51 by mteriier         ###   ########lyon.fr   */
+/*   Updated: 2025/12/08 20:28:41 by mteriier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 typedef struct s_stack
 {
-	int		value;
-	s_stack	*next;
-	s_stack	*previous;
+	int				value;
+	struct s_stack	*next;
+	struct s_stack	*previous;
 }	t_stack;
 
 typedef struct s_stacks
@@ -38,5 +38,12 @@ void	rr(t_stacks *stacks);
 void	sa(t_stacks *stacks);
 void	sb(t_stacks *stacks);
 void	ss(t_stacks *stacks);
+/*FUNCTION UTILS*/
+t_stack	*new_stack(int value);
+void	stack_add_back(t_stack **stack, t_stack *new);
+void	stack_add_front(t_stack **stack, t_stack *new);
+void	stack_clear_all(t_stack *stack, t_stack *first);
+t_stack	*parsing(int argc, char **argv);
+int		ft_atoi(const char *nptr);
 
 #endif
