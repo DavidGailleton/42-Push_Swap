@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   rev_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/08 14:32:10 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/08 14:52:37 by dgaillet         ###   ########lyon.fr   */
+/*   Created: 2025/12/08 14:43:45 by dgaillet          #+#    #+#             */
+/*   Updated: 2025/12/08 14:52:53 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_stacks *stacks)
+void	rra(t_stacks *stacks)
 {
-	if (stacks && stacks->a && stacks->a->next)
-		stacks->a = stacks->a->next;
+	if (stacks && stacks->a && stacks->a->previous)
+		stacks->a = stacks->a->previous;
 }
 
-void	rb(t_stacks *stacks)
+void	rrb(t_stacks *stacks)
 {
-	if (stacks && stacks->b && stacks->b->next)
-		stacks->b = stacks->b->next;
+	if (stacks && stacks->b && stacks->b->previous)
+		stacks->b = stacks->b->previous;
 }
 
-void	rr(t_stacks *stacks)
+void	rrr(t_stacks *stacks)
 {
-	ra(stacks);
-	rb(stacks);
+	rra(stacks);
+	rrb(stacks);
 }
