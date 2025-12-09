@@ -6,7 +6,7 @@
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 18:32:35 by mteriier          #+#    #+#             */
-/*   Updated: 2025/12/09 12:39:19 by mteriier         ###   ########lyon.fr   */
+/*   Updated: 2025/12/09 13:35:44 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,10 @@ int	main(int argc, char **argv)
 		print_all_stack(stacks->a, stacks->a, 'A');
 		print_all_stack(stacks->b, stacks->b, 'B');
 		*/
-		print_all_stack(stacks->a, stacks->a, 'A');
-		print_all_stack(stacks->b, stacks->b, 'B');
-		bubble_alg(stacks);
-		print_all_stack(stacks->a, stacks->a, 'A');
-		print_all_stack(stacks->b, stacks->b, 'B');
+		//bubble_alg(stacks);
+		print_stacks(stacks, highest_stack_len(stacks), stacks->a, stacks->b);
+		pb(stacks);
+		print_stacks(stacks, highest_stack_len(stacks), stacks->a, stacks->b);
 	}
 	stack_clear_all(stacks->a, stacks->a);
 }

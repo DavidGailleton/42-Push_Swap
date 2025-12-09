@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:18:06 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/09 12:41:07 by mteriier         ###   ########lyon.fr   */
+/*   Updated: 2025/12/09 13:33:04 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,15 @@ void		stack_clear_all(t_stack *stack, t_stack *first);
 t_stack		*parsing(int argc, char **argv);
 t_stacks	*init_big_stacks(int argc, char **argv);
 int			ft_atoi(const char *nptr);
+void		print_stacks(t_stacks *stacks, int len, t_stack *a, t_stack *b);
+int			stack_a_len(t_stacks *stacks);
+int			stack_b_len(t_stacks *stacks);
+int			highest_stack_len(t_stacks *stacks);
 
 /*ALGORITHM UTILS*/
-int	check_order(t_stack *stack);
+int			check_order(t_stack *stack);
 
 /*ALGORITHMS*/
-void	bubble_alg(t_stacks *stacks);
+void		bubble_alg(t_stacks *stacks);
 
 #endif
