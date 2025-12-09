@@ -6,17 +6,16 @@
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 16:21:05 by mteriier          #+#    #+#             */
-/*   Updated: 2025/12/08 20:31:37 by mteriier         ###   ########.fr       */
+/*   Updated: 2025/12/09 10:19:17 by mteriier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 t_stack	*parsing(int argc, char **argv)
 {
-	size_t	i;
+	int		i;
 	int		stock;
 	t_stack	*first;
 	t_stack	*new;
@@ -38,4 +37,17 @@ t_stack	*parsing(int argc, char **argv)
 		i++;
 	}
 	return (first);
+}
+
+t_stacks	*init_big_stacks(int argc, char **argv)
+{
+	t_stacks	*stacks;
+	t_stack		*a;
+
+	stacks = malloc(sizeof(t_stacks));
+	if (!stacks)
+		return (NULL);
+	a = parsing(argc, argv);
+	stacks->a = a;
+	return (stacks);
 }
