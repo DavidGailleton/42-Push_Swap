@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:18:06 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/09 10:17:27 by mteriier         ###   ########lyon.fr   */
+/*   Updated: 2025/12/09 12:41:07 by mteriier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void		rr(t_stacks *stacks);
 void		sa(t_stacks *stacks);
 void		sb(t_stacks *stacks);
 void		ss(t_stacks *stacks);
+
 /*FUNCTION UTILS*/
 t_stack		*new_stack(int value);
 void		stack_add_back(t_stack **stack, t_stack *new);
@@ -46,5 +47,11 @@ void		stack_clear_all(t_stack *stack, t_stack *first);
 t_stack		*parsing(int argc, char **argv);
 t_stacks	*init_big_stacks(int argc, char **argv);
 int			ft_atoi(const char *nptr);
+
+/*ALGORITHM UTILS*/
+int	check_order(t_stack *stack);
+
+/*ALGORITHMS*/
+void	bubble_alg(t_stacks *stacks);
 
 #endif
