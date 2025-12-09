@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 15:52:40 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/08 20:33:58 by mteriier         ###   ########.fr       */
+/*   Updated: 2025/12/09 08:51:33 by mteriier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ t_stack	*new_stack(int value)
 	new->previous = NULL;
 	return (new);
 }
-
-#include <stdio.h>
 
 void	stack_add_back(t_stack **stack, t_stack *new)
 {
