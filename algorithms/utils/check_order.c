@@ -6,7 +6,7 @@
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 11:57:06 by mteriier          #+#    #+#             */
-/*   Updated: 2025/12/09 12:02:28 by mteriier         ###   ########lyon.fr   */
+/*   Updated: 2025/12/09 13:49:13 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int	check_order(t_stack *stack)
 			return (0);
 		stack = stack->next;
 	}
-	return (0);
+	return (1);
 }
