@@ -34,14 +34,14 @@ int	get_next_lower(t_stack *first, int old_lower)
 	int		next_lower;
 
 	tmp = first;
-	lower = tmp->value;
+	next_lower = tmp->value;
 	while (tmp->next != first)
 	{
-		if (tmp->value != old_lower && lower < tmp->value)
-			lower = tmp->value;
+		if (tmp->value != old_lower && next_lower < tmp->value)
+			next_lower = tmp->value;
 		tmp = tmp->next;
 	}
-	return (lower);
+	return (next_lower);
 }
 
 int	calcul_range(int value, int range)
@@ -70,14 +70,14 @@ int	in_range(int value, int max_range)
 	return (0);
 }
 
-int	get_number_in_range(int range, t_stacks *piles)
+int	get_number_in_range(int range, t_stack *a)
 {
 	int		nb_in;
 	t_stack	*tmp;
 	t_stack	*first;
 
 	nb_in = 0;
-	tmp = piles->a;
+	tmp = a;
 	first = tmp;
 	while (tmp->next != first)
 	{

@@ -11,15 +11,16 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdlib.h>
 
 t_tab	*allocate_tab(int range_max, int nb)
 {
-	t_tab	tab;
+	t_tab	*tab;
 
 	tab = malloc(sizeof(t_tab));
 	if (!tab)
 		return (NULL);
-	tab->range_max = range_max;
+	tab->max_range = range_max;
 	tab->nb_in = nb;
 	return (tab);
 }
@@ -32,10 +33,10 @@ t_tab	*get_tabs(t_stack *first)
 	int		scan_nb_in_tab;
 
 	len_stack = stack_len(first);
-	first_tab = first_tab(first);
+	first_tab = init_first_tab(first);
 	if (!first_tab)
 		return (NULL);
-	scan_nb_in_tab = tab->nb_in;
+	scan_nb_in_tab = first_tab->nb_in;
 	tmp = first_tab;
 	while (scan_nb_in_tab < len_stack)
 	{
@@ -48,7 +49,7 @@ t_tab	*get_tabs(t_stack *first)
 	return (first_tab);
 }
 
-t_tab	*first_tab(t_stack *first)
+t_tab	*init_first_tab(t_stack *first)
 {
 	t_tab	*tab;
 	int		lower;
@@ -62,7 +63,7 @@ t_tab	*first_tab(t_stack *first)
 	return (tab);
 }
 
-t_tab	*get_next_tab(t_stack *first, t_tab tab)
+t_tab	*get_next_tab(t_stack *first, t_tab *tab)
 {
 	int		lower;
 	int		range_max;

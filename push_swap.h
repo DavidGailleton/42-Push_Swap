@@ -28,7 +28,7 @@ typedef struct s_stacks
 
 typedef struct s_tab
 {
-	int				range_max;
+	int				max_range;
 	int				nb_in;
 	struct s_tab	*next;
 }	t_tab;
@@ -53,17 +53,20 @@ void		stack_clear_all(t_stack *stack, t_stack *first);
 t_stack		*parsing(int argc, char **argv);
 t_stacks	*init_big_stacks(int argc, char **argv);
 int			ft_atoi(const char *nptr);
+/*FUNCTION UTILS ALGO*/
+int			check_order(t_stack *stack);
+int			is_upper_compare(t_stack *t1, t_stack *t2);
+int			stack_len(t_stack *stack);
 /*FUNCTION FOR MEDIUM ALGO*/
 t_tab		*get_tabs(t_stack *first);
-int			get_number_in_range(int range, t_stacks *piles);
+int			get_number_in_range(int range, t_stack *a);
 int			in_range(int value, int max_range);
 int			calcul_range(int value, int range);
 int			get_next_lower(t_stack *first, int old_lower);
 int			get_first_lower(t_stack *first);
-int			is_upper_compare(t_stack t1, t_stack t2);
 t_tab		*free_tab(t_tab *first);
-t_tab		*get_next_tab(t_stack *first, t_tab tab);
-t_tab		*first_tab(t_stack *first);
+t_tab		*get_next_tab(t_stack *first, t_tab *tab);
+t_tab		*init_first_tab(t_stack *first);
 t_tab		*allocate_tab(int range_max, int nb);
 
 #endif

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	is_upper_compare(t_stack t1, t_stack t2)
+int	is_upper_compare(t_stack *t1, t_stack *t2)
 {
 	if (t1->value > t2->value)
 		return (1);
