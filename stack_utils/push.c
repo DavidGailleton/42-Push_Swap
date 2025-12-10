@@ -29,10 +29,7 @@ void	pa(t_stacks *stacks)
 		stacks->b = stacks->b->next;
 	}
 	stack_add_front(&(stacks->a), b_push);
-
 }
-
-#include <stdio.h>
 
 void	pb(t_stacks *stacks)
 {

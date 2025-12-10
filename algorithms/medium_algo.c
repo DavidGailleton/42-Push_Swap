@@ -12,26 +12,7 @@
 
 #include "push_swap.h"
 
-t_tab	*get_tabs(t_stack *first)
+void	bucket_algo(void)
 {
-	t_tab	*tmp;
-	t_tab	*first_tab;
-	int		len_stack;
-	int		scan_nb_in_tab;
-
-	len_stack = stack_len(first);
-	first_tab = first_tab(first);
-	if (!first_tab)
-		return (NULL);
-	scan_nb_in_tab = tab->nb_in;
-	tmp = first_tab;
-	while (scan_nb_in_tab < len_stack)
-	{
-		tmp->next = get_next_tab(first, tmp);
-		if (!(tmp->next))
-			return (free_tab(first_tab));
-		tmp = tmp->next;
-		scan_nb_in_tab += tmp->nb_in;
-	}
-	return (first_tab);
+	return ;
 }
