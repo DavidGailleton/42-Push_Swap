@@ -43,28 +43,12 @@ int	main(int argc, char **argv)
 		stacks = init_big_stacks(argc, argv);
 		print_all_stack(stacks->a, stacks->a, 'A');
 		print_all_stack(stacks->b, stacks->b, 'B');
-		sa(stacks);
-		print_all_stack(stacks->a, stacks->a, 'A');
-		print_all_stack(stacks->b, stacks->b, 'B');
-		pb(stacks);
-		print_all_stack(stacks->a, stacks->a, 'A');
-		print_all_stack(stacks->b, stacks->b, 'B');
-		pa(stacks);
-		print_all_stack(stacks->a, stacks->a, 'A');
-		print_all_stack(stacks->b, stacks->b, 'B');
 		rra(stacks);
 		print_all_stack(stacks->a, stacks->a, 'A');
 		print_all_stack(stacks->b, stacks->b, 'B');
-		pb(stacks);
-		pb(stacks);
-		print_all_stack(stacks->a, stacks->a, 'A');
-		print_all_stack(stacks->b, stacks->b, 'B');
-		rrb(stacks);
-		print_all_stack(stacks->a, stacks->a, 'A');
-		print_all_stack(stacks->b, stacks->b, 'B');
-		rrr(stacks);
-		print_all_stack(stacks->a, stacks->a, 'A');
-		print_all_stack(stacks->b, stacks->b, 'B');
 	}
-	stack_clear_all(stacks->a, stacks->a);
+	if (stacks->a)
+		stack_clear_all(stacks->a, stacks->a);
+	if (stacks->b)
+		stack_clear_all(stacks->b, stacks->b);
 }

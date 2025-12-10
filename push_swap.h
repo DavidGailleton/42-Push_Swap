@@ -26,6 +26,13 @@ typedef struct s_stacks
 	t_stack	*b;
 }	t_stacks;
 
+typedef struct s_tab
+{
+	int 			range_max;
+	int				nb_in;
+	struct s_tab	*next;
+}	t_tab;
+
 /*STACK_FUNCTIONS*/
 void		pa(t_stacks *stacks);
 void		pb(t_stacks *stacks);
