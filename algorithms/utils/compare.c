@@ -1,27 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_order.c                                      :+:      :+:    :+:   */
+/*   compare.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/09 11:57:06 by mteriier          #+#    #+#             */
-/*   Updated: 2025/12/11 17:50:21 by dgaillet         ###   ########lyon.fr   */
+/*   Created: 2025/12/11 17:46:00 by dgaillet          #+#    #+#             */
+/*   Updated: 2025/12/11 17:46:22 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_order(t_stack *stack)
+int	is_lowest(t_stack *stack, t_stack *node, int len)
 {
-	t_stack	*first;
+	int	i;
 
-	first = stack;
-	while (stack->next != first)
+	i = 0;
+	while (i < len)
 	{
-		if (stack->value > stack->next->value)
+		if (node->value > stack->value)
 			return (0);
 		stack = stack->next;
+		i++;
 	}
 	return (1);
 }
+
+int	is_highest(t_stack *stack, t_stack *node, int len)
+{
+	int	i;
+
+	i = 0;
+	while (i < len)
+	{
+		if (node->value < stack->value)
+			return (0);
+		stack = stack->next;
+		i++;
+	}
+	return (1);
+}
+
+

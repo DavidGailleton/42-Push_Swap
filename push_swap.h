@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:18:06 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/09 13:33:04 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/12/11 18:32:02 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,13 @@ int			highest_stack_len(t_stacks *stacks);
 
 /*ALGORITHM UTILS*/
 int			check_order(t_stack *stack);
+void		iterate_fn(t_stacks *stacks, int i, void (f)(t_stacks *stacks));
+int			is_lowest(t_stack *stack, t_stack *node, int len);
+int			is_highest(t_stack *stack, t_stack *node, int len);
+void		optimal_rotate(t_stacks *stacks, int i, int len, char stack);
 
 /*ALGORITHMS*/
 void		bubble_alg(t_stacks *stacks);
+void		insertion(t_stacks *stacks, int a_len, int b_len);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 11:56:23 by mteriier          #+#    #+#             */
-/*   Updated: 2025/12/09 14:09:07 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/12/09 15:56:56 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 void	bubble_alg(t_stacks *stacks)
 {
+	if (check_order(stacks->a))
+		return ;
 	while (stack_a_len(stacks))
 	{
 		if (stacks->a->value > stacks->a->next->value)
@@ -37,7 +39,5 @@ void	bubble_alg(t_stacks *stacks)
 		write(1, "pb\n", 3);
 		// print_stacks(stacks, highest_stack_len(stacks), stacks->a, stacks->b);
 	}
-	if (check_order(stacks->a))
-		return ;
 	bubble_alg(stacks);
 }
