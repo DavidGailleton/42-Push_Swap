@@ -1,15 +1,23 @@
+STACK_UTILS_DIR = stack_utils
+
+ALGO_UTILS_DIR = algorithms/utils
+
+ALGO_DIR = algorithms
+
+MEDIUM_DIR = medium_utils
+
 SRC = main.c ft_atoi.c parsing.c
 
-STACK_UTILS = stack_utils/push.c stack_utils/rev_rotate.c stack_utils/rotate.c \
-				stack_utils/stack_add.c stack_utils/stack_remove.c stack_utils/swap.c
+STACK_UTILS = push.c rev_rotate.c rotate.c stack_add.c stack_remove.c swap.c
 
-MEDIUM_ALGO = algorithms/medium_algo.c algorithms/medium_utils/utils_medium.c \
-				algorithms/medium_utils/utils_struct_tab.c
+ALGO_SORT = medium_algo.c
 
-ALGO_UTILS = algorithms/utils/check_order.c algorithms/utils/compare_value.c \
-				algorithms/utils/stack_len.c
+MEDIUM_ALGO = utils_medium.c utils_struct_tab.c
 
-ALL_FILES = $(SRC) $(STACK_UTILS) $(MEDIUM_ALGO) $(ALGO_UTILS)
+ALGO_UTILS = check_order.c compare_value.c stack_len.c
+
+ALL_FILES = $(SRC) $(STACK_UTILS_DIR)/$(STACK_UTILS) $(ALGO_DIR)/$(ALGO_SORT) \
+			$(ALGO_DIR)/$(MEDIUM_DIR)/$(MEDIUM_ALGO) $(ALGO_UTILS_DIR)/$(ALGO_UTILS)
 
 OBJ_DIR = obj
 
@@ -20,7 +28,6 @@ CFLAGS = -Wall -Werror -Wextra -I.
 NAME = push_swap
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(notdir $(ALL_FILES:.c=.o)))
-
 DEP = $(OBJ:.o=.d)
 
 .PHONY: all clean fclean re
@@ -28,9 +35,24 @@ DEP = $(OBJ:.o=.d)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	@echo "===================================="
+	@echo "======= PUSH SWAP COMPILED ========="
+	@echo "===================================="
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(STACK_UTILS_DIR)/%.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(ALGO_DIR)/%.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(ALGO_DIR)/$(MEDIUM_DIR)/%.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(ALGO_UTILS_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
 
 $(OBJ_DIR):
@@ -43,7 +65,9 @@ clean:
 	@echo "===================================="
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "========== EXEC DELETED ============"
+	@echo "===================================="
 
 re: fclean all
 
