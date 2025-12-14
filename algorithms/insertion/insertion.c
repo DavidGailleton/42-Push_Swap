@@ -6,12 +6,62 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 15:38:52 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/12 11:30:40 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/12/14 16:51:05 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int	to_insert(t_stacks *stacks, int sorted)
+{
+	int		i;
+	t_stack	*a;
+
+	i = 0;
+	a = stacks->a;
+	while (i < sorted)
+	{
+		if (stacks->b->value > a->previous->value)
+			return (i);
+		a = a->previous;
+		i++;
+	}
+	return (i);
+}
+
+void	insertion(t_stacks *stacks, int sorted, int len)
+{
+	int	to_r_rotate;
+
+	if (sorted >= len)
+		return ;
+	if (sorted == 0)
+		ra(stacks);
+	else
+	{
+		pb(stacks);
+		to_r_rotate = to_insert(stacks, sorted);
+		optimal_rotate(stacks, len - to_r_rotate - 1, len - 1, 'a');
+		pa(stacks);
+		optimal_rotate(stacks, to_r_rotate, len, 'a');
+		ra(stacks);
+	}
+	insertion(stacks, sorted + 1, len);
+}
+/*
+void	insertion(t_stacks *stacks, int len)
+{
+	int	i;
+
+	i = 0;
+	while (i < len)
+	{
+		pb(stacks);
+		i++;
+	}
+}
+*/
+/*
 static int	nearest_below(t_stack *stack, t_stack *node, int len)
 {
 	t_stack	*nearest;
@@ -92,7 +142,7 @@ void	insertion(t_stacks *stacks, int a_len, int b_len)
 		pb(stacks);
 	}
 	//write(1, "pb\n", 3);
-	print_stacks(stacks, highest_stack_len(stacks), stacks->a, stacks->b);
+	//print_stacks(stacks, highest_stack_len(stacks), stacks->a, stacks->b);
 	insertion(stacks, a_len - 1, b_len + 1);
 }
-
+*/
