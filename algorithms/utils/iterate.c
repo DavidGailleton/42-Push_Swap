@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 17:49:56 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/11 18:29:05 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/12/15 14:44:56 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	iterate_fn(t_stacks *stacks, int i, void (f)(t_stacks *stacks))
 
 void	optimal_rotate(t_stacks *stacks, int i, int len, char stack)
 {
+	if (i == len)
+		return ;
 	if (i && len / i >= 2)
 	{
 		if (stack == 'a')
@@ -30,7 +32,7 @@ void	optimal_rotate(t_stacks *stacks, int i, int len, char stack)
 		else
 			iterate_fn(stacks, i, &rb);
 	}
-	else
+	else if (i)
 	{
 		if (stack == 'a')
 			iterate_fn(stacks, len - i, &rra);

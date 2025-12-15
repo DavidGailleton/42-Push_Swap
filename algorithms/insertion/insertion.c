@@ -6,34 +6,11 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 15:38:52 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/14 17:31:02 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/12/15 14:45:54 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	r_to_lowest(t_stack *stack, int len)
-{
-	t_stack	*lowest;
-	int		lowest_i;
-	int		i;
-
-	i = 1;
-	lowest_i = 0;
-	lowest = stack;
-	stack = stack->next;
-	while (i < len)
-	{
-		if (stack->value < lowest->value)
-		{
-			lowest_i = i;
-			lowest = stack;
-		}
-		stack = stack->next;
-		i++;
-	}
-	return (lowest_i);
-}
 
 static int	to_insert(t_stacks *stacks, int sorted)
 {
@@ -76,6 +53,13 @@ void	insertion(t_stacks *stacks, int len)
 {
 	int	i;
 
+	if (len == 3)
+	{
+		sort_three_a(stacks);
+		return ;
+	}
+	if (check_order(stacks->a))
+		return ;
 	i = 0;
 	while (i < len)
 	{
