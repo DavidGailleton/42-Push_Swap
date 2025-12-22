@@ -12,7 +12,12 @@
 
 #include "push_swap.h"
 
-void	bucket_algo(void)
+void	bucket_algo(t_stacks *piles)
 {
+	int		range;
+	t_tab	*preset;
+
+	range = range_bucket(piles->a);
+	preset = get_tabs(piles->a, range);
 	return ;
 }

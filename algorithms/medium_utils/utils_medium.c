@@ -60,17 +60,17 @@ int	calcul_range(int value, int range)
 	return (max_range - 1);
 }
 
-int	in_range(int value, int max_range)
+int	in_range(int value, int max_range, int range)
 {
 	int	min_range;
 
-	min_range = max_range - 9;
+	min_range = max_range - (range - 1);
 	if (value <= max_range && value >= min_range)
 		return (1);
 	return (0);
 }
 
-int	get_number_in_range(int range, t_stack *a)
+int	get_number_in_range(int max_range, t_stack *a, int range)
 {
 	int		nb_in;
 	t_stack	*tmp;
@@ -81,7 +81,7 @@ int	get_number_in_range(int range, t_stack *a)
 	first = tmp;
 	while (tmp->next != first)
 	{
-		if (in_range(tmp->value, range))
+		if (in_range(tmp->value, max_range, range))
 			nb_in++;
 		tmp = tmp->next;
 	}

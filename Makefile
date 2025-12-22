@@ -12,7 +12,7 @@ STACK_UTILS = push.c rev_rotate.c rotate.c stack_add.c stack_remove.c swap.c
 
 ALGO_SORT = medium_algo.c
 
-MEDIUM_ALGO = utils_medium.c utils_struct_tab.c
+MEDIUM_ALGO = utils_medium.c utils_struct_tab.c utils_medium_two.c
 
 ALGO_UTILS = check_order.c compare_value.c stack_len.c
 

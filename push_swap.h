@@ -58,15 +58,19 @@ int			check_order(t_stack *stack);
 int			is_upper_compare(t_stack *t1, t_stack *t2);
 int			stack_len(t_stack *stack);
 /*FUNCTION FOR MEDIUM ALGO*/
-t_tab		*get_tabs(t_stack *first);
-int			get_number_in_range(int range, t_stack *a);
-int			in_range(int value, int max_range);
+t_tab		*get_tabs(t_stack *first, int range);
+int			get_number_in_range(int max_range, t_stack *a, int range);
+int			in_range(int value, int max_range, int range);
 int			calcul_range(int value, int range);
 int			get_next_lower(t_stack *first, int old_lower);
 int			get_first_lower(t_stack *first);
+int			my_sqrt(int nb);
+int			get_max_number(t_stack *first);
+int			get_min_number(t_stack *first);
+int			range_bucket(t_stack *first);
 t_tab		*free_tab(t_tab *first);
-t_tab		*get_next_tab(t_stack *first, t_tab *tab);
-t_tab		*init_first_tab(t_stack *first);
+t_tab		*get_next_tab(t_stack *first, t_tab *tab, int range);
+t_tab		*init_first_tab(t_stack *first, int range);
 t_tab		*allocate_tab(int range_max, int nb);
 
 #endif

@@ -33,6 +33,52 @@ void	print_all_stack(t_stack *stack, t_stack *first, char pile)
 	printf("[%d] \n", tmp->value);
 }
 
+int	verif_no_double(int *tab, int len, int value)
+{
+	int	i;
+
+	i = 0;
+	while (i < len)
+	{
+		if (value == tab[i])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int adding_number(int *tab, int len)
+{
+	int stock;
+
+	stock = tab[0];
+	while (!verif_no_double(tab, len, stock))
+	{
+		stock = rand();
+	}
+	return stock;
+}
+
+int	*auto_shuffle(int len_tab)
+{
+	int	*tab;
+	int	i;
+	int	len_added;
+
+	i = 1;
+	tab = malloc(len_tab * sizeof(int));
+	if (!tab)
+		return (NULL);
+	tab[0] = rand();
+	while (i < len_tab)
+	{
+		tab[i] = adding_number(tab, i);
+		i++;
+	}
+	return (tab);
+}
+
+
 int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
