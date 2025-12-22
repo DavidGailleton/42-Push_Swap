@@ -13,6 +13,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void	print_all_stack(t_stack *stack, t_stack *first, char pile)
 {
@@ -47,14 +48,14 @@ int	verif_no_double(int *tab, int len, int value)
 	return (1);
 }
 
-int adding_number(int *tab, int len)
+int	adding_number(int *tab, int len)
 {
 	int stock;
 
 	stock = tab[0];
 	while (!verif_no_double(tab, len, stock))
 	{
-		stock = rand();
+		stock = 0 + rand() % (250 - 0 + 1);
 	}
 	return stock;
 }
@@ -63,13 +64,12 @@ int	*auto_shuffle(int len_tab)
 {
 	int	*tab;
 	int	i;
-	int	len_added;
 
 	i = 1;
 	tab = malloc(len_tab * sizeof(int));
 	if (!tab)
 		return (NULL);
-	tab[0] = rand();
+	tab[0] = 0 + rand() % (250 - 0 + 1);
 	while (i < len_tab)
 	{
 		tab[i] = adding_number(tab, i);
@@ -81,20 +81,12 @@ int	*auto_shuffle(int len_tab)
 
 int	main(int argc, char **argv)
 {
-	t_stacks	*stacks;
-
-	stacks = NULL;
 	if (argc > 1)
 	{
-		stacks = init_big_stacks(argc, argv);
-		print_all_stack(stacks->a, stacks->a, 'A');
-		print_all_stack(stacks->b, stacks->b, 'B');
-		rra(stacks);
-		print_all_stack(stacks->a, stacks->a, 'A');
-		print_all_stack(stacks->b, stacks->b, 'B');
+		if (strcmp(argv[1], "-t1") == 0)
+			test1(argc, argv++);
+		else if (strcmp(argv[1], "-t2") == 0)
+			test2(argv++);
 	}
-	if (stacks->a)
-		stack_clear_all(stacks->a, stacks->a);
-	if (stacks->b)
-		stack_clear_all(stacks->b, stacks->b);
+	return (0);
 }

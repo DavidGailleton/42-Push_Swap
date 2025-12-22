@@ -72,5 +72,17 @@ t_tab		*free_tab(t_tab *first);
 t_tab		*get_next_tab(t_stack *first, t_tab *tab, int range);
 t_tab		*init_first_tab(t_stack *first, int range);
 t_tab		*allocate_tab(int range_max, int nb);
+/*FUNCTION IN MAIN*/
+void		print_all_stack(t_stack *stack, t_stack *first, char pile);
+int			verif_no_double(int *tab, int len, int value);
+int			adding_number(int *tab, int len);
+int			*auto_shuffle(int len_tab);
+/*FUNCTION IN FILE TEST*/
+int			test1(int argc, char **argv);
+int			test2(char **argv);
+/*FUNCTION IN PARSIN 2*/
+t_stack		*parsing2(int *tab, int len);
+t_stacks	*init_big_stacks2(int *tab, int len);
+void		print_tabs(t_tab *preset);
 
 #endif

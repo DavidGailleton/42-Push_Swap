@@ -6,7 +6,7 @@ ALGO_DIR = algorithms
 
 MEDIUM_DIR = medium_utils
 
-SRC = main.c ft_atoi.c parsing.c
+SRC = main.c ft_atoi.c parsing.c parsing_2.c test_one.c
 
 STACK_UTILS = push.c rev_rotate.c rotate.c stack_add.c stack_remove.c swap.c
 

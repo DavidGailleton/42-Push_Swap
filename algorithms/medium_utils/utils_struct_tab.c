@@ -25,6 +25,8 @@ t_tab	*allocate_tab(int range_max, int nb)
 	return (tab);
 }
 
+#include <stdio.h>
+
 t_tab	*get_tabs(t_stack *first, int range)
 {
 	t_tab	*tmp;
