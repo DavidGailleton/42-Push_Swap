@@ -72,6 +72,9 @@ t_tab		*free_tab(t_tab **first);
 t_tab		*get_next_tab(t_stack *first, t_tab *tab, int range);
 t_tab		*init_first_tab(t_stack *first, int range);
 t_tab		*allocate_tab(int range_max, int nb);
+int			wich_path(t_stacks *piles, int max_range, int range);
+int			path_to_start(t_stacks *piles, int max_range, int range);
+int			path_to_end(t_stacks *piles, int max_range, int range);
 /*FUNCTION IN MAIN*/
 void		print_all_stack(t_stack *stack, t_stack *first, char pile);
 int			verif_no_double(int *tab, int len, int value);

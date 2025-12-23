@@ -52,7 +52,6 @@ int	test2(char **argv)
 	tab = auto_shuffle(len);
 	piles = init_big_stacks2(tab, len);
 	preset = get_tabs(piles->a, range_bucket(piles->a));
-	print_tabs(preset);
 	free(tab);
 	free_tab(&preset);
 	if (piles->a)
