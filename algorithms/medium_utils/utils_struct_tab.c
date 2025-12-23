@@ -20,12 +20,11 @@ t_tab	*allocate_tab(int range_max, int nb)
 	tab = malloc(sizeof(t_tab));
 	if (!tab)
 		return (NULL);
+	tab->next = NULL;
 	tab->max_range = range_max;
 	tab->nb_in = nb;
 	return (tab);
 }
-
-#include <stdio.h>
 
 t_tab	*get_tabs(t_stack *first, int range)
 {
@@ -44,7 +43,7 @@ t_tab	*get_tabs(t_stack *first, int range)
 	{
 		tmp->next = get_next_tab(first, tmp, range);
 		if (!(tmp->next))
-			return (free_tab(first_tab));
+			return (free_tab(&first_tab));
 		tmp = tmp->next;
 		scan_nb_in_tab += tmp->nb_in;
 	}
@@ -78,15 +77,12 @@ t_tab	*get_next_tab(t_stack *first, t_tab *tab, int range)
 	return (next_tab);
 }
 
-t_tab	*free_tab(t_tab *first)
+t_tab	*free_tab(t_tab **first)
 {
-	t_tab	*tmp;
-
-	while (first)
-	{
-		tmp = first->next;
-		free(first);
-		first = tmp;
-	}
+	if (!(*first))
+		return (NULL);
+	if ((*first)->next)
+		free_tab(&(*first)->next);
+	free(*first);
 	return (NULL);
 }

@@ -45,6 +45,8 @@ t_stacks	*init_big_stacks(int argc, char **argv)
 	t_stack		*a;
 
 	stacks = malloc(sizeof(t_stacks));
+	stacks->a = NULL;
+	stacks->b = NULL;
 	if (!stacks)
 		return (NULL);
 	a = parsing(argc, argv);

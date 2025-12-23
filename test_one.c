@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int test1(int argc, char **argv)
+int	test1(int argc, char **argv)
 {
 	t_stacks	*stacks;
 
@@ -32,18 +32,17 @@ int test1(int argc, char **argv)
 		stack_clear_all(stacks->a, stacks->a);
 	if (stacks->b)
 		stack_clear_all(stacks->b, stacks->b);
+	free(stacks);
 	return (0);
 }
 
-int test2(char **argv){
-
+int	test2(char **argv)
+{
 	int			*tab;
 	int			len;
 	t_tab		*preset;
 	t_stacks	*piles;
-	int			i;
 
-	i = 0;
 	len = ft_atoi(argv[2]);
 	if (len < 1)
 	{
@@ -51,16 +50,15 @@ int test2(char **argv){
 		return (0);
 	}
 	tab = auto_shuffle(len);
-	while (i < len)
-	{
-		printf("tab(%d) [%d]\n", i, tab[i]);
-		i++;
-	}
 	piles = init_big_stacks2(tab, len);
-	printf("RANGE BUCKET %d\n", range_bucket(piles->a));
 	preset = get_tabs(piles->a, range_bucket(piles->a));
 	print_tabs(preset);
 	free(tab);
-	free_tab(preset);
+	free_tab(&preset);
+	if (piles->a)
+		stack_clear_all(piles->a, piles->a);
+	if (piles->b)
+		stack_clear_all(piles->b, piles->b);
+	free(piles);
 	return (0);
 }

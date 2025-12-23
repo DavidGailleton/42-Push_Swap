@@ -17,7 +17,7 @@
 void	print_tabs(t_tab *preset)
 {
 	t_tab	*tab;
-	
+
 	tab = preset;
 	while (tab)
 	{
@@ -59,6 +59,8 @@ t_stacks	*init_big_stacks2(int *tab, int len)
 	t_stack		*a;
 
 	stacks = malloc(sizeof(t_stacks));
+	stacks->a = NULL;
+	stacks->b = NULL;
 	if (!stacks)
 		return (NULL);
 	a = parsing2(tab, len);

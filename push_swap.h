@@ -68,7 +68,7 @@ int			my_sqrt(int nb);
 int			get_max_number(t_stack *first);
 int			get_min_number(t_stack *first);
 int			range_bucket(t_stack *first);
-t_tab		*free_tab(t_tab *first);
+t_tab		*free_tab(t_tab **first);
 t_tab		*get_next_tab(t_stack *first, t_tab *tab, int range);
 t_tab		*init_first_tab(t_stack *first, int range);
 t_tab		*allocate_tab(int range_max, int nb);

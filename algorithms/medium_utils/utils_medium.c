@@ -34,8 +34,7 @@ int	get_next_lower(t_stack *first, int old_lower)
 	int		next_lower;
 
 	tmp = first;
-	next_lower = 2147483646;
-	
+	next_lower = 2147483647;
 	while (tmp->next != first)
 	{
 		if (old_lower < tmp->value && tmp->value <= next_lower)

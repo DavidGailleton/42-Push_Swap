@@ -50,14 +50,14 @@ int	verif_no_double(int *tab, int len, int value)
 
 int	adding_number(int *tab, int len)
 {
-	int stock;
+	int	stock;
 
 	stock = tab[0];
 	while (!verif_no_double(tab, len, stock))
 	{
 		stock = 0 + rand() % (250 - 0 + 1);
 	}
-	return stock;
+	return (stock);
 }
 
 int	*auto_shuffle(int len_tab)
@@ -72,21 +72,20 @@ int	*auto_shuffle(int len_tab)
 	tab[0] = 0 + rand() % (250 - 0 + 1);
 	while (i < len_tab)
 	{
-		tab[i] = adding_number(tab, i);
+		tab[i] = adding_number(tab, i - 1);
 		i++;
 	}
 	return (tab);
 }
 
-
 int	main(int argc, char **argv)
 {
 	if (argc > 1)
 	{
-		if (strcmp(argv[1], "-t1") == 0)
-			test1(argc, argv++);
-		else if (strcmp(argv[1], "-t2") == 0)
+		if (strcmp(argv[1], "-t2") == 0)
 			test2(argv++);
+		else
+			test1(argc, argv);
 	}
 	return (0);
 }

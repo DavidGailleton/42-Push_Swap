@@ -14,10 +14,5 @@
 
 void	bucket_algo(void)
 {
-	/*int		range;
-	t_tab	*preset;
-
-	range = range_bucket(piles->a);
-	preset = get_tabs(piles->a, range);*/
 	return ;
 }
