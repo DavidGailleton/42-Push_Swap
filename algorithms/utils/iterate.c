@@ -1,23 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_remove.c                                     :+:      :+:    :+:   */
+/*   iterate.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/08 16:05:27 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/12 11:39:02 by dgaillet         ###   ########lyon.fr   */
+/*   Created: 2025/12/11 17:49:56 by dgaillet          #+#    #+#             */
+/*   Updated: 2025/12/11 18:29:05 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdlib.h>
 
-void	stack_clear_all(t_stack *stack, t_stack *first)
+void	iterate_fn(t_stacks *stacks, int i, void (f)(t_stacks *stacks))
 {
-	if (!stack)
-		return ;
-	if (stack->next != first)
-		stack_clear_all(stack->next, first);
-	free(stack);
+	while (i > 0)
+	{
+		f(stacks);
+		i--;
+	}
+}
+
+void	optimal_rotate(t_stacks *stacks, int i, int len, char stack)
+{
+	if (i && len / i >= 2)
+	{
+		if (stack == 'a')
+			iterate_fn(stacks, i, &ra);
+		else
+			iterate_fn(stacks, i, &rb);
+	}
+	else
+	{
+		if (stack == 'a')
+			iterate_fn(stacks, len - i, &rra);
+		else
+			iterate_fn(stacks, len - i, &rrb);
+	}
 }

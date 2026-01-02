@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:18:06 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/09 10:17:27 by mteriier         ###   ########lyon.fr   */
+/*   Updated: 2025/12/14 16:55:24 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void		rr(t_stacks *stacks);
 void		sa(t_stacks *stacks);
 void		sb(t_stacks *stacks);
 void		ss(t_stacks *stacks);
+
 /*FUNCTION UTILS*/
 t_stack		*new_stack(int value);
 void		stack_add_back(t_stack **stack, t_stack *new);
@@ -87,5 +88,21 @@ int			test2(char **argv);
 t_stack		*parsing2(int *tab, int len);
 t_stacks	*init_big_stacks2(int *tab, int len);
 void		print_tabs(t_tab *preset);
+void		print_stacks(t_stacks *stacks, int len, t_stack *a, t_stack *b);
+int			stack_a_len(t_stacks *stacks);
+int			stack_b_len(t_stacks *stacks);
+int			highest_stack_len(t_stacks *stacks);
+
+/*ALGORITHM UTILS*/
+int			check_order(t_stack *stack);
+void		iterate_fn(t_stacks *stacks, int i, void (f)(t_stacks *stacks));
+int			is_lowest(t_stack *stack, t_stack *node, int len);
+int			is_highest(t_stack *stack, t_stack *node, int len);
+void		optimal_rotate(t_stacks *stacks, int i, int len, char stack);
+
+/*ALGORITHMS*/
+void		bubble_alg(t_stacks *stacks);
+//void		insertion(t_stacks *stacks, int a_len, int b_len);
+void		insertion(t_stacks *stacks, int len);
 
 #endif
