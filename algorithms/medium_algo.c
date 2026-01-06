@@ -109,7 +109,5 @@ void	bucket_algo(t_stacks *piles, t_tab *preset, int range)
 	}
 	while (piles->b)
 		pa(piles);
-	print_all_stack(piles->a, piles->a, 'A');
-	print_all_stack(piles->b, piles->b, 'B');
 	return ;
 }

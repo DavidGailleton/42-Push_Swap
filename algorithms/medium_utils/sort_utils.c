@@ -31,8 +31,6 @@ void	push_range_to_b(t_stacks *piles, t_tab *one_preset, int range)
 		sort_little_pile(piles);
 		one_preset->nb_in--;
 	}
-	print_all_stack(piles->a, piles->a, 'A');
-	print_all_stack(piles->b, piles->b, 'B');
 }
 
 int	sort_path(t_stacks *piles, int value)
