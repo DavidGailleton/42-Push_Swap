@@ -16,18 +16,18 @@ void	sort_from_left(t_stacks *piles)
 {
 	int	i;
 
-    i = 0;
-	while (piles->a->value > piles->b->value)
+	i = 0;
+	while (piles->b->value > piles->a->value)
 	{
-		rb(piles);
+		ra(piles);
 		i++;
 	}
-	pb(piles);
+	pa(piles);
 	while (i > 0)
-    {
-		rrb(piles);
-        i--;
-    }
+	{
+		rra(piles);
+		i--;
+	}
 }
 
 void	sort_from_right(t_stacks *piles)
@@ -35,15 +35,15 @@ void	sort_from_right(t_stacks *piles)
 	int	i;
 
 	i = 0;
-	while (piles->a->value < piles->b->previous->value)
+	while (piles->b->value < piles->a->previous->value)
 	{
-		rrb(piles);
+		rra(piles);
 		i++;
 	}
-	pb(piles);
+	pa(piles);
 	while (i >= 0)
-    {
-		rb(piles);
-        i--;
-    }
+	{
+		ra(piles);
+		i--;
+	}
 }

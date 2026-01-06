@@ -15,7 +15,7 @@
 
 int	path_to_end(t_stacks *piles, int max_range, int range, char c)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 	int		i;
 	int		first_pass;
 
@@ -26,11 +26,11 @@ int	path_to_end(t_stacks *piles, int max_range, int range, char c)
 	tmp = tmp->previous;
 	i = 0;
 	first_pass = 1;
-	while (first_pass || tmp != piles->a->previous)
+	while (first_pass || tmp != piles->b->previous)
 	{
 		first_pass = 0;
 		if (in_range(tmp->value, max_range, range))
-			tmp = piles->a;
+			tmp = piles->b;
 		tmp = tmp->previous;
 		i++;
 	}
@@ -39,7 +39,7 @@ int	path_to_end(t_stacks *piles, int max_range, int range, char c)
 
 int	path_to_start(t_stacks *piles, int max_range, int range, char c)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 	int		i;
 	int		first_pass;
 
@@ -49,12 +49,12 @@ int	path_to_start(t_stacks *piles, int max_range, int range, char c)
 		tmp = piles->b;
 	i = 0;
 	first_pass = 1;
-	while (first_pass || tmp != piles->a)
+	while (first_pass || tmp != piles->b)
 	{
 		first_pass = 0;
 		if (in_range(tmp->value, max_range, range))
 		{
-			tmp = piles->a->previous;
+			tmp = piles->b->previous;
 		}
 		tmp = tmp->next;
 		i++;
@@ -94,6 +94,8 @@ void	bucket_algo(t_stacks *piles, t_tab *preset, int range)
 	t_tab	*tmp;
 
 	tmp = preset;
+	while (piles->a)
+		pb(piles);
 	while (preset)
 	{
 		push_range_to_b(piles, preset, range);

@@ -16,16 +16,16 @@ void	push_range_to_b(t_stacks *piles, t_tab *one_preset, int range)
 {
 	while (one_preset->nb_in > 0)
 	{
-		if (wich_path(piles, one_preset->max_range, range, 'a'))
+		if (wich_path(piles, one_preset->max_range, range, 'b'))
 		{
-			while (!in_range(piles->a->value, one_preset->max_range, range))
-				ra(piles);
+			while (!in_range(piles->b->value, one_preset->max_range, range))
+				rb(piles);
 		}
 		else
 		{
-			while (!in_range(piles->a->value, one_preset->max_range, range))
+			while (!in_range(piles->b->value, one_preset->max_range, range))
 			{
-				rra(piles);
+				rrb(piles);
 			}
 		}
 		sort_little_pile(piles);
@@ -37,7 +37,7 @@ void	push_range_to_b(t_stacks *piles, t_tab *one_preset, int range)
 
 int	sort_path(t_stacks *piles, int value)
 {
-	int start_path;
+	int	start_path;
 	int	end_path;
 
 	start_path = number_move_reverse(piles, value, 's');
@@ -55,10 +55,10 @@ int	number_move_reverse(t_stacks *piles, int value, char start_end)
 	t_stack	*tmp;
 
 	i = 0;
-	tmp = piles->b;
-	if (start_end  == 's')
+	tmp = piles->a;
+	if (start_end == 's')
 	{
-		while(tmp->value < value)
+		while (tmp->value < value)
 		{
 			tmp = tmp->next;
 			i++;
@@ -67,7 +67,7 @@ int	number_move_reverse(t_stacks *piles, int value, char start_end)
 	else
 	{
 		tmp = tmp->previous;
-		while(tmp->value > value)
+		while (tmp->value > value)
 		{
 			tmp = tmp->previous;
 			i++;
@@ -78,18 +78,18 @@ int	number_move_reverse(t_stacks *piles, int value, char start_end)
 
 void	sort_little_pile(t_stacks *piles)
 {
-	if (!piles->b)
+	if (!piles->a)
 	{
-		pb(piles);
+		pa(piles);
 		return ;
 	}
-	if (piles->b->previous->value < piles->a->value)
+	if (piles->a->previous->value < piles->b->value)
 	{
-		pb(piles);
-		rb(piles);
+		pa(piles);
+		ra(piles);
 		return ;
 	}
-	if (sort_path(piles, piles->a->value))
+	if (sort_path(piles, piles->b->value))
 		sort_from_left(piles);
 	else
 		sort_from_right(piles);

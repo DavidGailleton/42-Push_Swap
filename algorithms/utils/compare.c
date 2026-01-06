@@ -41,5 +41,3 @@ int	is_highest(t_stack *stack, t_stack *node, int len)
 	}
 	return (1);
 }
-
-
