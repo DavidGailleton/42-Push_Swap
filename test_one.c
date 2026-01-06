@@ -16,23 +16,21 @@
 
 int	test1(int argc, char **argv)
 {
-	t_stacks	*stacks;
+	t_stacks	*piles;
+	t_tab		*preset;
 
-	stacks = NULL;
+	piles = NULL;
 	if (argc > 1)
 	{
-		stacks = init_big_stacks(argc, argv);
-		print_all_stack(stacks->a, stacks->a, 'A');
-		print_all_stack(stacks->b, stacks->b, 'B');
-		rra(stacks);
-		print_all_stack(stacks->a, stacks->a, 'A');
-		print_all_stack(stacks->b, stacks->b, 'B');
+		piles = init_big_stacks(argc, argv);
+		preset = get_tabs(piles->a, range_bucket(piles->a));
+		bucket_algo(piles, preset, range_bucket(piles->a));
 	}
-	if (stacks->a)
-		stack_clear_all(stacks->a, stacks->a);
-	if (stacks->b)
-		stack_clear_all(stacks->b, stacks->b);
-	free(stacks);
+	if (piles->a)
+		stack_clear_all(piles->a, piles->a);
+	if (piles->b)
+		stack_clear_all(piles->b, piles->b);
+	free(piles);
 	return (0);
 }
 
@@ -52,8 +50,8 @@ int	test2(char **argv)
 	tab = auto_shuffle(len);
 	piles = init_big_stacks2(tab, len);
 	preset = get_tabs(piles->a, range_bucket(piles->a));
+	bucket_algo(piles, preset, range_bucket(piles->a));
 	free(tab);
-	free_tab(&preset);
 	if (piles->a)
 		stack_clear_all(piles->a, piles->a);
 	if (piles->b)

@@ -12,9 +12,9 @@ STACK_UTILS = push.c rev_rotate.c rotate.c stack_add.c stack_remove.c swap.c
 
 ALGO_SORT = medium_algo.c
 
-MEDIUM_ALGO = utils_medium.c utils_struct_tab.c utils_medium_two.c
+MEDIUM_ALGO = utils_medium.c utils_struct_tab.c utils_medium_two.c sort_utils.c sort_utils_two.c
 
-ALGO_UTILS = check_order.c compare_value.c stack_len.c
+ALGO_UTILS = check_order.c compare_value.c
 
 ALL_FILES = $(SRC) $(STACK_UTILS_DIR)/$(STACK_UTILS) $(ALGO_DIR)/$(ALGO_SORT) \
 			$(ALGO_DIR)/$(MEDIUM_DIR)/$(MEDIUM_ALGO) $(ALGO_UTILS_DIR)/$(ALGO_UTILS)
