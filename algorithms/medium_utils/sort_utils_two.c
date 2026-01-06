@@ -1,43 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compare.c                                          :+:      :+:    :+:   */
+/*   sort_utils_two.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/11 17:46:00 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/11 17:46:22 by dgaillet         ###   ########lyon.fr   */
+/*   Created: 2026/01/06 07:52:36 by mteriier          #+#    #+#             */
+/*   Updated: 2026/01/06 07:52:38 by mteriier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_lowest(t_stack *stack, t_stack *node, int len)
+void	sort_from_left(t_stacks *piles)
 {
 	int	i;
 
 	i = 0;
-	while (i < len)
+	while (piles->b->value > piles->a->value)
 	{
-		if (node->value > stack->value)
-			return (0);
-		stack = stack->next;
+		ra(piles);
 		i++;
 	}
-	return (1);
+	pa(piles);
+	while (i > 0)
+	{
+		rra(piles);
+		i--;
+	}
 }
 
-int	is_highest(t_stack *stack, t_stack *node, int len)
+void	sort_from_right(t_stacks *piles)
 {
 	int	i;
 
 	i = 0;
-	while (i < len)
+	while (piles->b->value < piles->a->previous->value)
 	{
-		if (node->value < stack->value)
-			return (0);
-		stack = stack->next;
+		rra(piles);
 		i++;
 	}
-	return (1);
+	pa(piles);
+	while (i >= 0)
+	{
+		ra(piles);
+		i--;
+	}
 }

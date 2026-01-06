@@ -33,8 +33,6 @@ void	pa(t_stacks *stacks)
 	write(1, "pa\n", 3);
 }
 
-#include <stdio.h>
-
 void	pb(t_stacks *stacks)
 {
 	t_stack	*a_push;

@@ -13,6 +13,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void	print_all_stack(t_stack *stack, t_stack *first, char pile)
 {
@@ -33,43 +34,58 @@ void	print_all_stack(t_stack *stack, t_stack *first, char pile)
 	printf("[%d] \n", tmp->value);
 }
 
+int	verif_no_double(int *tab, int len, int value)
+{
+	int	i;
+
+	i = 0;
+	while (i < len)
+	{
+		if (value == tab[i])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	adding_number(int *tab, int len)
+{
+	int	stock;
+
+	stock = tab[0];
+	while (!verif_no_double(tab, len, stock))
+	{
+		stock = 0 + rand() % (250 - 0 + 1);
+	}
+	return (stock);
+}
+
+int	*auto_shuffle(int len_tab)
+{
+	int	*tab;
+	int	i;
+
+	i = 1;
+	tab = malloc(len_tab * sizeof(int));
+	if (!tab)
+		return (NULL);
+	tab[0] = 0 + rand() % (250 - 0 + 1);
+	while (i < len_tab)
+	{
+		tab[i] = adding_number(tab, i - 1);
+		i++;
+	}
+	return (tab);
+}
+
 int	main(int argc, char **argv)
 {
-	t_stacks	*stacks;
-
-	stacks = NULL;
 	if (argc > 1)
 	{
-		stacks = init_big_stacks(argc, argv);
-/*		print_all_stack(stacks->a, stacks->a, 'A');
-		print_all_stack(stacks->b, stacks->b, 'B');
-		sa(stacks);
-		print_all_stack(stacks->a, stacks->a, 'A');
-		print_all_stack(stacks->b, stacks->b, 'B');
-		pb(stacks);
-		print_all_stack(stacks->a, stacks->a, 'A');
-		print_all_stack(stacks->b, stacks->b, 'B');
-		pa(stacks);
-		print_all_stack(stacks->a, stacks->a, 'A');
-		print_all_stack(stacks->b, stacks->b, 'B');
-		rra(stacks);
-		print_all_stack(stacks->a, stacks->a, 'A');
-		print_all_stack(stacks->b, stacks->b, 'B');
-		pb(stacks);
-		pb(stacks);
-		print_all_stack(stacks->a, stacks->a, 'A');
-		print_all_stack(stacks->b, stacks->b, 'B');
-		rrb(stacks);
-		print_all_stack(stacks->a, stacks->a, 'A');
-		print_all_stack(stacks->b, stacks->b, 'B');
-		rrr(stacks);
-		print_all_stack(stacks->a, stacks->a, 'A');
-		print_all_stack(stacks->b, stacks->b, 'B');
-		*/
-		//print_stacks(stacks, highest_stack_len(stacks), stacks->a, stacks->b);
-		insertion(stacks, stack_a_len(stacks));
-		//print_stacks(stacks, highest_stack_len(stacks), stacks->a, stacks->b);
+		if (strcmp(argv[1], "-t2") == 0)
+			test2(argv++);
+		else
+			test1(argc, argv);
 	}
-	stack_clear_all(stacks->a, stacks->a);
-	stack_clear_all(stacks->b, stacks->b);
+	return (0);
 }

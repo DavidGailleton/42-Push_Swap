@@ -1,30 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   parsing_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mteriier <mteriier@student.lyon42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/08 16:21:05 by mteriier          #+#    #+#             */
-/*   Updated: 2025/12/09 10:19:17 by mteriier         ###   ########lyon.fr   */
+/*   Created: 2025/12/22 13:10:58 by mteriier          #+#    #+#             */
+/*   Updated: 2025/12/22 13:11:21 by mteriier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
+#include <stdio.h>
 
-t_stack	*parsing(int argc, char **argv)
+void	print_tabs(t_tab *preset)
+{
+	t_tab	*tab;
+
+	tab = preset;
+	while (tab)
+	{
+		printf("MAX RANGE : [%d]\n", tab->max_range);
+		printf("NUMBER IN : [%d]\n", tab->nb_in);
+		tab = tab->next;
+	}
+}
+
+t_stack	*parsing2(int *tab, int len)
 {
 	int		i;
 	int		stock;
 	t_stack	*first;
 	t_stack	*new;
 
-	i = 1;
+	i = 0;
 	first = NULL;
-	while (i < argc)
+	while (i < len)
 	{
-		stock = ft_atoi(argv[i]);
+		stock = tab[i];
 		new = new_stack(stock);
 		if (!new && !first)
 			return (NULL);
@@ -39,7 +53,7 @@ t_stack	*parsing(int argc, char **argv)
 	return (first);
 }
 
-t_stacks	*init_big_stacks(int argc, char **argv)
+t_stacks	*init_big_stacks2(int *tab, int len)
 {
 	t_stacks	*stacks;
 	t_stack		*a;
@@ -49,7 +63,7 @@ t_stacks	*init_big_stacks(int argc, char **argv)
 	stacks->b = NULL;
 	if (!stacks)
 		return (NULL);
-	a = parsing(argc, argv);
+	a = parsing2(tab, len);
 	stacks->a = a;
 	return (stacks);
 }
