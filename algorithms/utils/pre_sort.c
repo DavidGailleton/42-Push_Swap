@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 14:21:20 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/15 14:39:21 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/12/15 14:59:52 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	sort_three_a(t_stacks *stacks)
 {
 	if (check_order(stacks->a))
 		return ;
+	if (stacks->a->value > stacks->a->next->value)
+		sa(stacks);
 	optimal_rotate(stacks, r_to_lowest(stacks->a, 3), 3, 'a');
 	if (stacks->a->next->value > stacks->a->previous->value)
 	{
