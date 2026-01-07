@@ -14,14 +14,21 @@
 #include "parsing.h"
 #include <stdlib.h>
 
-static t_stack	*parsing(int argc, char **argv)
+static int	wich_mod(int mod)
+{
+	if (mod == 0 || mod == 3)
+		return (1);
+	return (2);
+}
+
+static t_stack	*parsing(int argc, char **argv, int mod)
 {
 	int		i;
 	int		stock;
 	t_stack	*first;
 	t_stack	*new;
 
-	i = 1;
+	i = wich_mod(mod);
 	first = NULL;
 	while (i < argc)
 	{
@@ -40,7 +47,14 @@ static t_stack	*parsing(int argc, char **argv)
 	return (first);
 }
 
-t_stacks	*init_big_stacks(int argc, char **argv)
+static t_stack	*special_parsing(int argc, char **argv, int mod)
+{
+	t_stacks	*piles;
+	t_stack		*first;
+	t_stack		*new;
+}
+
+t_stacks	*init_piles(int argc, char **argv, int mod)
 {
 	t_stacks	*stacks;
 	t_stack		*a;
@@ -50,7 +64,7 @@ t_stacks	*init_big_stacks(int argc, char **argv)
 	stacks->b = NULL;
 	if (!stacks)
 		return (NULL);
-	a = parsing(argc, argv);
+	a = parsing(argc, argv, mod);
 	stacks->a = a;
 	return (stacks);
 }
