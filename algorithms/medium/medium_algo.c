@@ -13,7 +13,7 @@
 #include "push_swap.h"
 #include <stdlib.h>
 
-int	path_to_end(t_stacks *piles, int max_range, int range, char c)
+static int	path_to_end(t_stacks *piles, int max_range, int range, char c)
 {
 	t_stack	*tmp;
 	int		i;
@@ -37,7 +37,7 @@ int	path_to_end(t_stacks *piles, int max_range, int range, char c)
 	return (i);
 }
 
-int	path_to_start(t_stacks *piles, int max_range, int range, char c)
+static int	path_to_start(t_stacks *piles, int max_range, int range, char c)
 {
 	t_stack	*tmp;
 	int		i;

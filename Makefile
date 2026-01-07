@@ -1,29 +1,45 @@
+#============================
+# ALL FOLDERS 
+#============================
+
 STACK_UTILS_DIR = stack_utils
 
 ALGO_UTILS_DIR = algorithms/utils
 
 ALGO_DIR = algorithms
 
-MEDIUM_DIR = medium_utils
+PARS_DIR = parsing
 
-SRC = main.c ft_atoi.c parsing.c parsing_2.c test_one.c
+MEDIUM_DIR = medium
+
+INCLUDES = headers
+
+#============================
+# ALL FILES WITHOUT PATH 
+#============================
+
+SRC = main.c test_one.c
+
+PARSING = ft_atoi.c parsing.c parsing_2.c
 
 STACK_UTILS = push.c rev_rotate.c rotate.c stack_add.c stack_remove.c swap.c
 
-ALGO_SORT = medium_algo.c
-
-MEDIUM_ALGO = utils_medium.c utils_struct_tab.c utils_medium_two.c sort_utils.c sort_utils_two.c
+MEDIUM_ALGO = utils_medium.c utils_struct_tab.c utils_medium_two.c sort_utils.c sort_utils_two.c medium_algo.c
 
 ALGO_UTILS = check_order.c compare_value.c
 
-ALL_FILES = $(SRC) $(STACK_UTILS_DIR)/$(STACK_UTILS) $(ALGO_DIR)/$(ALGO_SORT) \
+#============================
+# ADDING PATH TO THE FILES
+#============================
+
+ALL_FILES = $(SRC) $(STACK_UTILS_DIR)/$(STACK_UTILS)  $(PARS_DIR)/$(PARSING) \
 			$(ALGO_DIR)/$(MEDIUM_DIR)/$(MEDIUM_ALGO) $(ALGO_UTILS_DIR)/$(ALGO_UTILS)
 
 OBJ_DIR = obj
 
 CC = cc
 
-CFLAGS = -Wall -Werror -Wextra -I.
+CFLAGS = -Wall -Werror -Wextra -I $(INCLUDES)
 
 NAME = push_swap
 
@@ -41,6 +57,9 @@ $(NAME): $(OBJ)
 	@echo "===================================="
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(PARS_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
 
 $(OBJ_DIR)/%.o: $(STACK_UTILS_DIR)/%.c | $(OBJ_DIR)
