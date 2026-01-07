@@ -64,7 +64,7 @@ int	range_bucket(t_stack *first)
 	int	sqrt;
 
 	len = stack_len(first);
-	diff = (get_max_number(first) - get_min_number(first)) ;
+	diff = get_max_number(first) - get_min_number(first);
 	sqrt = my_sqrt(len);
 	if (diff / sqrt < 2)
 	{

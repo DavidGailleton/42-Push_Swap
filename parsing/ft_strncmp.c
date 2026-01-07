@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/07 08:03:08 by mteriier          #+#    #+#             */
-/*   Updated: 2026/01/07 08:03:10 by mteriier         ###   ########lyon.fr   */
+/*   Created: 2026/01/07 12:36:38 by mteriier          #+#    #+#             */
+/*   Updated: 2026/01/07 12:36:40 by mteriier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
+int	ft_strncmp(const char *s1, const char *s2, int n)
+{
+	int	i;
 
-int			ft_atoi(const char *nptr);
-t_stacks	*init_big_stacks(int argc, char **argv);
-int			ft_strncmp(const char *s1, const char *s2, int n);
-
-#endif
+	i = 0;
+	if (n == 0)
+		return (0);
+	while (i < n - 1 && s1[i] && s1[i] == s2[i])
+	{
+		i++;
+	}
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}

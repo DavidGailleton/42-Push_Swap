@@ -58,7 +58,7 @@ dkms.conf
 *.swp
 
 # Executable
-pushswap
+push_swap
 
 # File obj
 obj/
