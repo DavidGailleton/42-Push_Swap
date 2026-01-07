@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:18:06 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/15 14:34:45 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 10:30:42 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,8 @@ void	insertion(t_stacks *stacks, int len);
 int		test2(char **argv);
 /* TEST FILE */
 int		test1(int argc, char **argv);
+
+/* RADIX */
+void	radix(t_stacks *stacks);
 
 #endif
