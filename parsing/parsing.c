@@ -11,9 +11,10 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "parsing.h"
 #include <stdlib.h>
 
-t_stack	*parsing(int argc, char **argv)
+static t_stack	*parsing(int argc, char **argv)
 {
 	int		i;
 	int		stock;

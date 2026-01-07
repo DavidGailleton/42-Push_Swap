@@ -12,22 +12,8 @@
 
 #include "push_swap.h"
 #include <stdlib.h>
-#include <stdio.h>
 
-void	print_tabs(t_tab *preset)
-{
-	t_tab	*tab;
-
-	tab = preset;
-	while (tab)
-	{
-		printf("MAX RANGE : [%d]\n", tab->max_range);
-		printf("NUMBER IN : [%d]\n", tab->nb_in);
-		tab = tab->next;
-	}
-}
-
-t_stack	*parsing2(int *tab, int len)
+static t_stack	*parsing2(int *tab, int len)
 {
 	int		i;
 	int		stock;

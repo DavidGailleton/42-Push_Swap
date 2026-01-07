@@ -10,4 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PARSING_H
+# define PARSING_H
 
+int	        ft_atoi(const char *nptr);
+t_stacks	*init_big_stacks2(int *tab, int len);
+t_stacks	*init_big_stacks(int argc, char **argv);
+
+#endif

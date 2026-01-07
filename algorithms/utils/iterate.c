@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	iterate_fn(t_stacks *stacks, int i, void (f)(t_stacks *stacks))
+static void	iterate_fn(t_stacks *stacks, int i, void (f)(t_stacks *stacks))
 {
 	while (i > 0)
 	{

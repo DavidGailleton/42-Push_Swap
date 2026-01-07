@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "medium_headers.h"
 
-int	get_max_number(t_stack *first)
+static int	get_max_number(t_stack *first)
 {
 	int		max;
 	t_stack	*a;
@@ -28,7 +29,7 @@ int	get_max_number(t_stack *first)
 	return (max);
 }
 
-int	get_min_number(t_stack *first)
+static int	get_min_number(t_stack *first)
 {
 	int		min;
 	t_stack	*a;
@@ -44,7 +45,7 @@ int	get_min_number(t_stack *first)
 	return (min);
 }
 
-int	my_sqrt(int nb)
+static int	my_sqrt(int nb)
 {
 	int	i;
 

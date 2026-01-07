@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "medium_headers.h"
 #include <stdlib.h>
 
 static int	path_to_end(t_stacks *piles, int max_range, int range, char c)
