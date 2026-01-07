@@ -6,87 +6,71 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 12:47:06 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/07 11:45:50 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 16:19:37 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-/*
-static int	one_higher_than_unit(t_stack *stack, int unit)
+
+static int	still_unit_value(t_stacks *stacks, int unit)
 {
 	t_stack	*temp;
 
-	temp = stack;
-	if (stack->value > unit)
+	temp = stacks->a;
+	if (temp->value >= unit)
 		return (1);
-	stack = stack->next;
-	while (stack != temp)
+	temp = temp->next;
+	while (temp != stacks->a)
 	{
-		if (stack->value > unit)
+		if (temp->value >= unit)
 			return (1);
-		stack = stack->next;
+		temp = temp->next;
 	}
 	return (0);
 }
-*/
-static int	to_insert(t_stacks *stacks, int value)
+
+static void	push_by_number_to_b(t_stacks *stacks, int unit, int nb)
 {
 	int		i;
 	int		s_len;
 	t_stack	*temp;
 
 	temp = stacks->a;
-	if (!stacks->a)
-		return (0);
-	i = 0;
-	s_len = stack_a_len(stacks);
-	while (temp->value < value
-		&& temp->previous->value > value && s_len >= i)
+	s_len = 1;
+	while (temp && temp->next != stacks->a)
 	{
-		if (s_len == i)
-			return (r_to_lowest(stacks->a, s_len) + 1);
-		i++;
+		s_len++;
 		temp = temp->next;
 	}
-	return (i);
-}
-
-static int	is_contain_lower_unit(t_stack *stack, int unit, int s_len)
-{
-	int	i;
-
 	i = 0;
-	while (i < s_len)
+	while (i < s_len && still_unit_value(stacks, unit))
 	{
-		if (stack->value < unit)
-			return (1);
+		if (stacks->a && (stacks->a->value % (unit * 10)) / unit == nb)
+			pb(stacks);
+		else
+			ra(stacks);
 		i++;
-		stack = stack->next;
 	}
-	return (0);
 }
 
 static void	rec_sort(t_stacks *stacks, int unit)
 {
-	if (!stacks->b)
+	int	i;
+
+	i = 0;
+	if (!still_unit_value(stacks, unit))
 		return ;
-	while (is_contain_lower_unit(stacks->b, unit, stack_b_len(stacks)))
+	while (i <= 9)
 	{
-		if (stacks->b->value < unit)
-		{
-		optimal_rotate(stacks, to_insert(stacks, stacks->b->value)
-				, stack_a_len(stacks), 'a');
-		pa(stacks);
-		}
-		else
-			rb(stacks);
+		push_by_number_to_b(stacks, unit, i);
+		i++;
 	}
+	while (stacks->b)
+		pa(stacks);
 	rec_sort(stacks, unit * 10);
 }
 
 void	radix(t_stacks *stacks)
 {
-	while (stacks->a)
-		pb(stacks);
-	rec_sort(stacks, 10);
+	rec_sort(stacks, 1);
 }

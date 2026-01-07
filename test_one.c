@@ -6,7 +6,7 @@
 /*   By: mteriier <mteriier@student.lyon42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 12:33:58 by mteriier          #+#    #+#             */
-/*   Updated: 2026/01/07 10:49:03 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 14:58:10 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int	test1(int argc, char **argv)
 		radix(piles);
 	}
 	free_all(piles);
-	free(piles);
+	//free(piles);
 	return (0);
 }
