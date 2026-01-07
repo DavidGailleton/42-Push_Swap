@@ -14,6 +14,8 @@ PARS_DIR = parsing
 
 MEDIUM_DIR = medium
 
+FLAGS_DIR = flags
+
 INCLUDES = headers
 
 #============================
@@ -24,7 +26,9 @@ SRC = main.c test_one.c
 
 INSERTION = insertion.c
 
-PARSING = ft_atoi.c parsing.c parsing_2.c
+FLAGS_FILES = algorithms_sort.c flag.c
+
+PARSING = ft_atoi.c parsing.c parsing_2.c ft_strncmp.c
 
 STACK_UTILS = push.c rev_rotate.c rotate.c stack_add.c stack_remove.c stacks_len.c swap.c print_stacks.c
 

@@ -45,6 +45,7 @@ t_stack	*new_stack(int value);
 void	stack_add_back(t_stack **stack, t_stack *new);
 void	stack_add_front(t_stack **stack, t_stack *new);
 void	stack_clear_all(t_stack *stack, t_stack *first);
+void	free_all(t_stacks *piles);
 /* STACKS LEN FILES */
 int		stack_a_len(t_stacks *stacks);
 int		stack_b_len(t_stacks *stacks);
