@@ -32,11 +32,14 @@ int	get_next_lower(t_stack *first, int old_lower)
 {
 	t_stack	*tmp;
 	int		next_lower;
+	int		skip_first;
 
 	tmp = first;
+	skip_first = 1;
 	next_lower = 2147483647;
-	while (tmp->next != first)
+	while (tmp != first || skip_first)
 	{
+		skip_first = 0;
 		if (old_lower < tmp->value && tmp->value <= next_lower)
 		{
 			next_lower = tmp->value;
@@ -50,6 +53,7 @@ int	calcul_range(int value, int range)
 {
 	int	max_range;
 
+	
 	max_range = 0;
 	if (value < 0)
 		while (max_range > value)
