@@ -28,5 +28,5 @@ void	free_all(t_stacks *piles)
 		stack_clear_all(piles->a, piles->a);
 	if (piles->b)
 		stack_clear_all(piles->b, piles->b);
-	free(piles);	
+	free(piles);
 }

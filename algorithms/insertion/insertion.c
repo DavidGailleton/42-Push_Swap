@@ -24,7 +24,8 @@ static int	to_insert(t_stacks *stacks, int sorted)
 	a = stacks->a;
 	while (i < sorted)
 	{
-		if (stacks->b->value > a->previous->value && stacks->b->value <= a->value)
+		if (stacks->b->value > a->previous->value
+			&& stacks->b->value <= a->value)
 			return (i);
 		a = a->previous;
 		i++;

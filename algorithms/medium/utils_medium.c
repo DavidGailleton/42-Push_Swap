@@ -53,7 +53,6 @@ int	calcul_range(int value, int range)
 {
 	int	max_range;
 
-	
 	max_range = 0;
 	if (value < 0)
 		while (max_range > value)

@@ -25,5 +25,4 @@ void	flags(int pos, char **argv, t_stacks *piles)
 		adaptive(piles);
 	else
 		adaptive(piles);
-
 }

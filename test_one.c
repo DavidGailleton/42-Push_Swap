@@ -28,10 +28,7 @@ int	test1(int argc, char **argv)
 		preset = get_tabs(piles->a, range_bucket(piles->a));
 		bucket_algo(piles, preset, range_bucket(piles->a));
 	}
-	if (piles->a)
-		stack_clear_all(piles->a, piles->a);
-	if (piles->b)
-		stack_clear_all(piles->b, piles->b);
+	free_all(piles);
 	free(piles);
 	return (0);
 }

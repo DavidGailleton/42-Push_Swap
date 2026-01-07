@@ -13,7 +13,7 @@
 #ifndef FLAGS_H
 # define FLAGS_H
 
-void simple(t_stacks *piles);
+void	simple(t_stacks *piles);
 void	medium(t_stacks *piles);
 void	complex(t_stacks *piles);
 void	adaptive(t_stacks *piles);
