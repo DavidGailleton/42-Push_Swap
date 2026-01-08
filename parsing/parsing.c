@@ -6,7 +6,7 @@
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 16:21:05 by mteriier          #+#    #+#             */
-/*   Updated: 2025/12/09 10:19:17 by mteriier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/08 13:54:18 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,16 +62,34 @@ static t_stack	*special_parsing(int argc, char **argv, int mod)
 	while ()
 }
 
+static void	set_t_stacks(t_stacks *stacks)
+{
+	stacks->a = NULL;
+	stacks->b = NULL;
+	stacks->algo = 0;
+	stacks->bench = 0;
+	stacks->sa = 0;
+	stacks->sb = 0;
+	stacks->ss = 0;
+	stacks->pa = 0;
+	stacks->pb = 0;
+	stacks->ra = 0;
+	stacks->rb = 0;
+	stacks->rr = 0;
+	stacks->rra = 0;
+	stacks->rrb = 0;
+	stacks->rrr = 0;
+}
+
 t_stacks	*init_piles(int argc, char **argv, int mod)
 {
 	t_stacks	*stacks;
 	t_stack		*a;
 
 	stacks = malloc(sizeof(t_stacks));
-	stacks->a = NULL;
-	stacks->b = NULL;
 	if (!stacks)
 		return (NULL);
+	set_t_stacks(stacks);
 	a = parsing(argc, argv, mod);
 	stacks->a = a;
 	return (stacks);
