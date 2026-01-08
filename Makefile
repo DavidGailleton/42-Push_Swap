@@ -14,6 +14,8 @@ PARS_DIR = parsing
 
 MEDIUM_DIR = medium
 
+COMPLEX_DIR = radix
+
 FLAGS_DIR = flags
 
 INCLUDES = headers
@@ -34,6 +36,8 @@ STACK_UTILS = push.c rev_rotate.c rotate.c stack_add.c stack_remove.c stacks_len
 
 MEDIUM_ALGO = utils_medium.c utils_struct_tab.c utils_medium_two.c sort_utils.c sort_utils_two.c medium_algo.c
 
+COMPLEX_ALGO = radix.c
+
 ALGO_UTILS = check_order.c compare.c iterate.c pre_sort.c
 
 #============================
@@ -42,13 +46,13 @@ ALGO_UTILS = check_order.c compare.c iterate.c pre_sort.c
 
 ALL_FILES = $(SRC) $(STACK_UTILS_DIR)/$(STACK_UTILS)  $(PARS_DIR)/$(PARSING) \
 			$(ALGO_DIR)/$(MEDIUM_DIR)/$(MEDIUM_ALGO) $(ALGO_UTILS_DIR)/$(ALGO_UTILS) \
-			$(INSERT_DIR)/$(INSERTION)
+			$(INSERT_DIR)/$(INSERTION) $(ALGO_DIR)/$(COMPLEX_DIR)/$(COMPLEX_ALGO)
 
 OBJ_DIR = obj
 
 CC = cc
 
-CFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
+CFLAGS = -Wall -Werror -Wextra -g3 -I$(INCLUDES)
 
 NAME = push_swap
 
@@ -81,6 +85,9 @@ $(OBJ_DIR)/%.o: $(ALGO_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
 
 $(OBJ_DIR)/%.o: $(ALGO_DIR)/$(MEDIUM_DIR)/%.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(ALGO_DIR)/$(COMPLEX_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
 
 $(OBJ_DIR)/%.o: $(ALGO_UTILS_DIR)/%.c | $(OBJ_DIR)

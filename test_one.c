@@ -6,7 +6,7 @@
 /*   By: mteriier <mteriier@student.lyon42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 12:33:58 by mteriier          #+#    #+#             */
-/*   Updated: 2025/12/22 12:34:35 by mteriier         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:58:10 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 int	test1(int argc, char **argv)
 {
 	t_stacks	*piles;
-	t_tab		*preset;
+	//t_tab		*preset;
 
 	piles = NULL;
 	if (argc > 1)
