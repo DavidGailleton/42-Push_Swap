@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 12:47:06 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/07 16:19:37 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/08 11:06:11 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	still_unit_value(t_stacks *stacks, int unit)
 	t_stack	*temp;
 
 	temp = stacks->a;
-	if (temp->value >= unit)
+	if (!temp || temp->value >= unit)
 		return (1);
 	temp = temp->next;
 	while (temp != stacks->a)
