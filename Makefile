@@ -24,13 +24,13 @@ INCLUDES = headers
 # ALL FILES WITHOUT PATH 
 #============================
 
-SRC = main.c test_one.c
+SRC = main.c test_one.c ft_putnbr.c secure_write.c
 
 INSERTION = insertion.c
 
 FLAGS_FILES = algorithms_sort.c flag.c
 
-PARSING = ft_atoi.c parsing.c ft_strncmp.c ft_split.c ft_strlen.c ft_substr.c checker.c
+PARSING = ft_atoi.c parsing.c ft_strncmp.c ft_split.c ft_strlen.c ft_substr.c checker.c ft_itoa.c ft_isdigit.c
 
 STACK_UTILS = push.c rev_rotate.c rotate.c stack_add.c stack_remove.c stacks_len.c swap.c print_stacks.c
 

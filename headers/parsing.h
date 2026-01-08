@@ -6,7 +6,7 @@
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 08:03:08 by mteriier          #+#    #+#             */
-/*   Updated: 2026/01/08 12:56:19 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/08 14:15:37 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ char        **ft_split(char const *s, char c);
 void        free_tab(char **tab);
 int			checker(int argc, char **argv);
 int	        len_split(char **tab);
+char		*ft_itoa(int n);
+int			ft_isdigit(int c);
 
 #endif

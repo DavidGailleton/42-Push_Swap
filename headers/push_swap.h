@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:18:06 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/08 14:01:04 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/08 15:20:03 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,8 @@ int		test1(int argc, char **argv);
 
 /* RADIX */
 void	radix(t_stacks *stacks);
+
+void	secure_write(int fd, char *str, int len);
+void	ft_putnbr_fd(int nbr, int fd);
 
 #endif
