@@ -21,7 +21,6 @@ void	flags(int pos, int pos_b, char **argv, t_stacks *piles);
 int		pos_bench(char **argv, int mod);
 int		pos_flag(char **argv, int mod);
 int		calcul_mod(int argc, char **argv);
-
 void	print_bench(t_stacks *stacks);
 
 #endif
