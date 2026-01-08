@@ -28,7 +28,7 @@ SRC = main.c test_one.c ft_putnbr.c secure_write.c
 
 INSERTION = insertion.c
 
-FLAGS_FILES = algorithms_sort.c flag.c
+FLAGS_FILES = algorithms_sort.c flag.c bench.c
 
 PARSING = ft_atoi.c parsing.c ft_strncmp.c ft_split.c ft_strlen.c ft_substr.c checker.c ft_itoa.c ft_isdigit.c
 
@@ -46,7 +46,8 @@ ALGO_UTILS = check_order.c compare.c iterate.c pre_sort.c
 
 ALL_FILES = $(SRC) $(STACK_UTILS_DIR)/$(STACK_UTILS)  $(PARS_DIR)/$(PARSING) \
 			$(ALGO_DIR)/$(MEDIUM_DIR)/$(MEDIUM_ALGO) $(ALGO_UTILS_DIR)/$(ALGO_UTILS) \
-			$(INSERT_DIR)/$(INSERTION) $(ALGO_DIR)/$(COMPLEX_DIR)/$(COMPLEX_ALGO)
+			$(INSERT_DIR)/$(INSERTION) $(ALGO_DIR)/$(COMPLEX_DIR)/$(COMPLEX_ALGO) \
+			$(FLAGS_DIR)/$(FLAGS_FILES)
 
 OBJ_DIR = obj
 
@@ -69,9 +70,6 @@ $(NAME): $(OBJ)
 	@echo "======= PUSH SWAP COMPILED ========="
 	@echo "===================================="
 
-$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
-
 $(OBJ_DIR)/%.o: $(PARS_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
 
@@ -91,6 +89,12 @@ $(OBJ_DIR)/%.o: $(ALGO_DIR)/$(COMPLEX_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
 
 $(OBJ_DIR)/%.o: $(ALGO_UTILS_DIR)/%.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(FLAGS_DIR)/%.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
 
 $(OBJ_DIR):

@@ -6,11 +6,12 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 13:59:52 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/08 15:26:30 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/08 16:09:11 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swaps.h"
+#include "push_swap.h"
+#include "parsing.h"
 #include <unistd.h>
 #include <stdlib.h>
 
@@ -34,10 +35,10 @@ static void	print_disorder(t_stacks *stacks)
 	free(str);
 }
 
-static void	print_strategy(t_stacks *stacks)
+static void	print_algo(t_stacks *stacks)
 {
-	secure_write(2, "[bench] strategy: ", 18);
-	if (stacks->strategy == 0)
+	secure_write(2, "[bench] algo: ", 18);
+	if (stacks->algo == 0)
 	{
 		secure_write(2, "Adaptative", 10);
 		if (stacks->disorder < 0.2)
@@ -47,11 +48,11 @@ static void	print_strategy(t_stacks *stacks)
 		else
 			secure_write(2, " / O(nlogn)\n", 12);
 	}
-	else if (stacks->strategy == 1)
+	else if (stacks->algo == 1)
 		secure_write(2, "Simple / O(n2n)\n", 16);
-	else if (stacks->strategy == 2)
+	else if (stacks->algo == 2)
 		secure_write(2, "Medium / O(nlogn)\n", 18);
-	else if (stacks->strategy == 3)
+	else if (stacks->algo == 3)
 		secure_write(2, "Complex / O(n√n)\n", 17);
 }
 
@@ -73,7 +74,7 @@ static void	print_total_ops(t_stacks *stacks)
 	total_ops += stacks->rrr;
 	secure_write(2, "[bench] total_ops: ", 18);
 	ft_putnbr_fd((int) total_ops, 2);
-	secure_write(2, "\n");
+	secure_write(2, "\n", 1);
 }
 
 static void	print_ops(t_stacks *stacks)
@@ -104,11 +105,10 @@ static void	print_ops(t_stacks *stacks)
 	secure_write(2, "\n", 1);
 }
 
-void	bench(t_stacks *stacks)
+void	print_bench(t_stacks *stacks)
 {
-	print_disorder(stacks)
-	print_strategy(stacks);
+	print_disorder(stacks);
+	print_algo(stacks);
 	print_total_ops(stacks);
 	print_ops(stacks);
-
 }
