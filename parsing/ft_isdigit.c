@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/08 18:32:35 by mteriier          #+#    #+#             */
-/*   Updated: 2026/01/08 15:34:59 by dgaillet         ###   ########lyon.fr   */
+/*   Created: 2026/01/08 14:13:54 by dgaillet          #+#    #+#             */
+/*   Updated: 2026/01/08 14:13:59 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "parsing.h"
-#include <unistd.h>
-
-int	main(int argc, char **argv)
+int	ft_isdigit(int c)
 {
-	if (!checker(argc, argv))
-	{
-		write(2, "Error !\n", 8);
+	if (c >= '0' && c <= '9')
 		return (1);
-	}
-	if (argc > 1)
-		test1(argc, argv);
 	return (0);
 }

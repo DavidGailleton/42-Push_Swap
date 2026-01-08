@@ -6,12 +6,12 @@
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 12:15:02 by mteriier          #+#    #+#             */
-/*   Updated: 2026/01/07 12:15:05 by mteriier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/08 16:07:00 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "medium_algo.h"
+#include "medium_headers.h"
 
 void	simple(t_stacks *piles)
 {
@@ -41,5 +41,7 @@ void	complex(t_stacks *piles)
 
 void	adaptive(t_stacks *piles)
 {
+	(void)piles;
 	return ;
 }
+

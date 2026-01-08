@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   secure_write.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/08 18:32:35 by mteriier          #+#    #+#             */
-/*   Updated: 2026/01/08 15:34:59 by dgaillet         ###   ########lyon.fr   */
+/*   Created: 2026/01/08 14:30:38 by dgaillet          #+#    #+#             */
+/*   Updated: 2026/01/08 14:32:19 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "parsing.h"
 #include <unistd.h>
+#include <stdlib.h>
 
-int	main(int argc, char **argv)
+void	secure_write(int fd, char *str, int len)
 {
-	if (!checker(argc, argv))
-	{
-		write(2, "Error !\n", 8);
-		return (1);
-	}
-	if (argc > 1)
-		test1(argc, argv);
-	return (0);
+	if (write(fd, str, len) < 0)
+		exit ( EXIT_FAILURE );
 }

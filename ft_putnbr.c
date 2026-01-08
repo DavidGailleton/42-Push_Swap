@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/08 18:32:35 by mteriier          #+#    #+#             */
-/*   Updated: 2026/01/08 15:34:59 by dgaillet         ###   ########lyon.fr   */
+/*   Created: 2026/01/08 15:17:28 by dgaillet          #+#    #+#             */
+/*   Updated: 2026/01/08 15:19:30 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "parsing.h"
-#include <unistd.h>
 
-int	main(int argc, char **argv)
+void	ft_putnbr_fd(int nbr, int fd)
 {
-	if (!checker(argc, argv))
-	{
-		write(2, "Error !\n", 8);
-		return (1);
-	}
-	if (argc > 1)
-		test1(argc, argv);
-	return (0);
+	char	c;
+
+	if (!nbr)
+		return ;
+	ft_putnbr_fd(nbr / 10, fd);
+	c = (nbr % 10) + '0';
+	secure_write(fd, &c, 1);
 }

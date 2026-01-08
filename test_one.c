@@ -6,11 +6,12 @@
 /*   By: mteriier <mteriier@student.lyon42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 12:33:58 by mteriier          #+#    #+#             */
-/*   Updated: 2026/01/08 12:57:57 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/08 15:35:43 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "flags.h"
 #include "parsing.h"
 #include "medium_headers.h"
 #include <stdio.h>
@@ -25,6 +26,7 @@ int	test1(int argc, char **argv)
 	if (argc > 1)
 	{
 		piles = init_piles(argc, argv, 0);
+		print_bench(piles);
 		preset = get_tabs(piles->a, range_bucket(piles->a));
 		bucket_algo(piles, preset, range_bucket(piles->a));
 	}

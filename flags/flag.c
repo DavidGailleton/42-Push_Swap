@@ -6,12 +6,13 @@
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 12:39:29 by mteriier          #+#    #+#             */
-/*   Updated: 2026/01/07 12:39:31 by mteriier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/08 16:07:29 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "parsing.h"
+#include "flags.h"
 
 static int	verif_arg(char *argv)
 {
