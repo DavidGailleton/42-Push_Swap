@@ -6,7 +6,7 @@
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 08:03:08 by mteriier          #+#    #+#             */
-/*   Updated: 2026/01/07 08:03:10 by mteriier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/08 12:56:19 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ int			ft_strncmp(const char *s1, const char *s2, int n);
 size_t      ft_strlen(const char *s);
 char        *ft_substr(char const *s, unsigned int start, size_t len);
 char        **ft_split(char const *s, char c);
+int			checker(int argc, char **argv);
 
 #endif
