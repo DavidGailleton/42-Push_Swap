@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 12:37:12 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/08 12:54:19 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/08 13:04:25 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,21 @@ static int	check_digits(char *str)
 int	checker(int argc, char **argv)
 {
 	int	i;
+	int	methods_flag;
 
+	methods_flag = 0;
 	i = 0;
 	while (++i < argc)
 	{
-		if (ft_strncmp("--simple", argv[1], ft_strlen(argv[1])))
-			continue ;
-		if (ft_strncmp("--medium", argv[1], ft_strlen(argv[1])))
-			continue ;
-		if (ft_strncmp("--complex", argv[1], ft_strlen(argv[1])))
-			continue ;
-		if (ft_strncmp("--adaptative", argv[1], ft_strlen(argv[1])))
-			continue ;
-		if (check_digits(argv[1]))
+		if (ft_strncmp("--simple", argv[1], ft_strlen(argv[1])) && !methods_flag)
+			methods_flag = 1;
+		else if (ft_strncmp("--medium", argv[1], ft_strlen(argv[1])) && !methods_flag)
+			methods_flag = 1;
+		else if (ft_strncmp("--complex", argv[1], ft_strlen(argv[1])) && !methods_flag)
+			methods_flag = 1;
+		else if (ft_strncmp("--adaptative", argv[1], ft_strlen(argv[1])) && !methods_flag)
+			methods_flag = 1;
+		else if (check_digits(argv[1]))
 			continue ;
 		else
 			return (0);
