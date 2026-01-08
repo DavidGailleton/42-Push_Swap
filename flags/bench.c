@@ -23,7 +23,7 @@ static void	print_disorder(t_stacks *stacks)
 	nbr = (int) stacks->disorder * 10000;
 	str = ft_itoa(nbr);
 	if (!str)
-		exit ( EXIT_FAILURE );
+		exit (EXIT_FAILURE);
 	secure_write(2, "[bench] disorder: ", 18);
 	if (ft_strlen(str) == 2)
 		secure_write(2, "0", 1);

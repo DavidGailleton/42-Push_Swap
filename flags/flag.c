@@ -32,20 +32,20 @@ int	calcul_mod(int argc, char **argv)
 {
 	int	mod;
 
-	if (verif_arg(argv[argc -1]))
+	if (!verif_arg(argv[argc -1]))
 	{
-		if (ft_strncmp(argv[1], "--", 2) && ft_strncmp(argv[2], "--", 2))
+		if (ft_strncmp("--", argv[1], 2) && ft_strncmp("--", argv[2], 2))
 			mod = 2;
-		else if (ft_strncmp(argv[1], "--", 2) && !ft_strncmp(argv[2], "--", 2))
+		else if (ft_strncmp("--", argv[1], 2) && !ft_strncmp("--", argv[2], 2))
 			mod = 1;
 		else
 			mod = 0;
 	}
 	else
 	{
-		if (ft_strncmp(argv[1], "--", 2) && ft_strncmp(argv[2], "--", 2))
+		if (ft_strncmp("--", argv[1], 2) && ft_strncmp("--", argv[2], 2))
 			mod = 5;
-		else if (ft_strncmp(argv[1], "--", 2) && !ft_strncmp(argv[2], "--", 2))
+		else if (ft_strncmp("--", argv[1], 2) && !ft_strncmp("--", argv[2], 2))
 			mod = 4;
 		else
 			mod = 3;

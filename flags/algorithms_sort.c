@@ -44,4 +44,3 @@ void	adaptive(t_stacks *piles)
 	(void)piles;
 	return ;
 }
-

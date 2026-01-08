@@ -13,6 +13,7 @@
 int	ft_strncmp(const char *s1, const char *s2, int n)
 {
 	int	i;
+	int	res;
 
 	i = 0;
 	if (n == 0)
@@ -21,5 +22,9 @@ int	ft_strncmp(const char *s1, const char *s2, int n)
 	{
 		i++;
 	}
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	res = (unsigned char)s1[i] - (unsigned char)s2[i];
+	if (res == 0)
+		return (1);
+	else
+		return (0);
 }

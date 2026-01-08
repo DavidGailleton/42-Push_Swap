@@ -20,16 +20,14 @@
 int	test1(int argc, char **argv)
 {
 	t_stacks	*piles;
-	t_tab		*preset;
+	int			mod;
 
 	piles = NULL;
-	if (argc > 1)
-	{
-		piles = init_piles(argc, argv, 0);
+	mod = calcul_mod(argc, argv);
+	piles = init_piles(argc, argv, mod);
+	flags(pos_flag(argv, mod), pos_bench(argv, mod), argv, piles);
+	if (piles->bench == 1)
 		print_bench(piles);
-		preset = get_tabs(piles->a, range_bucket(piles->a));
-		bucket_algo(piles, preset, range_bucket(piles->a));
-	}
 	free_all(piles);
 	return (0);
 }

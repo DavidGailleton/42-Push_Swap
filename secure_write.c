@@ -16,5 +16,5 @@
 void	secure_write(int fd, char *str, int len)
 {
 	if (write(fd, str, len) < 0)
-		exit ( EXIT_FAILURE );
+		exit (EXIT_FAILURE);
 }

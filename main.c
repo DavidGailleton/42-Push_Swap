@@ -16,11 +16,11 @@
 
 int	main(int argc, char **argv)
 {
-	if (!checker(argc, argv))
-	{
-		write(2, "Error !\n", 8);
-		return (1);
-	}
+	// if (!checker(argc, argv))
+	// {
+	// 	write(2, "Error !\n", 8);
+	// 	return (1);
+	// }
 	if (argc > 1)
 		test1(argc, argv);
 	return (0);
