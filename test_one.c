@@ -19,7 +19,7 @@
 int	test1(int argc, char **argv)
 {
 	t_stacks	*piles;
-	//t_tab		*preset;
+	t_tab		*preset;
 
 	piles = NULL;
 	if (argc > 1)

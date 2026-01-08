@@ -54,7 +54,7 @@ static size_t	len_word(size_t i, char const *s, char c)
 	return (len);
 }
 
-static void	free_tab(char **tab)
+void	free_tab(char **tab)
 {
 	int	i;
 
