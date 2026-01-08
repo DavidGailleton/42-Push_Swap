@@ -26,11 +26,18 @@ void	medium(t_stacks *piles)
 {
 	t_tab	*buckets;
 	int		range;
+	int		len;
 
 	piles->algo = 2;
-	range = range_bucket(piles->a);
-	buckets = get_tabs(piles->a, range);
-	bucket_algo(piles, buckets, range);
+	len = stack_a_len(piles);
+	if (len == 2)
+		sort_two(piles);
+	else
+	{
+		range = range_bucket(piles->a);
+		buckets = get_tabs(piles->a, range);
+		bucket_algo(piles, buckets, range);
+	}
 }
 
 void	complex(t_stacks *piles)

@@ -67,6 +67,7 @@ int		highest_stack_len(t_stacks *stacks);
 /* PRE SORT */
 int		r_to_lowest(t_stack *stack, int len);
 void	sort_three_a(t_stacks *stacks);
+void	sort_two(t_stacks *stacks);
 /* ITERATE FILE */
 void	optimal_rotate(t_stacks *stacks, int i, int len, char stack);
 /* COMPARE FILE */

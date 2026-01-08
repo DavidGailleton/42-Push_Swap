@@ -25,6 +25,8 @@ int	test1(int argc, char **argv)
 	piles = NULL;
 	mod = calcul_mod(argc, argv);
 	piles = init_piles(argc, argv, mod);
+	if (check_order(piles->a))
+		return (0);
 	flags(pos_flag(argv, mod), pos_bench(argv, mod), argv, piles);
 	if (piles->bench == 1)
 		print_bench(piles);

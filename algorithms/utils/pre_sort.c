@@ -35,6 +35,11 @@ int	r_to_lowest(t_stack *stack, int len)
 	return (lowest_i);
 }
 
+void	sort_two(t_stacks *stacks)
+{
+	sa(stacks);
+}
+
 void	sort_three_a(t_stacks *stacks)
 {
 	if (check_order(stacks->a))
