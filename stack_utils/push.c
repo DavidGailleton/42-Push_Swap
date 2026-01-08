@@ -6,7 +6,7 @@
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 15:09:40 by mteriier          #+#    #+#             */
-/*   Updated: 2025/12/12 11:39:33 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/08 13:57:56 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	pa(t_stacks *stacks)
 		stacks->b = stacks->b->next;
 	}
 	stack_add_front(&(stacks->a), b_push);
+	stacks->pa++;
 	write(1, "pa\n", 3);
 }
 
@@ -49,5 +50,6 @@ void	pb(t_stacks *stacks)
 		stacks->a = stacks->a->next;
 	}
 	stack_add_front(&(stacks->b), a_push);
+	stacks->pb++;
 	write(1, "pb\n", 3);
 }

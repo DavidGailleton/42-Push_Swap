@@ -6,7 +6,7 @@
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 16:21:05 by mteriier          #+#    #+#             */
-/*   Updated: 2025/12/09 10:19:17 by mteriier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/08 14:01:23 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,6 @@ static int	wich_mod(int mod)
 	else if (mod == 2)
 		return (3);
 	return (0);
-}
-
-static int	len_split(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i])
-		i++;
-	return (i);
 }
 
 static t_stack	*parsing(int argc, char **argv, int mod)
@@ -78,16 +68,35 @@ static t_stack	*special_parsing(char **argv, int mod)
 	return (a);
 }
 
+static void	set_t_stacks(t_stacks *stacks)
+{
+	stacks->a = NULL;
+	stacks->b = NULL;
+	stacks->algo = 0;
+	stacks->bench = 0;
+	stacks->disorder = 0;
+	stacks->sa = 0;
+	stacks->sb = 0;
+	stacks->ss = 0;
+	stacks->pa = 0;
+	stacks->pb = 0;
+	stacks->ra = 0;
+	stacks->rb = 0;
+	stacks->rr = 0;
+	stacks->rra = 0;
+	stacks->rrb = 0;
+	stacks->rrr = 0;
+}
+
 t_stacks	*init_piles(int argc, char **argv, int mod)
 {
 	t_stacks	*stacks;
 	t_stack		*a;
 
 	stacks = malloc(sizeof(t_stacks));
-	stacks->a = NULL;
-	stacks->b = NULL;
 	if (!stacks)
 		return (NULL);
+	set_t_stacks(stacks);
 	if (mod == 0 || mod == 1 || mod == 2)
 		a = parsing(argc, argv, mod);
 	else

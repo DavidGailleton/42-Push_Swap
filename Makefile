@@ -30,7 +30,7 @@ INSERTION = insertion.c
 
 FLAGS_FILES = algorithms_sort.c flag.c
 
-PARSING = ft_atoi.c parsing.c ft_strncmp.c ft_split.c ft_strlen.c ft_substr.c
+PARSING = ft_atoi.c parsing.c ft_strncmp.c ft_split.c ft_strlen.c ft_substr.c checker.c
 
 STACK_UTILS = push.c rev_rotate.c rotate.c stack_add.c stack_remove.c stacks_len.c swap.c print_stacks.c
 

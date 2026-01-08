@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:32:10 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/12 11:39:17 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/08 13:57:47 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ra(t_stacks *stacks)
 {
 	if (stacks && stacks->a && stacks->a->next)
 		stacks->a = stacks->a->next;
+	stacks->ra++;
 	write(1, "ra\n", 3);
 }
 
@@ -24,6 +25,7 @@ void	rb(t_stacks *stacks)
 {
 	if (stacks && stacks->b && stacks->b->next)
 		stacks->b = stacks->b->next;
+	stacks->rb++;
 	write(1, "rb\n", 3);
 }
 
@@ -33,5 +35,6 @@ void	rr(t_stacks *stacks)
 		stacks->a = stacks->a->next;
 	if (stacks && stacks->b && stacks->b->next)
 		stacks->b = stacks->b->next;
+	stacks->rr++;
 	write(1, "rr\n", 3);
 }

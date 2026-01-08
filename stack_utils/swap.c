@@ -6,7 +6,7 @@
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:48:44 by mteriier          #+#    #+#             */
-/*   Updated: 2025/12/12 11:38:52 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/08 13:58:13 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	sa(t_stacks *stacks)
 	stock = a->value;
 	a->value = a->next->value;
 	a->next->value = stock;
+	stacks->sa++;
 	write(1, "sa\n", 3);
 }
 
@@ -38,6 +39,7 @@ void	sb(t_stacks *stacks)
 	stock = b->value;
 	b->value = b->next->value;
 	b->next->value = stock;
+	stacks->sb++;
 	write(1, "sb\n", 3);
 }
 
@@ -63,5 +65,6 @@ void	ss(t_stacks *stacks)
 		a->value = a->next->value;
 		a->next->value = stock;
 	}
+	stacks->ss++;
 	write(1, "ss\n", 3);
 }

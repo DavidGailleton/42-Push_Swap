@@ -21,3 +21,13 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
+
+int	len_split(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+		i++;
+	return (i);
+}

@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:18:06 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/07 10:30:42 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/08 14:01:04 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,21 @@ typedef struct s_stack
 
 typedef struct s_stacks
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack			*a;
+	t_stack			*b;
+	int				algo;
+	int				bench;
+	float			disorder;
+	unsigned int	ra;
+	unsigned int	rb;
+	unsigned int	rr;
+	unsigned int	rra;
+	unsigned int	rrb;
+	unsigned int	rrr;
+	unsigned int	pa;
+	unsigned int	pb;
+	unsigned int	sa;
+	unsigned int	sb;
 }	t_stacks;
 
 /* PRINT STACK FUNCTION*/
