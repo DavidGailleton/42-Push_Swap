@@ -13,8 +13,14 @@
 #ifndef PARSING_H
 # define PARSING_H
 
+#include <stdlib.h>
+#include "push_swap.h"
+
 int			ft_atoi(const char *nptr);
-t_stacks	*init_big_stacks(int argc, char **argv);
+t_stacks	*init_piles(int argc, char **argv, int mod);
 int			ft_strncmp(const char *s1, const char *s2, int n);
+size_t      ft_strlen(const char *s);
+char        *ft_substr(char const *s, unsigned int start, size_t len);
+char        **ft_split(char const *s, char c);
 
 #endif

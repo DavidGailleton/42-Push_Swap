@@ -24,11 +24,10 @@ int	test1(int argc, char **argv)
 	piles = NULL;
 	if (argc > 1)
 	{
-		piles = init_big_stacks(argc, argv);
+		piles = init_piles(argc, argv, 0);
 		preset = get_tabs(piles->a, range_bucket(piles->a));
 		bucket_algo(piles, preset, range_bucket(piles->a));
 	}
 	free_all(piles);
-	free(piles);
 	return (0);
 }

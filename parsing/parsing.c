@@ -52,6 +52,14 @@ static t_stack	*special_parsing(int argc, char **argv, int mod)
 	t_stacks	*piles;
 	t_stack		*first;
 	t_stack		*new;
+	char		**split_tab;
+	int			i;
+
+	i = 0;
+	split_tab = ft_split(arv[wich_mod(mod)]);
+	if (!split_tab)
+		return (NULL);
+	while ()
 }
 
 t_stacks	*init_piles(int argc, char **argv, int mod)
