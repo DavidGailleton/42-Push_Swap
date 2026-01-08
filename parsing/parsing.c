@@ -6,7 +6,7 @@
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 16:21:05 by mteriier          #+#    #+#             */
-/*   Updated: 2026/01/08 13:54:18 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/08 14:01:23 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ static void	set_t_stacks(t_stacks *stacks)
 	stacks->b = NULL;
 	stacks->algo = 0;
 	stacks->bench = 0;
+	stacks->disorder = 0;
 	stacks->sa = 0;
 	stacks->sb = 0;
 	stacks->ss = 0;

@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:18:06 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/08 13:36:33 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/08 14:01:04 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_stacks
 	t_stack			*b;
 	int				algo;
 	int				bench;
+	float			disorder;
 	unsigned int	ra;
 	unsigned int	rb;
 	unsigned int	rr;
