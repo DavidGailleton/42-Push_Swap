@@ -18,6 +18,7 @@ void	simple(t_stacks *piles)
 	int	len;
 
 	len = stack_a_len(piles);
+	piles->algo = 1;
 	insertion(piles, len);
 }
 
@@ -26,6 +27,7 @@ void	medium(t_stacks *piles)
 	t_tab	*buckets;
 	int		range;
 
+	piles->algo = 2;
 	range = range_bucket(piles->a);
 	buckets = get_tabs(piles->a, range);
 	bucket_algo(piles, buckets, range);
@@ -33,7 +35,8 @@ void	medium(t_stacks *piles)
 
 void	complex(t_stacks *piles)
 {
-	return ;
+	piles->algo = 3;
+	radix(piles);
 }
 
 void	adaptive(t_stacks *piles)

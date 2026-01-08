@@ -17,6 +17,9 @@ void	simple(t_stacks *piles);
 void	medium(t_stacks *piles);
 void	complex(t_stacks *piles);
 void	adaptive(t_stacks *piles);
-void	flags(int pos, char **argv, t_stacks *piles);
+void	flags(int pos, int pos_b, char **argv, t_stacks *piles);
+int		pos_bench(char **argv, int mod);
+int		pos_flag(char **argv, int mod);
+int		calcul_mod(int argc, char **argv);
 
 #endif
