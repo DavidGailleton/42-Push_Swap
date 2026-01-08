@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "parsing.h"
 
 static int	check_digits(char *str)
 {

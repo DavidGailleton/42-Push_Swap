@@ -37,6 +37,7 @@ typedef struct s_stacks
 	unsigned int	pb;
 	unsigned int	sa;
 	unsigned int	sb;
+	unsigned int	ss;
 }	t_stacks;
 
 /* PRINT STACK FUNCTION*/
