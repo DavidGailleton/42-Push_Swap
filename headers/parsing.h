@@ -17,6 +17,7 @@
 # include "push_swap.h"
 
 int			ft_atoi(const char *nptr);
+int			wich_mod(int mod);
 t_stacks	*init_stacks(int argc, char **argv, int mod);
 int			ft_strncmp(const char *s1, const char *s2, int n);
 size_t		ft_strlen(const char *s);

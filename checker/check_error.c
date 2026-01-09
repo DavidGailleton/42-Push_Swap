@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/08 18:32:35 by mteriier          #+#    #+#             */
-/*   Updated: 2026/01/08 15:34:59 by dgaillet         ###   ########lyon.fr   */
+/*   Created: 2026/01/09 09:31:50 by mteriier          #+#    #+#             */
+/*   Updated: 2026/01/09 09:31:51 by mteriier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "parsing.h"
 #include "check_error.h"
-#include "flags.h"
-#include <unistd.h>
 
-int	main(int argc, char **argv)
+int	check_error(char **tab, int mod)
 {
-	char	**tab;
-	int		mod;
-	int		len;
-
-	tab = split_all(join_all(argc, argv));
-	if (!tab)
+	if (!verif_flag(tab, mod))
 		return (0);
-	len = len_split(tab);
-	mod = calcul_mod(len, tab);
-	if (check_error(tab, mod))
-		test1(tab, len, mod);
-	else
-		write(2, "Error\n", 7);
-	free_tab(tab);
-	return (0);
+	if (!verif_is_digit(tab, mod))
+		return (0);
+	if (!verif_overflow(tab, mod))
+		return (0);
+	if (!verif_double(tab, mod))
+		return (0);
+	return (1);
 }
+
+

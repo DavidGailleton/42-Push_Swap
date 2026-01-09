@@ -16,19 +16,11 @@
 #include "medium_headers.h"
 #include <stdlib.h>
 
-int	test1(int argc, char **argv)
+int	test1(char **tab, int len, int mod)
 {
 	t_stacks	*stacks;
-	int			mod;
-	char		**tab;
-	int			len;
 
 	stacks = NULL;
-	tab = split_all(join_all(argc, argv));
-	if (!tab)
-		return (0);
-	len = len_split(tab);
-	mod = calcul_mod(len, tab);
 	if (mod == -1)
 		return (0);
 	stacks = init_stacks(len, tab, mod);

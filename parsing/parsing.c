@@ -14,7 +14,7 @@
 #include "parsing.h"
 #include <stdlib.h>
 
-static int	wich_mod(int mod)
+int	wich_mod(int mod)
 {
 	if (mod == 0)
 		return (1);

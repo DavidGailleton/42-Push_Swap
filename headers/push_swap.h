@@ -79,7 +79,7 @@ int		check_order(t_stack *stack);
 void	insertion(t_stacks *stacks, int len);
 int		test2(char **argv);
 /* TEST FILE */
-int		test1(int argc, char **argv);
+int		test1(char **tab, int len, int mod);
 
 /* RADIX */
 void	radix(t_stacks *stacks);

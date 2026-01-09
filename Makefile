@@ -18,6 +18,8 @@ COMPLEX_DIR = radix
 
 FLAGS_DIR = flags
 
+CHECKER_DIR = checker
+
 INCLUDES = headers
 
 #============================
@@ -32,6 +34,8 @@ FLAGS_FILES = algorithms_sort.c flag.c bench.c
 
 PARSING = ft_atoi.c parsing.c ft_strncmp.c ft_split.c ft_strlen.c ft_substr.c checker.c ft_itoa.c ft_isdigit.c \
 			ft_strjoin.c ft_strlcat.c ft_strlcpy.c parsing_2.c
+
+CHECKER_FILES = check_error.c verif_flag.c verif_is_digit.c verif_overflow.c verif_double.c
 
 STACK_UTILS = push.c rev_rotate.c rotate.c stack_add.c stack_remove.c stacks_len.c swap.c print_stacks.c
 
@@ -48,7 +52,7 @@ ALGO_UTILS = check_order.c compare.c iterate.c pre_sort.c
 ALL_FILES = $(SRC) $(STACK_UTILS_DIR)/$(STACK_UTILS)  $(PARS_DIR)/$(PARSING) \
 			$(ALGO_DIR)/$(MEDIUM_DIR)/$(MEDIUM_ALGO) $(ALGO_UTILS_DIR)/$(ALGO_UTILS) \
 			$(INSERT_DIR)/$(INSERTION) $(ALGO_DIR)/$(COMPLEX_DIR)/$(COMPLEX_ALGO) \
-			$(FLAGS_DIR)/$(FLAGS_FILES)
+			$(FLAGS_DIR)/$(FLAGS_FILES) $(CHECKER_DIR)/$(CHECKER_FILES)
 
 OBJ_DIR = obj
 
@@ -93,6 +97,9 @@ $(OBJ_DIR)/%.o: $(ALGO_UTILS_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
 
 $(OBJ_DIR)/%.o: $(FLAGS_DIR)/%.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(CHECKER_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)

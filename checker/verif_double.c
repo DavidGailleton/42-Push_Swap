@@ -1,36 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   verif_double.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/08 18:32:35 by mteriier          #+#    #+#             */
-/*   Updated: 2026/01/08 15:34:59 by dgaillet         ###   ########lyon.fr   */
+/*   Created: 2026/01/09 10:41:42 by mteriier          #+#    #+#             */
+/*   Updated: 2026/01/09 10:41:43 by mteriier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 #include "parsing.h"
 #include "check_error.h"
-#include "flags.h"
-#include <unistd.h>
 
-int	main(int argc, char **argv)
+static int	is_double_in_tab(char **tab, int nb, int pos)
 {
-	char	**tab;
-	int		mod;
-	int		len;
+	int	i;
 
-	tab = split_all(join_all(argc, argv));
-	if (!tab)
-		return (0);
-	len = len_split(tab);
-	mod = calcul_mod(len, tab);
-	if (check_error(tab, mod))
-		test1(tab, len, mod);
-	else
-		write(2, "Error\n", 7);
-	free_tab(tab);
-	return (0);
+	i = pos;
+	while (tab[i])
+	{
+		if (nb == ft_atoi(tab[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	verif_double(char **tab, int mod)
+{
+	int	i;
+	int	tmp;
+
+	i = wich_mod(mod);
+	while (tab[i])
+	{
+		if (tab[i + 1])
+		{
+			tmp = ft_atoi(tab[i]);
+			if (!is_double_in_tab(tab, tmp, i + 1))
+				return (0);
+		}
+		i++;
+	}
+	return (1);
 }

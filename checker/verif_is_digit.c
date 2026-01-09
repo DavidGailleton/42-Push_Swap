@@ -1,36 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   verif_is_digit.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/08 18:32:35 by mteriier          #+#    #+#             */
-/*   Updated: 2026/01/08 15:34:59 by dgaillet         ###   ########lyon.fr   */
+/*   Created: 2026/01/09 10:25:23 by mteriier          #+#    #+#             */
+/*   Updated: 2026/01/09 10:25:24 by mteriier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 #include "parsing.h"
-#include "check_error.h"
-#include "flags.h"
-#include <unistd.h>
 
-int	main(int argc, char **argv)
+static int	scan_str_is_digit(char *tab)
 {
-	char	**tab;
-	int		mod;
-	int		len;
+	int	i;
 
-	tab = split_all(join_all(argc, argv));
-	if (!tab)
-		return (0);
-	len = len_split(tab);
-	mod = calcul_mod(len, tab);
-	if (check_error(tab, mod))
-		test1(tab, len, mod);
-	else
-		write(2, "Error\n", 7);
-	free_tab(tab);
-	return (0);
+	i = 0;
+	while (tab[i])
+	{
+		if (!ft_isdigit(tab[i]) && (tab[i] == '-' && !ft_isdigit(tab[i + 1])))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	verif_is_digit(char **tab, int mod)
+{
+	int	i;
+
+	i = wich_mod(mod);
+	while (tab[i])
+	{
+		if (!scan_str_is_digit(tab[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
