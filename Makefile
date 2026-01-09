@@ -65,6 +65,12 @@ NAME = push_swap
 OBJ = $(addprefix $(OBJ_DIR)/, $(notdir $(ALL_FILES:.c=.o)))
 DEP = $(OBJ:.o=.d)
 
+#============================
+# BONUS CONFIG
+#============================
+
+
+
 .PHONY: all clean fclean re
 
 all: $(NAME)
