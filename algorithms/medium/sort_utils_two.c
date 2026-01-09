@@ -12,38 +12,38 @@
 
 #include "push_swap.h"
 
-void	sort_from_left(t_stacks *piles)
+void	sort_from_left(t_stacks *stacks)
 {
 	int	i;
 
 	i = 0;
-	while (piles->b->value > piles->a->value)
+	while (stacks->b->value > stacks->a->value)
 	{
-		ra(piles);
+		ra(stacks);
 		i++;
 	}
-	pa(piles);
+	pa(stacks);
 	while (i > 0)
 	{
-		rra(piles);
+		rra(stacks);
 		i--;
 	}
 }
 
-void	sort_from_right(t_stacks *piles)
+void	sort_from_right(t_stacks *stacks)
 {
 	int	i;
 
 	i = 0;
-	while (piles->b->value < piles->a->previous->value)
+	while (stacks->b->value < stacks->a->previous->value)
 	{
-		rra(piles);
+		rra(stacks);
 		i++;
 	}
-	pa(piles);
+	pa(stacks);
 	while (i >= 0)
 	{
-		ra(piles);
+		ra(stacks);
 		i--;
 	}
 }

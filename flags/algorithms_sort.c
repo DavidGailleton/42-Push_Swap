@@ -13,41 +13,41 @@
 #include "push_swap.h"
 #include "medium_headers.h"
 
-void	simple(t_stacks *piles)
+void	simple(t_stacks *stacks)
 {
 	int	len;
 
-	len = stack_a_len(piles);
-	piles->algo = 1;
-	insertion(piles, len);
+	len = stack_a_len(stacks);
+	stacks->algo = 1;
+	insertion(stacks, len);
 }
 
-void	medium(t_stacks *piles)
+void	medium(t_stacks *stacks)
 {
 	t_tab	*buckets;
 	int		range;
 	int		len;
 
-	piles->algo = 2;
-	len = stack_a_len(piles);
+	stacks->algo = 2;
+	len = stack_a_len(stacks);
 	if (len == 2)
-		sort_two(piles);
+		sort_two(stacks);
 	else
 	{
-		range = range_bucket(piles->a);
-		buckets = get_tabs(piles->a, range);
-		bucket_algo(piles, buckets, range);
+		range = range_bucket(stacks->a);
+		buckets = get_tabs(stacks->a, range);
+		bucket_algo(stacks, buckets, range);
 	}
 }
 
-void	complex(t_stacks *piles)
+void	complex(t_stacks *stacks)
 {
-	piles->algo = 3;
-	radix(piles);
+	stacks->algo = 3;
+	radix(stacks);
 }
 
-void	adaptive(t_stacks *piles)
+void	adaptive(t_stacks *stacks)
 {
-	(void)piles;
+	(void)stacks;
 	return ;
 }

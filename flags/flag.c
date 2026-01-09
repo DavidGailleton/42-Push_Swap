@@ -93,18 +93,18 @@ int	pos_bench(char **argv, int mod)
 	return (0);
 }
 
-void	flags(int pos, int pos_b, char **argv, t_stacks *piles)
+void	flags(int pos, int pos_b, char **argv, t_stacks *stacks)
 {
 	if (ft_strncmp(argv[pos], "--simple", 30) && pos > 0)
-		simple(piles);
+		simple(stacks);
 	else if (ft_strncmp(argv[pos], "--medium", 30) && pos > 0)
-		medium(piles);
+		medium(stacks);
 	else if (ft_strncmp(argv[pos], "--complex", 30) && pos > 0)
-		complex(piles);
+		complex(stacks);
 	else if (ft_strncmp(argv[pos], "--adaptive", 30) && pos > 0)
-		adaptive(piles);
+		adaptive(stacks);
 	else
-		adaptive(piles);
+		adaptive(stacks);
 	if (pos_b > 0)
-		piles->bench = 1;
+		stacks->bench = 1;
 }

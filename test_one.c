@@ -19,21 +19,21 @@
 
 int	test1(int argc, char **argv)
 {
-	t_stacks	*piles;
+	t_stacks	*stacks;
 	int			mod;
 
-	piles = NULL;
+	stacks = NULL;
 	mod = calcul_mod(argc, argv);
 	if (mod == -1)
 		return (0);
-	piles = init_piles(argc, argv, mod);
-	if (!piles)
+	stacks = init_stacks(argc, argv, mod);
+	if (!stacks)
 		return (0);
-	if (check_order(piles->a))
+	if (check_order(stacks->a))
 		return (0);
-	flags(pos_flag(argv, mod), pos_bench(argv, mod), argv, piles);
-	if (piles->bench == 1)
-		print_bench(piles);
-	free_all(piles);
+	flags(pos_flag(argv, mod), pos_bench(argv, mod), argv, stacks);
+	if (stacks->bench == 1)
+		print_bench(stacks);
+	free_all(stacks);
 	return (0);
 }

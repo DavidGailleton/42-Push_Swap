@@ -22,11 +22,11 @@ void	stack_clear_all(t_stack *stack, t_stack *first)
 	free(stack);
 }
 
-void	free_all(t_stacks *piles)
+void	free_all(t_stacks *stacks)
 {
-	if (piles->a)
-		stack_clear_all(piles->a, piles->a);
-	if (piles->b)
-		stack_clear_all(piles->b, piles->b);
-	free(piles);
+	if (stacks->a)
+		stack_clear_all(stacks->a, stacks->a);
+	if (stacks->b)
+		stack_clear_all(stacks->b, stacks->b);
+	free(stacks);
 }

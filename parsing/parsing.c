@@ -93,7 +93,7 @@ static void	set_t_stacks(t_stacks *stacks)
 	stacks->rrr = 0;
 }
 
-t_stacks	*init_piles(int argc, char **argv, int mod)
+t_stacks	*init_stacks(int argc, char **argv, int mod)
 {
 	t_stacks	*stacks;
 	t_stack		*a;

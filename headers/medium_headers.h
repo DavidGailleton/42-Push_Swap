@@ -21,13 +21,13 @@ typedef struct s_tab
 }	t_tab;
 
 /* MEDIUM ALGO FILE */
-int		wich_path(t_stacks *piles, int max_range, int range, char c);
+int		wich_path(t_stacks *stacks, int max_range, int range, char c);
 int		stack_len(t_stack *stack);
-void	bucket_algo(t_stacks *piles, t_tab *preset, int range);
+void	bucket_algo(t_stacks *stacks, t_tab *preset, int range);
 /* SORT UTILS FILES */
-void	sort_from_left(t_stacks *piles);
-void	sort_from_right(t_stacks *piles);
-void	push_range_to_b(t_stacks *piles, t_tab *one_preset, int range);
+void	sort_from_left(t_stacks *stacks);
+void	sort_from_right(t_stacks *stacks);
+void	push_range_to_b(t_stacks *stacks, t_tab *one_preset, int range);
 /* MEDIUM UTILS FILES */
 int		range_bucket(t_stack *first);
 int		get_first_lower(t_stack *first);

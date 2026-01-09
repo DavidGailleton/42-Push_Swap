@@ -14,48 +14,48 @@
 #include "medium_headers.h"
 #include <stdlib.h>
 
-static int	path_to_end(t_stacks *piles, int max_range, int range, char c)
+static int	path_to_end(t_stacks *stacks, int max_range, int range, char c)
 {
 	t_stack	*tmp;
 	int		i;
 	int		first_pass;
 
 	if (c == 'a')
-		tmp = piles->a;
+		tmp = stacks->a;
 	else
-		tmp = piles->b;
+		tmp = stacks->b;
 	tmp = tmp->previous;
 	i = 0;
 	first_pass = 1;
-	while (first_pass || tmp != piles->b->previous)
+	while (first_pass || tmp != stacks->b->previous)
 	{
 		first_pass = 0;
 		if (in_range(tmp->value, max_range, range))
-			tmp = piles->b;
+			tmp = stacks->b;
 		tmp = tmp->previous;
 		i++;
 	}
 	return (i);
 }
 
-static int	path_to_start(t_stacks *piles, int max_range, int range, char c)
+static int	path_to_start(t_stacks *stacks, int max_range, int range, char c)
 {
 	t_stack	*tmp;
 	int		i;
 	int		first_pass;
 
 	if (c == 'a')
-		tmp = piles->a;
+		tmp = stacks->a;
 	else
-		tmp = piles->b;
+		tmp = stacks->b;
 	i = 0;
 	first_pass = 1;
-	while (first_pass || tmp != piles->b)
+	while (first_pass || tmp != stacks->b)
 	{
 		first_pass = 0;
 		if (in_range(tmp->value, max_range, range))
 		{
-			tmp = piles->b->previous;
+			tmp = stacks->b->previous;
 		}
 		tmp = tmp->next;
 		i++;
@@ -63,13 +63,13 @@ static int	path_to_start(t_stacks *piles, int max_range, int range, char c)
 	return (i);
 }
 
-int	wich_path(t_stacks *piles, int max_range, int range, char c)
+int	wich_path(t_stacks *stacks, int max_range, int range, char c)
 {
 	int	path_start;
 	int	path_end;
 
-	path_start = path_to_start(piles, max_range, range, c);
-	path_end = path_to_end(piles, max_range, range, c);
+	path_start = path_to_start(stacks, max_range, range, c);
+	path_end = path_to_end(stacks, max_range, range, c);
 	if (path_start < path_end)
 		return (1);
 	return (0);
@@ -90,16 +90,16 @@ int	stack_len(t_stack *stack)
 	return (i);
 }
 
-void	bucket_algo(t_stacks *piles, t_tab *preset, int range)
+void	bucket_algo(t_stacks *stacks, t_tab *preset, int range)
 {
 	t_tab	*tmp;
 
 	tmp = preset;
-	while (piles->a)
-		pb(piles);
+	while (stacks->a)
+		pb(stacks);
 	while (preset)
 	{
-		push_range_to_b(piles, preset, range);
+		push_range_to_b(stacks, preset, range);
 		if (preset->next)
 			tmp = preset->next;
 		else
@@ -108,7 +108,7 @@ void	bucket_algo(t_stacks *piles, t_tab *preset, int range)
 			free(preset);
 		preset = tmp;
 	}
-	while (piles->b)
-		pa(piles);
+	while (stacks->b)
+		pa(stacks);
 	return ;
 }
