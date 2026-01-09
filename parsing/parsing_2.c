@@ -18,10 +18,23 @@ static char	*free_join(char *tab)
 	return (NULL);
 }
 
+static char	*join_utils(char *start_tab, char *end_str)
+{
+	char	*tab;
+	char	*tmp2;
+
+	tmp2 = ft_strjoin(end_str, " ");
+	if (!tmp2)
+		return (free_join(start_tab));
+	tab = ft_strjoin(start_tab, tmp2);
+	free(start_tab);
+	free(tmp2);
+	return (tab);
+}
+
 char	*join_all(int argc, char **argv)
 {
 	char	*tab;
-	char	*tmp;
 	int		i;
 
 	i = 0;
@@ -31,15 +44,9 @@ char	*join_all(int argc, char **argv)
 		return (NULL);
 	while (i < argc)
 	{
-		tmp = ft_strjoin(argv[i], " ");
-		if (!tmp)
-			return (free_join(tab));
-		tab = ft_strjoin(tab, tmp);
-		if (!tab)
-			return (free_join(tmp));
+		tab = join_utils(tab, argv[i]);
 		i++;
 	}
-	free(tmp);
 	return (tab);
 }
 
@@ -50,6 +57,7 @@ char	**split_all(char *tab)
 	if (!tab)
 		return (NULL);
 	split = ft_split(tab, ' ');
+	free (tab);
 	if (!split)
 		return (NULL);
 	return (split);
