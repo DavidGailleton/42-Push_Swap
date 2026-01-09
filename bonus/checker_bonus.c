@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 11:46:36 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/09 14:40:06 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/09 14:51:32 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "parsing.h"
 #include "get_next_line.h"
 #include <unistd.h>
+#include <stdlib.h>
 
 static int	apply_operation(t_stacks *stacks, char buf[1024])
 {

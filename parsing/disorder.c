@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 11:05:37 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/09 11:26:24 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/09 14:35:14 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ float	compute_disorder(char **strs)
 			total_pairs += 1;
 			if (strs[i] > strs[j])
 				mistakes += 1;
+			j++;
 		}
+		i++;
 	}
 	return (mistakes / total_pairs);
 }

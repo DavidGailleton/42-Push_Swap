@@ -69,7 +69,19 @@ DEP = $(OBJ:.o=.d)
 # BONUS CONFIG
 #============================
 
+BONUS_DIR = bonus
 
+GNL_DIR = bonus/GNL
+
+BONUS_FILES = $(BONUS_DIR)/ft_bzero.c $(BONUS_DIR)/checker_bonus.c
+
+GNL_FILES = $(GNL_DIR)/get_next_line.c $(GNL_DIR)/get_next_line_utils.c
+
+ALL_BONUS_FILES = $(BONUS_FILES) $(GNL_FILES)
+
+BONUS_OBJ = $(addprefix $(OBJ_DIR)/, $(notdir $(ALL_BONUS_FILES:.c=.o)))
+
+BONUS = checker
 
 .PHONY: all clean fclean re
 
@@ -77,6 +89,12 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	@echo "===================================="
+	@echo "======= PUSH SWAP COMPILED ========="
+	@echo "===================================="
+
+$(BONUS): $(BONUS_OBJ)
+	@$(CC) $(CFLAGS) -I$(GNL_DIR) $(BONUS_OBJ) -o $(BONUS)
 	@echo "===================================="
 	@echo "======= PUSH SWAP COMPILED ========="
 	@echo "===================================="
@@ -109,6 +127,12 @@ $(OBJ_DIR)/%.o: $(CHECKER_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(BONUS_DIR)%.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(GNL_DIR)%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
 
 $(OBJ_DIR):
