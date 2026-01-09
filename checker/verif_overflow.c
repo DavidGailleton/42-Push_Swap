@@ -12,6 +12,13 @@
 
 #include "parsing.h"
 
+// static int	calcul_sign(char c)
+// {
+// 	if (c == '-')
+// 		return (-1);
+// 	return (1);
+// }
+
 static int	verif_atoi(const char *nptr)
 {
 	size_t	i;
@@ -21,6 +28,8 @@ static int	verif_atoi(const char *nptr)
 	i = 0;
 	tmp = 0;
 	before = 0;
+	if (ft_strncmp("-2147483648", nptr, 12))
+		return (1);
 	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')

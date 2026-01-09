@@ -43,6 +43,8 @@ int	get_next_lower(t_stack *first, int old_lower)
 		if (old_lower < tmp->value && tmp->value <= next_lower)
 		{
 			next_lower = tmp->value;
+			if (next_lower == -2147483648)
+				return (next_lower);
 		}
 		tmp = tmp->next;
 	}
@@ -53,7 +55,10 @@ int	calcul_range(int value, int range)
 {
 	int	max_range;
 
+	
 	max_range = 0;
+	if (value == 2147483647)
+		return (value);
 	if (value < 0)
 		while (max_range > value)
 			max_range -= range;

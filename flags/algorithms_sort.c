@@ -48,6 +48,8 @@ void	complex(t_stacks *stacks)
 
 void	adaptive(t_stacks *stacks)
 {
-	(void)stacks;
+	//simple(stacks);
+	medium(stacks);
+	//complex(stacks);
 	return ;
 }
