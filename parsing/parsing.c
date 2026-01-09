@@ -64,6 +64,11 @@ static t_stack	*special_parsing(char **argv, int mod)
 		return (NULL);
 	len = len_split(split_tab);
 	a = parsing(len, split_tab, mod);
+	if (!a)
+	{
+		free_tab(split_tab);
+		return (NULL);
+	}
 	free_tab(split_tab);
 	return (a);
 }
@@ -101,6 +106,11 @@ t_stacks	*init_piles(int argc, char **argv, int mod)
 		a = parsing(argc, argv, mod);
 	else
 		a = special_parsing(argv, mod);
+	if (!a)
+	{
+		free(stacks);
+		return (NULL);
+	}
 	stacks->a = a;
 	return (stacks);
 }

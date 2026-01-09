@@ -24,7 +24,11 @@ int	test1(int argc, char **argv)
 
 	piles = NULL;
 	mod = calcul_mod(argc, argv);
+	if (mod == -1)
+		return (0);
 	piles = init_piles(argc, argv, mod);
+	if (!piles)
+		return (0);
 	if (check_order(piles->a))
 		return (0);
 	flags(pos_flag(argv, mod), pos_bench(argv, mod), argv, piles);

@@ -16,23 +16,27 @@
 
 static int	verif_arg(char *argv)
 {
-	int	i;
+	int		len;
+	int		verif;
+	char	**split;
 
-	i = 0;
-	while (argv[i])
-	{
-		if (argv[i] == ' ')
-			return (1);
-		i++;
-	}
-	return (0);
+	split = ft_split(argv, ' ');
+	if (!split)
+		return (-1);
+	len = len_split(split);
+	if (len > 1)
+		verif = 1;
+	else
+		verif = 0;
+	free_tab(split);
+	return (verif);
 }
 
 int	calcul_mod(int argc, char **argv)
 {
 	int	mod;
 
-	if (!verif_arg(argv[argc -1]))
+	if (verif_arg(argv[argc -1]) == 0)
 	{
 		if (ft_strncmp("--", argv[1], 2) && ft_strncmp("--", argv[2], 2))
 			mod = 2;
@@ -41,7 +45,7 @@ int	calcul_mod(int argc, char **argv)
 		else
 			mod = 0;
 	}
-	else
+	else if (verif_arg(argv[argc -1]) == 1)
 	{
 		if (ft_strncmp("--", argv[1], 2) && ft_strncmp("--", argv[2], 2))
 			mod = 5;
@@ -50,6 +54,8 @@ int	calcul_mod(int argc, char **argv)
 		else
 			mod = 3;
 	}
+	else
+		mod = -1;
 	return (mod);
 }
 
