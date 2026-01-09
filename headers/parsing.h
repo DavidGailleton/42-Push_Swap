@@ -27,5 +27,10 @@ int			checker(int argc, char **argv);
 int			len_split(char **tab);
 char		*ft_itoa(int n);
 int			ft_isdigit(int c);
+char		*ft_strjoin(char const *s1, char const *s2);
+int			ft_strlcpy(char *dst, const char *src, int size);
+int			ft_strlcat(char *dst, const char *src, int size);
+char		*join_all(int argc, char **argv);
+char		**split_all(char *tab);
 
 #endif

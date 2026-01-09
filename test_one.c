@@ -14,24 +14,29 @@
 #include "flags.h"
 #include "parsing.h"
 #include "medium_headers.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 int	test1(int argc, char **argv)
 {
 	t_stacks	*stacks;
 	int			mod;
+	char		**tab;
+	int			len;
 
 	stacks = NULL;
-	mod = calcul_mod(argc, argv);
+	tab = split_all(join_all(argc, argv));
+	if (!tab)
+		return (0);
+	len = len_split(tab);
+	mod = calcul_mod(len, tab);
 	if (mod == -1)
 		return (0);
-	stacks = init_stacks(argc, argv, mod);
+	stacks = init_stacks(len, tab, mod);
 	if (!stacks)
 		return (0);
 	if (check_order(stacks->a))
 		return (0);
-	flags(pos_flag(argv, mod), pos_bench(argv, mod), argv, stacks);
+	flags(pos_flag(tab, mod), pos_bench(tab, mod), tab, stacks);
 	if (stacks->bench == 1)
 		print_bench(stacks);
 	free_all(stacks);
