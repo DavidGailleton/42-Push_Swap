@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 13:59:52 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/08 16:09:11 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/09 12:13:36 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,13 @@ static void	print_disorder(t_stacks *stacks)
 	if (!str)
 		exit (EXIT_FAILURE);
 	secure_write(2, "[bench] disorder: ", 18);
-	if (ft_strlen(str) == 2)
+	if (ft_strlen(str) <= 2)
 		secure_write(2, "0", 1);
 	else
 		secure_write(2, str, ft_strlen(str) - 2);
 	secure_write(2, ".", 1);
+	if (ft_strlen(str) == 1)
+		secure_write(2, "0", 1);
 	secure_write(2, &str[ft_strlen(str) - 2], 2);
 	secure_write(2, "%\n", 2);
 	free(str);
@@ -37,7 +39,7 @@ static void	print_disorder(t_stacks *stacks)
 
 static void	print_algo(t_stacks *stacks)
 {
-	secure_write(2, "[bench] algo: ", 18);
+	secure_write(2, "[bench] algo: ", 14);
 	if (stacks->algo == 0)
 	{
 		secure_write(2, "Adaptative", 10);
@@ -72,14 +74,14 @@ static void	print_total_ops(t_stacks *stacks)
 	total_ops += stacks->rra;
 	total_ops += stacks->rrb;
 	total_ops += stacks->rrr;
-	secure_write(2, "[bench] total_ops: ", 18);
+	secure_write(2, "[bench] total_ops: ", 19);
 	ft_putnbr_fd((int) total_ops, 2);
 	secure_write(2, "\n", 1);
 }
 
 static void	print_ops(t_stacks *stacks)
 {
-	secure_write(2, "[bench] sa: ", 11);
+	secure_write(2, "[bench] sa: ", 12);
 	ft_putnbr_fd((int) stacks->sa, 2);
 	secure_write(2, " sb: ", 5);
 	ft_putnbr_fd((int) stacks->sb, 2);
@@ -90,7 +92,7 @@ static void	print_ops(t_stacks *stacks)
 	secure_write(2, " pb: ", 5);
 	ft_putnbr_fd((int) stacks->pb, 2);
 	secure_write(2, "\n", 1);
-	secure_write(2, "[bench] ra: ", 5);
+	secure_write(2, "[bench] ra: ", 12);
 	ft_putnbr_fd((int) stacks->ra, 2);
 	secure_write(2, " rb: ", 5);
 	ft_putnbr_fd((int) stacks->rb, 2);
