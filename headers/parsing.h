@@ -6,7 +6,7 @@
 /*   By: mteriier <mteriier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 08:03:08 by mteriier          #+#    #+#             */
-/*   Updated: 2026/01/08 14:15:37 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/09 11:27:39 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int			ft_strlcpy(char *dst, const char *src, int size);
 int			ft_strlcat(char *dst, const char *src, int size);
 char		*join_all(int argc, char **argv);
 char		**split_all(char *tab);
+float		compute_disorder(char **strs);
 
 #endif
