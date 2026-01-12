@@ -27,7 +27,10 @@ int	test1(char **tab, int len, int mod)
 	if (!stacks)
 		return (0);
 	if (check_order(stacks->a))
+	{
+		free_all(stacks);
 		return (0);
+	}
 	flags(pos_flag(tab, mod), pos_bench(tab, mod), tab, stacks);
 	if (stacks->bench == 1)
 		print_bench(stacks);

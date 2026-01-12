@@ -17,11 +17,11 @@ static int	is_exist_flag(char **tab, int pos)
 	int	verif;
 
 	verif = 0;
-	if (ft_strncmp(tab[pos], "--bench", 7)
-		|| ft_strncmp(tab[pos], "--simple", 8)
-		|| ft_strncmp(tab[pos], "--medium", 8)
-		|| ft_strncmp(tab[pos], "--adaptive", 10)
-		|| ft_strncmp(tab[pos], "--complex", 9))
+	if (ft_strncmp(tab[pos], "--bench", 30)
+		|| ft_strncmp(tab[pos], "--simple", 30)
+		|| ft_strncmp(tab[pos], "--medium", 30)
+		|| ft_strncmp(tab[pos], "--adaptive", 30)
+		|| ft_strncmp(tab[pos], "--complex", 30))
 		verif = 1;
 	return (verif);
 }

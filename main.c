@@ -22,10 +22,18 @@ int	main(int argc, char **argv)
 	int		mod;
 	int		len;
 
+	if (argc < 2)
+		return (0);
 	tab = split_all(join_all(argc, argv));
 	if (!tab)
 		return (0);
 	len = len_split(tab);
+	if (!scan_str_is_digit(tab[len - 1]))
+	{
+		free_tab(tab);
+		write(2, "Error\n", 7);
+		return (0);
+	}
 	mod = calcul_mod(len, tab);
 	if (check_error(tab, mod))
 		test1(tab, len, mod);
