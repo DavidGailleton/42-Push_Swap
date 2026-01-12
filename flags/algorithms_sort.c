@@ -37,6 +37,8 @@ void	medium(t_stacks *stacks)
 	{
 		range = range_bucket(stacks->a);
 		buckets = get_tabs(stacks->a, range);
+		if (!buckets)
+			return ;
 		bucket_algo(stacks, buckets, range);
 	}
 }
