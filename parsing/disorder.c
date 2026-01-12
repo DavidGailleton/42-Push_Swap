@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "parsing.h"
 
 static int	strs_len(char **strs)
 {
@@ -22,7 +23,7 @@ static int	strs_len(char **strs)
 	return (i);
 }
 
-float	compute_disorder(char **strs)
+float	compute_disorder(char **strs, int pos)
 {
 	float	mistakes;
 	float	total_pairs;
@@ -31,14 +32,14 @@ float	compute_disorder(char **strs)
 
 	mistakes = 0;
 	total_pairs = 0;
-	i = 0;
+	i = pos;
 	while (i < strs_len(strs))
 	{
 		j = i + 1;
 		while (j < strs_len(strs))
 		{
 			total_pairs += 1;
-			if (strs[i] > strs[j])
+			if (ft_atoi(strs[i]) > ft_atoi(strs[j]))
 				mistakes += 1;
 			j++;
 		}

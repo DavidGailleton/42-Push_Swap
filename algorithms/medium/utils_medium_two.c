@@ -22,7 +22,7 @@ static int	get_max_number(t_stack *first)
 	a = first;
 	max = a->value;
 	pass = 1;
-	while (a!= first || pass == 1)
+	while (a != first || pass == 1)
 	{
 		pass = 0;
 		if (max < a->value)
@@ -46,7 +46,6 @@ static int	get_min_number(t_stack *first)
 		pass = 0;
 		if (min > a->value)
 			min = a->value;
-
 		a = a->next;
 	}
 	return (min);

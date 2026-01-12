@@ -24,5 +24,3 @@ int	check_error(char **tab, int mod)
 		return (0);
 	return (1);
 }
-
-

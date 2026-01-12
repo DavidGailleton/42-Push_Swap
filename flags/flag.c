@@ -102,9 +102,9 @@ void	flags(int pos, int pos_b, char **argv, t_stacks *stacks)
 	else if (ft_strncmp(argv[pos], "--complex", 30) && pos > 0)
 		complex(stacks);
 	else if (ft_strncmp(argv[pos], "--adaptive", 30) && pos > 0)
-		adaptive(stacks);
+		adaptive(stacks, argv);
 	else
-		adaptive(stacks);
+		adaptive(stacks, argv);
 	if (pos_b > 0)
 		stacks->bench = 1;
 }

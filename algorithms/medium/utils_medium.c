@@ -58,7 +58,6 @@ int	calcul_range(int value, int range)
 {
 	int	max_range;
 
-	
 	max_range = 0;
 	if (value == 2147483647)
 		return (value);

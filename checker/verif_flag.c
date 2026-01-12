@@ -20,6 +20,7 @@ static int	is_exist_flag(char **tab, int pos)
 	if (ft_strncmp(tab[pos], "--bench", 7)
 		|| ft_strncmp(tab[pos], "--simple", 8)
 		|| ft_strncmp(tab[pos], "--medium", 8)
+		|| ft_strncmp(tab[pos], "--adaptive", 10)
 		|| ft_strncmp(tab[pos], "--complex", 9))
 		verif = 1;
 	return (verif);
@@ -40,7 +41,7 @@ static int	verif_exist_flag(char **tab, int mod)
 	return (verif);
 }
 
-static int verif_double_flag(char **tab, int mod)
+static int	verif_double_flag(char **tab, int mod)
 {
 	int	verif;
 
