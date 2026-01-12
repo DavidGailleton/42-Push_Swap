@@ -16,11 +16,14 @@ int	get_first_lower(t_stack *first)
 {
 	t_stack	*tmp;
 	int		lower;
+	int		pass;
 
 	tmp = first;
 	lower = tmp->value;
-	while (tmp->next != first)
+	pass = 1;
+	while (tmp != first || pass == 1)
 	{
+		pass = 0;
 		if (lower > tmp->value)
 			lower = tmp->value;
 		tmp = tmp->next;
@@ -43,6 +46,8 @@ int	get_next_lower(t_stack *first, int old_lower)
 		if (old_lower < tmp->value && tmp->value <= next_lower)
 		{
 			next_lower = tmp->value;
+			if (next_lower == -2147483648)
+				return (next_lower);
 		}
 		tmp = tmp->next;
 	}
@@ -54,6 +59,8 @@ int	calcul_range(int value, int range)
 	int	max_range;
 
 	max_range = 0;
+	if (value == 2147483647)
+		return (value);
 	if (value < 0)
 		while (max_range > value)
 			max_range -= range;
@@ -80,17 +87,18 @@ int	get_number_in_range(int max_range, t_stack *a, int range)
 	int		nb_in;
 	t_stack	*tmp;
 	t_stack	*first;
+	int		pass;
 
 	nb_in = 0;
 	tmp = a;
+	pass = 1;
 	first = tmp;
-	while (tmp->next != first)
+	while (tmp != first || pass == 1)
 	{
+		pass = 0;
 		if (in_range(tmp->value, max_range, range))
 			nb_in++;
 		tmp = tmp->next;
 	}
-	if (in_range(tmp->value, max_range, range))
-		nb_in++;
 	return (nb_in);
 }

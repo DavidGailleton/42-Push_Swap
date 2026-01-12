@@ -21,6 +21,8 @@ static int	scan_str_is_digit(char *tab)
 	{
 		if (!ft_isdigit(tab[i]) && (tab[i] == '-' && !ft_isdigit(tab[i + 1])))
 			return (0);
+		if (tab[i] == '+' && !ft_isdigit(tab[i + 1]))
+			return (0);
 		i++;
 	}
 	return (1);
