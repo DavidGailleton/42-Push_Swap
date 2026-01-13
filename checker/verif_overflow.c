@@ -12,13 +12,6 @@
 
 #include "parsing.h"
 
-// static int	calcul_sign(char c)
-// {
-// 	if (c == '-')
-// 		return (-1);
-// 	return (1);
-// }
-
 static int	verif_atoi(const char *nptr)
 {
 	size_t	i;

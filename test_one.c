@@ -14,7 +14,6 @@
 #include "flags.h"
 #include "parsing.h"
 #include "medium_headers.h"
-#include <stdlib.h>
 
 int	test1(char **tab, int len, int mod)
 {
@@ -31,6 +30,7 @@ int	test1(char **tab, int len, int mod)
 		free_all(stacks);
 		return (0);
 	}
+	stacks->disorder = compute_disorder(tab, wich_mod(mod));
 	flags(pos_flag(tab, mod), pos_bench(tab, mod), tab, stacks);
 	if (stacks->bench == 1)
 		print_bench(stacks);
