@@ -18,7 +18,7 @@ int	verif_is_number(char **tab)
 	int	len;
 
 	len = len_split(tab);
-	if (tab[len - 1][0] == '-')
+	if (tab[len - 1][0] == '-' && !ft_isdigit(tab[len - 1][1]))
 		return (0);
 	return (1);
 }
