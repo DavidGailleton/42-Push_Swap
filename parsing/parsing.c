@@ -16,13 +16,7 @@
 
 int	wich_mod(int mod)
 {
-	if (mod == 0)
-		return (1);
-	else if (mod == 1)
-		return (2);
-	else if (mod == 2)
-		return (3);
-	return (0);
+	return (mod % 3 + 1);
 }
 
 static t_stack	*parsing(int argc, char **argv, int mod)
@@ -49,28 +43,6 @@ static t_stack	*parsing(int argc, char **argv, int mod)
 		i++;
 	}
 	return (first);
-}
-
-static t_stack	*special_parsing(char **argv, int mod)
-{
-	t_stack		*a;
-	char		**split_tab;
-	int			len;
-	int			i;
-
-	i = mod % 3 + 1;
-	split_tab = ft_split(argv[i], ' ');
-	if (!split_tab)
-		return (NULL);
-	len = len_split(split_tab);
-	a = parsing(len, split_tab, mod);
-	if (!a)
-	{
-		free_tab(split_tab);
-		return (NULL);
-	}
-	free_tab(split_tab);
-	return (a);
 }
 
 static void	set_t_stacks(t_stacks *stacks)
@@ -102,10 +74,7 @@ t_stacks	*init_stacks(int argc, char **argv, int mod)
 	if (!stacks)
 		return (NULL);
 	set_t_stacks(stacks);
-	if (mod == 0 || mod == 1 || mod == 2)
-		a = parsing(argc, argv, mod);
-	else
-		a = special_parsing(argv, mod);
+	a = parsing(argc, argv, mod);
 	if (!a)
 	{
 		free(stacks);

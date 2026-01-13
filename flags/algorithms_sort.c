@@ -37,6 +37,8 @@ void	medium(t_stacks *stacks)
 	{
 		range = range_bucket(stacks->a);
 		buckets = get_tabs(stacks->a, range);
+		if (!buckets)
+			return ;
 		bucket_algo(stacks, buckets, range);
 	}
 }
@@ -58,7 +60,7 @@ void	adaptive(t_stacks *stacks, char **tab)
 	disorder = compute_disorder(tab, i - 1);
 	if (disorder < 0.3)
 		simple(stacks);
-	else if (disorder < 0.46)
+	else if (disorder < 0.5)
 		medium(stacks);
 	else
 		complex(stacks);

@@ -40,8 +40,6 @@ typedef struct s_stacks
 	unsigned int	ss;
 }	t_stacks;
 
-/* PRINT STACK FUNCTION*/
-void	print_stacks(t_stacks *stacks, int len, t_stack *a, t_stack *b);
 /*STACK_FUNCTIONS*/
 void	pa(t_stacks *stacks);
 void	pb(t_stacks *stacks);
