@@ -14,7 +14,7 @@
 #include "parsing.h"
 #include "flags.h"
 
-int calcul_mod(int argc, char **argv)
+int	calcul_mod(int argc, char **argv)
 {
 	int	mod;
 
