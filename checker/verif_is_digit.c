@@ -19,11 +19,10 @@ int	scan_str_is_digit(char *tab)
 	i = 0;
 	while (tab[i])
 	{
-		if (!ft_isdigit(tab[i]) && (tab[i] == '-' && !ft_isdigit(tab[i + 1])))
-			return (0);
-		else if (tab[i] == '+' && !ft_isdigit(tab[i + 1]))
-			return (0);
-		else if (!ft_isdigit(tab[i]))
+		if ((tab[i] == '+' || tab[i] == '-') && ft_isdigit(tab[i + 1])
+			&& tab[i + 1])
+			i++;
+		if (!ft_isdigit(tab[i]))
 			return (0);
 		i++;
 	}
