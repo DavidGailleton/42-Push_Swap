@@ -20,7 +20,7 @@ FLAGS_DIR = flags
 
 CHECKER_DIR = checker
 
-INCLUDES = headers
+INCLUDES = includes
 
 #============================
 # ALL FILES WITHOUT PATH 
