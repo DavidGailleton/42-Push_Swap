@@ -18,7 +18,7 @@ COMPLEX_DIR = radix
 
 FLAGS_DIR = flags
 
-CHECKER_DIR = checker
+CHECKER_DIR = check_error
 
 INCLUDES = includes
 
@@ -32,7 +32,7 @@ INSERTION = insertion.c
 
 FLAGS_FILES = algorithms_sort.c flag.c bench.c
 
-PARSING = ft_atoi.c parsing.c ft_strncmp.c ft_split.c ft_strlen.c ft_substr.c checker.c ft_itoa.c ft_isdigit.c \
+PARSING = ft_atoi.c parsing.c ft_strncmp.c ft_split.c ft_strlen.c ft_substr.c ft_itoa.c ft_isdigit.c \
 			ft_strjoin.c ft_strlcat.c ft_strlcpy.c parsing_2.c disorder.c
 
 CHECKER_FILES = check_error.c verif_flag.c verif_is_digit.c verif_overflow.c verif_double.c
@@ -65,12 +65,44 @@ NAME = push_swap
 OBJ = $(addprefix $(OBJ_DIR)/, $(notdir $(ALL_FILES:.c=.o)))
 DEP = $(OBJ:.o=.d)
 
-.PHONY: all clean fclean re
+#============================
+# BONUS CONFIG
+#============================
+
+BONUS_DIR = bonus
+
+GNL_D = GNL
+
+GNL_DIR = bonus/GNL
+
+BONUS_FILES = checker_bonus.c
+
+GNL_FILES = get_next_line.c get_next_line_utils.c
+
+SRC_FOR_BONUS = ft_putnbr.c secure_write.c
+
+ALL_BONUS_FILES = $(SRC_FOR_BONUS) $(BONUS_DIR)/$(BONUS_FILES) $(BONUS_DIR)/$(GNL_D)/$(GNL_FILES) \
+					$(STACK_UTILS_DIR)/$(STACK_UTILS)  $(PARS_DIR)/$(PARSING) \
+					$(ALGO_DIR)/$(MEDIUM_DIR)/$(MEDIUM_ALGO) $(ALGO_UTILS_DIR)/$(ALGO_UTILS) \
+					$(INSERT_DIR)/$(INSERTION) $(ALGO_DIR)/$(COMPLEX_DIR)/$(COMPLEX_ALGO) \
+					$(FLAGS_DIR)/$(FLAGS_FILES) $(CHECKER_DIR)/$(CHECKER_FILES)
+
+BONUS_OBJ = $(addprefix $(OBJ_DIR)/, $(notdir $(ALL_BONUS_FILES:.c=.o)))
+
+NAME_BONUS = checker
+
+.PHONY: all clean fclean re bonus
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	@echo "===================================="
+	@echo "======= PUSH SWAP COMPILED ========="
+	@echo "===================================="
+
+$(NAME_BONUS): $(BONUS_OBJ)
+	@$(CC) $(CFLAGS) $(BONUS_OBJ) -o $(NAME_BONUS)
 	@echo "===================================="
 	@echo "======= PUSH SWAP COMPILED ========="
 	@echo "===================================="
@@ -102,7 +134,16 @@ $(OBJ_DIR)/%.o: $(FLAGS_DIR)/%.c | $(OBJ_DIR)
 $(OBJ_DIR)/%.o: $(CHECKER_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
 
+$(OBJ_DIR)/%.o: $(BONUS_DIR)/%.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(BONUS_DIR)/$(GNL_D)/%.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+
+$(OBJ_DIR_BONUS)/%.o: %.c | $(OBJ_DIR_BONUS)
 	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
 
 $(OBJ_DIR):
@@ -116,9 +157,12 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
+	@rm -f $(NAME_BONUS)
 	@echo "========== EXEC DELETED ============"
 	@echo "===================================="
 
 re: fclean all
+
+bonus: $(NAME_BONUS)
 
 -include $(DEP)

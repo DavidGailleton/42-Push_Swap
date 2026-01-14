@@ -26,6 +26,7 @@ typedef struct s_stacks
 	t_stack			*b;
 	int				algo;
 	int				bench;
+	int				print;
 	float			disorder;
 	unsigned int	ra;
 	unsigned int	rb;

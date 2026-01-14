@@ -18,7 +18,8 @@ void	ra(t_stacks *stacks)
 	if (stacks && stacks->a && stacks->a->next)
 		stacks->a = stacks->a->next;
 	stacks->ra++;
-	write(1, "ra\n", 3);
+	if (stacks->print)
+		write(1, "ra\n", 3);
 }
 
 void	rb(t_stacks *stacks)
@@ -26,7 +27,8 @@ void	rb(t_stacks *stacks)
 	if (stacks && stacks->b && stacks->b->next)
 		stacks->b = stacks->b->next;
 	stacks->rb++;
-	write(1, "rb\n", 3);
+	if (stacks->print)
+		write(1, "rb\n", 3);
 }
 
 void	rr(t_stacks *stacks)
@@ -36,5 +38,6 @@ void	rr(t_stacks *stacks)
 	if (stacks && stacks->b && stacks->b->next)
 		stacks->b = stacks->b->next;
 	stacks->rr++;
-	write(1, "rr\n", 3);
+	if (stacks->print)
+		write(1, "rr\n", 3);
 }

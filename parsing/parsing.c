@@ -51,6 +51,7 @@ static void	set_t_stacks(t_stacks *stacks)
 	stacks->algo = 0;
 	stacks->bench = 0;
 	stacks->disorder = 0;
+	stacks->print = 1;
 	stacks->sa = 0;
 	stacks->sb = 0;
 	stacks->ss = 0;
