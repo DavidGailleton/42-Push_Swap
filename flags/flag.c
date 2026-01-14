@@ -62,11 +62,20 @@ int	pos_bench(char **argv, int mod)
 void	flags(int pos, int pos_b, char **argv, t_stacks *stacks)
 {
 	if (ft_strncmp(argv[pos], "--simple", 30) && pos > 0)
+	{
+		stacks->algo = 1;
 		simple(stacks);
+	}
 	else if (ft_strncmp(argv[pos], "--medium", 30) && pos > 0)
+	{
+		stacks->algo = 2;
 		medium(stacks);
+	}	
 	else if (ft_strncmp(argv[pos], "--complex", 30) && pos > 0)
+	{
+		stacks->algo = 3;
 		complex(stacks);
+	}	
 	else if (ft_strncmp(argv[pos], "--adaptive", 30) && pos > 0)
 		adaptive(stacks, argv);
 	else
