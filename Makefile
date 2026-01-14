@@ -26,7 +26,7 @@ INCLUDES = includes
 # ALL FILES WITHOUT PATH 
 #============================
 
-SRC = main.c test_one.c ft_putnbr.c secure_write.c
+SRC = main.c ft_putnbr.c secure_write.c
 
 INSERTION = insertion.c
 
