@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 #include "parsing.h"
-#include <stdlib.h>
 
 int	wich_mod(int mod)
 {
