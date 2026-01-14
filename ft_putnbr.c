@@ -18,7 +18,7 @@ static void	rec_ft_putnbr_fd(int nbr, int fd)
 
 	if (!nbr)
 		return ;
-	ft_putnbr_fd(nbr / 10, fd);
+	rec_ft_putnbr_fd(nbr / 10, fd);
 	c = (nbr % 10) + '0';
 	secure_write(fd, &c, 1);
 }

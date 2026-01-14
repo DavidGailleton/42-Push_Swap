@@ -47,16 +47,16 @@ static void	print_algo(t_stacks *stacks)
 		if (stacks->disorder < 0.2)
 			secure_write(2, " / O(n2n)\n", 10);
 		else if (stacks->disorder >= 0.5)
-			secure_write(2, " / O(n√n)\n", 12);
-		else
 			secure_write(2, " / O(nlogn)\n", 12);
+		else
+			secure_write(2, " / O(n√n)\n", 12);
 	}
 	else if (stacks->algo == 1)
 		secure_write(2, "Simple / O(n2n)\n", 16);
 	else if (stacks->algo == 2)
-		secure_write(2, "Medium / O(nlogn)\n", 18);
+		secure_write(2, "Medium / O(n√n)\n", 18);
 	else if (stacks->algo == 3)
-		secure_write(2, "Complex / O(n√n)\n", 19);
+		secure_write(2, "Complex / O(nlogn)\n", 19);
 }
 
 static void	print_total_ops(t_stacks *stacks)
