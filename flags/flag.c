@@ -70,12 +70,12 @@ void	flags(int pos, int pos_b, char **argv, t_stacks *stacks)
 	{
 		stacks->algo = 2;
 		medium(stacks);
-	}	
+	}
 	else if (ft_strncmp(argv[pos], "--complex", 30) && pos > 0)
 	{
 		stacks->algo = 3;
 		complex(stacks);
-	}	
+	}
 	else if (ft_strncmp(argv[pos], "--adaptive", 30) && pos > 0)
 		adaptive(stacks, argv);
 	else

@@ -63,9 +63,15 @@ static int	tester(t_stacks *stacks)
 		buf = get_next_line(0);
 	}
 	if (!is_stacks_b_empty(stacks))
-		return (secure_write(1, "KO\n", 3));
+	{
+		secure_write(1, "KO\n", 3);
+		return (0);
+	}
 	if (!check_order(stacks->a))
-		return (secure_write(1, "KO\n", 3));
+	{
+		secure_write(1, "KO\n", 3);
+		return (0);
+	}
 	secure_write(1, "OK\n", 3);
 	return (0);
 }
