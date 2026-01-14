@@ -34,6 +34,7 @@ static void	print_disorder(t_stacks *stacks)
 		secure_write(2, "0", 1);
 	secure_write(2, &str[ft_strlen(str) - 2], ft_strlen(str) - 2);
 	secure_write(2, "%\n", 2);
+	stacks->disorder /= 10000;
 	free(str);
 }
 

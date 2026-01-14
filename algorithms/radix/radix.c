@@ -33,15 +33,8 @@ static void	push_by_number_to_b(t_stacks *stacks, int unit, int nb)
 {
 	int		i;
 	int		s_len;
-	t_stack	*temp;
 
-	temp = stacks->a;
-	s_len = 1;
-	while (temp && temp->next != stacks->a)
-	{
-		s_len++;
-		temp = temp->next;
-	}
+	s_len = stack_a_len(stacks);
 	i = 0;
 	while (i < s_len && still_unit_index(stacks, unit))
 	{
