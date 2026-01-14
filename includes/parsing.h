@@ -34,5 +34,6 @@ int			ft_strlcat(char *dst, const char *src, int size);
 char		*join_all(int argc, char **argv);
 char		**split_all(char *tab);
 float		compute_disorder(char **strs, int pos);
+void		indexer(t_stacks *stacks);
 
 #endif
