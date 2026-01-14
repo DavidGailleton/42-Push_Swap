@@ -26,6 +26,16 @@ static int	is_exist_flag(char **tab, int pos)
 	return (verif);
 }
 
+static int	is_algo_flag(char *str)
+{
+	if (ft_strncmp(str, "--simple", 30)
+		|| ft_strncmp(str, "--medium", 30)
+		|| ft_strncmp(str, "--adaptive", 30)
+		|| ft_strncmp(str, "--complex", 30))
+		return (1);
+	return (0);
+}
+
 static int	verif_exist_flag(char **tab, int mod)
 {
 	int	verif;
@@ -37,6 +47,8 @@ static int	verif_exist_flag(char **tab, int mod)
 	{
 		if (is_exist_flag(tab, 1) && is_exist_flag(tab, 2))
 			verif = 1;
+		if (is_algo_flag(tab[1]) && is_algo_flag(tab[2]))
+			verif = 0;
 	}
 	return (verif);
 }
