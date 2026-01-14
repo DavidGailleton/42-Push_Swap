@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 	if (check_error(tab, mod))
 		test1(tab, len, mod);
 	else
-		write(2, "Error\n", 7);
+		write(2, "Error\n", 6);
 	free_tab(tab);
 	return (0);
 }

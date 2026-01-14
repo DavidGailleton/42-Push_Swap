@@ -23,6 +23,7 @@ int	test1(char **tab, int len, int mod)
 	if (mod == -1)
 		return (0);
 	stacks = init_stacks(len, tab, mod);
+	indexer(stacks);
 	if (!stacks)
 		return (0);
 	if (check_order(stacks->a))

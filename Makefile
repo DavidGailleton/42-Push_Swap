@@ -33,7 +33,7 @@ INSERTION = insertion.c
 FLAGS_FILES = algorithms_sort.c flag.c bench.c
 
 PARSING = ft_atoi.c parsing.c ft_strncmp.c ft_split.c ft_strlen.c ft_substr.c checker.c ft_itoa.c ft_isdigit.c \
-			ft_strjoin.c ft_strlcat.c ft_strlcpy.c parsing_2.c disorder.c
+			ft_strjoin.c ft_strlcat.c ft_strlcpy.c parsing_2.c disorder.c indexer.c
 
 CHECKER_FILES = check_error.c verif_flag.c verif_is_digit.c verif_overflow.c verif_double.c
 
