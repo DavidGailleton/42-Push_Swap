@@ -52,7 +52,6 @@ void	adaptive(t_stacks *stacks, char **tab)
 	float	disorder;
 
 	i = 0;
-	stacks->algo = 4;
 	while (!ft_isdigit(tab[i][0]) && tab[i])
 		i++;
 	disorder = stacks->disorder;
