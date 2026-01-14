@@ -21,6 +21,8 @@ static int	verif_atoi(const char *nptr)
 	i = 0;
 	tmp = 0;
 	before = 0;
+	if (ft_strncmp(nptr, "-2147483648", 15))
+		return (1);
 	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')

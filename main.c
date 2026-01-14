@@ -22,6 +22,8 @@ int	main(int argc, char **argv)
 	int		mod;
 	int		len;
 
+	if (argc < 2)
+		return (0);
 	tab = split_all(join_all(argc, argv));
 	if (!tab)
 		return (0);

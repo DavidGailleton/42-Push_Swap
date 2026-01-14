@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 #include "medium_headers.h"
+#include "parsing.h"
 
 void	simple(t_stacks *stacks)
 {
@@ -36,6 +37,8 @@ void	medium(t_stacks *stacks)
 	{
 		range = range_bucket(stacks->a);
 		buckets = get_tabs(stacks->a, range);
+		if (!buckets)
+			return ;
 		bucket_algo(stacks, buckets, range);
 	}
 }
@@ -46,8 +49,20 @@ void	complex(t_stacks *stacks)
 	radix(stacks);
 }
 
-void	adaptive(t_stacks *stacks)
+void	adaptive(t_stacks *stacks, char **tab)
 {
-	(void)stacks;
+	int		i;
+	float	disorder;
+
+	i = 0;
+	while (!ft_isdigit(tab[i][0]) && tab[i])
+		i++;
+	disorder = stacks->disorder;
+	if (disorder < 0.3)
+		simple(stacks);
+	else if (disorder < 0.5)
+		medium(stacks);
+	else
+		complex(stacks);
 	return ;
 }

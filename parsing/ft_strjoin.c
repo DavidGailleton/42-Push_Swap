@@ -14,7 +14,7 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	total_len;
+	int		total_len;
 	char	*tmp;
 
 	total_len = ft_strlen(s1) + ft_strlen(s2);

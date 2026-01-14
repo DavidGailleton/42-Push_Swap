@@ -13,7 +13,6 @@
 #include "push_swap.h"
 #include "parsing.h"
 #include <unistd.h>
-#include <stdlib.h>
 
 static void	print_disorder(t_stacks *stacks)
 {

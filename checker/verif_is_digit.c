@@ -12,14 +12,17 @@
 
 #include "parsing.h"
 
-static int	scan_str_is_digit(char *tab)
+int	scan_str_is_digit(char *tab)
 {
 	int	i;
 
 	i = 0;
 	while (tab[i])
 	{
-		if (!ft_isdigit(tab[i]) && (tab[i] == '-' && !ft_isdigit(tab[i + 1])))
+		if ((tab[i] == '+' || tab[i] == '-') && ft_isdigit(tab[i + 1])
+			&& tab[i + 1])
+			i++;
+		if (!ft_isdigit(tab[i]))
 			return (0);
 		i++;
 	}
