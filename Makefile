@@ -104,7 +104,7 @@ $(NAME): $(OBJ)
 $(NAME_BONUS): $(BONUS_OBJ)
 	@$(CC) $(CFLAGS) $(BONUS_OBJ) -o $(NAME_BONUS)
 	@echo "===================================="
-	@echo "======= PUSH SWAP COMPILED ========="
+	@echo "======= CHECKER COMPILED ==========="
 	@echo "===================================="
 
 $(OBJ_DIR)/%.o: $(PARS_DIR)/%.c | $(OBJ_DIR)
