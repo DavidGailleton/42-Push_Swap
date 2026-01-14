@@ -19,7 +19,8 @@ static void	print_disorder(t_stacks *stacks)
 	int		nbr;
 	char	*str;
 
-	nbr = (int) stacks->disorder * 10000;
+	stacks->disorder *= 10000;
+	nbr = (int) stacks->disorder;
 	str = ft_itoa(nbr);
 	if (!str)
 		exit (EXIT_FAILURE);
@@ -41,11 +42,11 @@ static void	print_algo(t_stacks *stacks)
 	secure_write(2, "[bench] algo: ", 14);
 	if (stacks->algo == 0)
 	{
-		secure_write(2, "Adaptative", 10);
+		secure_write(2, "Adaptive", 8);
 		if (stacks->disorder < 0.2)
 			secure_write(2, " / O(n2n)\n", 10);
 		else if (stacks->disorder >= 0.5)
-			secure_write(2, " / O(n√n)\n", 10);
+			secure_write(2, " / O(n√n)\n", 12);
 		else
 			secure_write(2, " / O(nlogn)\n", 12);
 	}
@@ -54,7 +55,7 @@ static void	print_algo(t_stacks *stacks)
 	else if (stacks->algo == 2)
 		secure_write(2, "Medium / O(nlogn)\n", 18);
 	else if (stacks->algo == 3)
-		secure_write(2, "Complex / O(n√n)\n", 17);
+		secure_write(2, "Complex / O(n√n)\n", 19);
 }
 
 static void	print_total_ops(t_stacks *stacks)
