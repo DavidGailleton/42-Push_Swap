@@ -60,6 +60,7 @@ dkms.conf
 # Executable
 push_swap
 checker
+checker_linux
 
 # File obj
 obj/
