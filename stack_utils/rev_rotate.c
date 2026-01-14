@@ -26,7 +26,8 @@ void	rrb(t_stacks *stacks)
 	if (stacks && stacks->b && stacks->b->previous)
 		stacks->b = stacks->b->previous;
 	stacks->rrb++;
-	write(1, "rrb\n", 4);
+	if (stacks->print)
+		write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stacks *stacks)
@@ -36,5 +37,6 @@ void	rrr(t_stacks *stacks)
 	if (stacks && stacks->a && stacks->a->previous)
 		stacks->a = stacks->a->previous;
 	stacks->rrr++;
-	write(1, "rrr\n", 4);
+	if (stacks->print)
+		write(1, "rrr\n", 4);
 }

@@ -31,7 +31,8 @@ void	pa(t_stacks *stacks)
 	}
 	stack_add_front(&(stacks->a), b_push);
 	stacks->pa++;
-	write(1, "pa\n", 3);
+	if (stacks->print)
+		write(1, "pa\n", 3);
 }
 
 void	pb(t_stacks *stacks)
@@ -51,5 +52,6 @@ void	pb(t_stacks *stacks)
 	}
 	stack_add_front(&(stacks->b), a_push);
 	stacks->pb++;
-	write(1, "pb\n", 3);
+	if (stacks->print)
+		write(1, "pb\n", 3);
 }

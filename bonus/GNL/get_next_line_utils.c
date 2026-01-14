@@ -29,7 +29,7 @@ int	index_of_nl(char *str, int limit)
 	return (-1);
 }
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen_1(const char *s)
 {
 	size_t	i;
 
@@ -45,7 +45,7 @@ char	*ft_strjoin_new(char const *s1, char const *s2, size_t limit)
 	size_t	i;
 	size_t	j;
 
-	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	str = malloc(sizeof(char) * (ft_strlen_1(s1) + ft_strlen_1(s2) + 1));
 	if (!str)
 		return (NULL);
 	i = 0;
@@ -65,7 +65,7 @@ char	*ft_strjoin_new(char const *s1, char const *s2, size_t limit)
 	return (str);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr_gnl(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
 	char	*sub_str;
@@ -73,7 +73,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	s_len = ft_strlen(s);
+	s_len = ft_strlen_1(s);
 	if (start > s_len)
 		len = 0;
 	else if (s_len < (start + len))

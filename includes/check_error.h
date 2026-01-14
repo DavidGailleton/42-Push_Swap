@@ -19,5 +19,6 @@ int	verif_is_digit(char **tab, int mod);
 int	verif_overflow(char **tab, int mod);
 int	verif_double(char **tab, int mod);
 int	scan_str_is_digit(char *tab);
+int	check_error_bonus(char **tab);
 
 #endif

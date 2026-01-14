@@ -25,7 +25,8 @@ void	sa(t_stacks *stacks)
 	a->value = a->next->value;
 	a->next->value = stock;
 	stacks->sa++;
-	write(1, "sa\n", 3);
+	if (stacks->print)
+		write(1, "sa\n", 3);
 }
 
 void	sb(t_stacks *stacks)
@@ -40,7 +41,8 @@ void	sb(t_stacks *stacks)
 	b->value = b->next->value;
 	b->next->value = stock;
 	stacks->sb++;
-	write(1, "sb\n", 3);
+	if (stacks->print)
+		write(1, "sb\n", 3);
 }
 
 void	ss(t_stacks *stacks)
@@ -66,5 +68,6 @@ void	ss(t_stacks *stacks)
 		a->next->value = stock;
 	}
 	stacks->ss++;
-	write(1, "ss\n", 3);
+	if (stacks->print)
+		write(1, "ss\n", 3);
 }

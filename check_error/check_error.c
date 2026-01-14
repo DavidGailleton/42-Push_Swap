@@ -23,6 +23,17 @@ int	verif_is_number(char **tab)
 	return (1);
 }
 
+int	check_error_bonus(char **tab)
+{
+	if (!verif_is_digit(tab, 0))
+		return (0);
+	if (!verif_overflow(tab, 0))
+		return (0);
+	if (!verif_double(tab, 0))
+		return (0);
+	return (1);
+}
+
 int	check_error(char **tab, int mod)
 {
 	if (!verif_flag(tab, mod))

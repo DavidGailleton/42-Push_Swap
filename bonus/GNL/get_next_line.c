@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "parsing.h"
 #include <unistd.h>
 
 static int	del_before_nl(char buf[BUFFER_SIZE])
@@ -22,7 +23,7 @@ static int	del_before_nl(char buf[BUFFER_SIZE])
 	nl_i = index_of_nl(buf, BUFFER_SIZE);
 	if (nl_i >= 0)
 	{
-		temp = ft_substr(buf, nl_i + 1, BUFFER_SIZE - nl_i);
+		temp = ft_substr_gnl(buf, nl_i + 1, BUFFER_SIZE - nl_i);
 		if (!temp)
 			return (-1);
 		ft_bzero(buf, BUFFER_SIZE);
@@ -51,7 +52,7 @@ static char	*ft_read_one(char buf[BUFFER_SIZE], int fd, char *str)
 		free(str);
 		return (NULL);
 	}
-	if ((!str || ft_strlen(str) == 0) && temp == 0)
+	if ((!str || ft_strlen_1(str) == 0) && temp == 0)
 	{
 		free(str);
 		return (NULL);
@@ -73,7 +74,7 @@ static char	*extract_all_nl(char buf[BUFFER_SIZE], int fd, char *str, int nl_i)
 		if (!str)
 			return (NULL);
 		nl_i = index_of_nl(buf, BUFFER_SIZE);
-		if (nl_i < 0 && !ft_strlen(buf))
+		if (nl_i < 0 && !ft_strlen_1(buf))
 			return (str);
 	}
 	str = ft_strjoin_new(str, buf, nl_i);
@@ -100,12 +101,12 @@ char	*get_next_line(int fd)
 	nl_i = index_of_nl(buf, BUFFER_SIZE);
 	if (nl_i >= 0)
 	{
-		str = ft_substr(buf, 0, nl_i + 1);
+		str = ft_substr_gnl(buf, 0, nl_i + 1);
 		temp = del_before_nl(buf);
 		if (temp < 0)
 			return (free(str), NULL);
 	}
 	else
-		str = extract_all_nl(buf, fd, ft_substr("", 0, 1), nl_i);
+		str = extract_all_nl(buf, fd, ft_substr_gnl("", 0, 1), nl_i);
 	return (str);
 }

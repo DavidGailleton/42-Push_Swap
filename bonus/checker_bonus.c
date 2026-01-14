@@ -13,8 +13,8 @@
 #include "push_swap.h"
 #include "parsing.h"
 #include "get_next_line.h"
+#include "check_error.h"
 #include <unistd.h>
-#include <stdlib.h>
 
 static int	apply_operation(t_stacks *stacks, char buf[1024])
 {
@@ -43,7 +43,14 @@ static int	apply_operation(t_stacks *stacks, char buf[1024])
 	return (0);
 }
 
-static void	tester(t_stacks *stacks)
+static int	is_stacks_b_empty(t_stacks *stacks)
+{
+	if (stacks->b != NULL)
+		return (0);
+	return (1);
+}
+
+static int	tester(t_stacks *stacks)
 {
 	char	*buf;
 
@@ -55,12 +62,43 @@ static void	tester(t_stacks *stacks)
 		free(buf);
 		buf = get_next_line(0);
 	}
-	if ()
+	if (!is_stacks_b_empty(stacks))
+		return (write(1, "KO\n", 3));
+	if (!check_order(stacks->a))
+		return (write(1, "KO\n", 3));
+	write(1, "OK\n", 3);
+	return (0);
+}
+
+static int	bonus(char **tab)
+{
+	t_stacks	*stacks;
+	int			len;
+
+	stacks = NULL;
+	len = len_split(tab);
+	stacks = init_stacks(len, tab, 0);
+	stacks->print = 0;
+	if (!stacks)
+		return (0);
+	tester(stacks);
+	free_all(stacks);
+	return (1);
 }
 
 int	main(int argc, char **argv)
 {
-	t_stacks	*stacks;
+	char		**tab;
 
-	
+	if (argc < 2)
+		return (write(2, "Error\n", 7));
+	tab = split_all(join_all(argc, argv));
+	if (!tab)
+		return (0);
+	if (!check_error_bonus(tab))
+		write(2, "Error\n", 7);
+	else
+		bonus(tab);
+	free_tab(tab);
+	return (0);
 }

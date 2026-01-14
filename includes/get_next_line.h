@@ -21,10 +21,10 @@
 
 char	*get_next_line(int fd);
 
-size_t	ft_strlen(const char *s);
+size_t	ft_strlen_1(const char *s);
 char	*ft_strjoin_new(char const *s1, char const *s2, size_t limit);
 void	ft_bzero(void *s, size_t n);
 int		index_of_nl(char *str, int limit);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_substr_gnl(char const *s, unsigned int start, size_t len);
 
 #endif
