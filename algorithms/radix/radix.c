@@ -12,17 +12,17 @@
 
 #include "push_swap.h"
 
-static int	still_unit_value(t_stacks *stacks, int unit)
+static int	still_unit_index(t_stacks *stacks, int unit)
 {
 	t_stack	*temp;
 
 	temp = stacks->a;
-	if (!temp || temp->value >= unit)
+	if (!temp || temp->index >= unit)
 		return (1);
 	temp = temp->next;
 	while (temp != stacks->a)
 	{
-		if (temp->value >= unit)
+		if (temp->index >= unit)
 			return (1);
 		temp = temp->next;
 	}
@@ -43,9 +43,9 @@ static void	push_by_number_to_b(t_stacks *stacks, int unit, int nb)
 		temp = temp->next;
 	}
 	i = 0;
-	while (i < s_len && still_unit_value(stacks, unit))
+	while (i < s_len && still_unit_index(stacks, unit))
 	{
-		if (stacks->a && (stacks->a->value % (unit * 10)) / unit == nb)
+		if (stacks->a && (stacks->a->index % (unit * 10)) / unit == nb)
 			pb(stacks);
 		else
 			ra(stacks);
@@ -58,7 +58,7 @@ static void	rec_sort(t_stacks *stacks, int unit)
 	int	i;
 
 	i = 0;
-	if (!still_unit_value(stacks, unit))
+	if (!still_unit_index(stacks, unit))
 		return ;
 	while (i <= 9)
 	{

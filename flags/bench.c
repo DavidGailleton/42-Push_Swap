@@ -31,7 +31,7 @@ static void	print_disorder(t_stacks *stacks)
 	secure_write(2, ".", 1);
 	if (ft_strlen(str) == 1)
 		secure_write(2, "0", 1);
-	secure_write(2, &str[ft_strlen(str) - 2], 2);
+	secure_write(2, &str[ft_strlen(str) - 2], ft_strlen(str) - 2);
 	secure_write(2, "%\n", 2);
 	free(str);
 }
