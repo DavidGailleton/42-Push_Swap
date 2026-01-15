@@ -93,7 +93,7 @@ NAME_BONUS = checker
 
 .PHONY: all clean fclean re bonus
 
-all: $(NAME) $(NAME_BONUS)
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)

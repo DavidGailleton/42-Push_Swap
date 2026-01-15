@@ -28,7 +28,7 @@ void	bucket_algo(t_stacks *stacks, t_tab *preset, int range);
 void	sort_from_left(t_stacks *stacks);
 void	sort_from_right(t_stacks *stacks);
 void	push_range_to_b(t_stacks *stacks, t_tab *one_preset, int range);
-void	medium_pre_sort(t_stacks *stacks, t_tab *preset, int range);
+void	normal_move_path(t_stacks *stacks, t_tab *one_preset, int range);
 t_stack	*assign_stack(t_stacks *stacks, char c);
 /* MEDIUM UTILS FILES */
 int		range_bucket(t_stack *first);

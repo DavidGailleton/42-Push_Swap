@@ -77,18 +77,7 @@ void	push_range_to_b(t_stacks *stacks, t_tab *one_preset, int range)
 {
 	while (one_preset->nb_in > 0)
 	{
-		if (wich_path(stacks, one_preset->max_range, range, 'b'))
-		{
-			while (!in_range(stacks->b->value, one_preset->max_range, range))
-				rb(stacks);
-		}
-		else
-		{
-			while (!in_range(stacks->b->value, one_preset->max_range, range))
-			{
-				rrb(stacks);
-			}
-		}
+		normal_move_path(stacks, one_preset, range);
 		sort_little_pile(stacks);
 		one_preset->nb_in--;
 	}
