@@ -58,7 +58,7 @@ OBJ_DIR = obj
 
 CC = cc
 
-CFLAGS = -Wall -Werror -Wextra -g3 -I$(INCLUDES)
+CFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 
 NAME = push_swap
 
