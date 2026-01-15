@@ -39,7 +39,8 @@ CHECKER_FILES = check_error.c verif_flag.c verif_is_digit.c verif_overflow.c ver
 
 STACK_UTILS = push.c rev_rotate.c rotate.c stack_add.c stack_remove.c stacks_len.c swap.c
 
-MEDIUM_ALGO = utils_medium.c utils_struct_tab.c utils_medium_two.c sort_utils.c sort_utils_two.c medium_algo.c
+MEDIUM_ALGO = utils_medium.c utils_struct_tab.c utils_medium_two.c sort_utils.c sort_utils_two.c medium_algo.c \
+			sort_utils_tree.c 
 
 COMPLEX_ALGO = radix.c
 

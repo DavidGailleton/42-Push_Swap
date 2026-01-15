@@ -61,7 +61,6 @@ dkms.conf
 push_swap
 checker
 checker_linux
-playtest.sh
 
 # File obj
 obj/

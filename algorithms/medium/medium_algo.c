@@ -13,7 +13,7 @@
 #include "push_swap.h"
 #include "medium_headers.h"
 #include <stdlib.h>
-
+#include <stdio.h>
 static int	path_to_end(t_stacks *stacks, int max_range, int range, char c)
 {
 	t_stack	*tmp;
@@ -95,6 +95,7 @@ void	bucket_algo(t_stacks *stacks, t_tab *preset, int range)
 	tmp = preset;
 	while(stacks->a)
 		pb(stacks);
+	//stacks->print = 0;
 	while (preset)
 	{
 		push_range_to_b(stacks, preset, range);
@@ -106,7 +107,5 @@ void	bucket_algo(t_stacks *stacks, t_tab *preset, int range)
 			free(preset);
 		preset = tmp;
 	}
-	while (stacks->b)
-		pa(stacks);
 	return ;
 }

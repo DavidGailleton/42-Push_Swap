@@ -12,6 +12,22 @@
 
 #include "push_swap.h"
 #include "medium_headers.h"
+#include <stdio.h>
+
+static int	move_next(t_stack *tmp, int value)
+{
+	int	i;
+
+	i = 0;
+	if (tmp->previous->value < value)
+		return (70000);
+	while (tmp->value < value)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	return (i);
+}
 
 static int	number_move_reverse(t_stacks *stacks, int value, char start_end)
 {
@@ -22,11 +38,7 @@ static int	number_move_reverse(t_stacks *stacks, int value, char start_end)
 	tmp = stacks->a;
 	if (start_end == 's')
 	{
-		while (tmp->value < value)
-		{
-			tmp = tmp->next;
-			i++;
-		}
+		i = move_next(tmp, value);
 	}
 	else
 	{
@@ -40,7 +52,7 @@ static int	number_move_reverse(t_stacks *stacks, int value, char start_end)
 	return (i);
 }
 
-static int	sort_path(t_stacks *stacks, int value)
+int	sort_path(t_stacks *stacks, int value)
 {
 	int	start_path;
 	int	end_path;
@@ -75,10 +87,25 @@ static void	sort_little_pile(t_stacks *stacks)
 
 void	push_range_to_b(t_stacks *stacks, t_tab *one_preset, int range)
 {
+	int	value;
+	int	i;
+
+	i = 0;
 	while (one_preset->nb_in > 0)
 	{
+		if (i > 0)
+		{
+			value = get_value_finded(stacks, one_preset, range);
+			opti_path(stacks, one_preset, range, value);
+		}
 		normal_move_path(stacks, one_preset, range);
+		opti2_move_path(stacks, one_preset, range);
 		sort_little_pile(stacks);
+		while (stacks->a->value > stacks->a->previous->value)
+			ra(stacks);
 		one_preset->nb_in--;
+		i++;
+		if (!check_order(stacks->a))
+			return ;
 	}
 }
