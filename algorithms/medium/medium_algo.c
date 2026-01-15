@@ -13,7 +13,7 @@
 #include "push_swap.h"
 #include "medium_headers.h"
 #include <stdlib.h>
-
+#include <stdio.h>
 static int	path_to_end(t_stacks *stacks, int max_range, int range, char c)
 {
 	t_stack	*tmp;
@@ -41,21 +41,20 @@ static int	path_to_end(t_stacks *stacks, int max_range, int range, char c)
 static int	path_to_start(t_stacks *stacks, int max_range, int range, char c)
 {
 	t_stack	*tmp;
+	t_stack	*start;
 	int		i;
 	int		first_pass;
 
-	if (c == 'a')
-		tmp = stacks->a;
-	else
-		tmp = stacks->b;
+	tmp = (stacks, c);
+	start = (stacks, c);
 	i = 0;
 	first_pass = 1;
-	while (first_pass || tmp != stacks->b)
+	while (first_pass || tmp != start)
 	{
 		first_pass = 0;
 		if (in_range(tmp->value, max_range, range))
 		{
-			tmp = stacks->b->previous;
+			tmp = start->previous;
 		}
 		tmp = tmp->next;
 		i++;
@@ -95,8 +94,7 @@ void	bucket_algo(t_stacks *stacks, t_tab *preset, int range)
 	t_tab	*tmp;
 
 	tmp = preset;
-	while (stacks->a)
-		pb(stacks);
+	medium_pre_sort(stacks, preset, range);
 	while (preset)
 	{
 		push_range_to_b(stacks, preset, range);
