@@ -19,7 +19,8 @@ int	calcul_mod(int argc, char **argv)
 	int	mod;
 
 	mod = 0;
-	while (argv[mod] && !ft_isdigit(argv[mod][0]) && mod < argc)
+	while (argv[mod] && !ft_isdigit(argv[mod][0])
+			&& !ft_isdigit(argv[mod][1]) && argv[mod][1] && mod < argc)
 		mod++;
 	mod--;
 	return (mod);

@@ -18,7 +18,8 @@ void	rra(t_stacks *stacks)
 	if (stacks && stacks->a && stacks->a->previous)
 		stacks->a = stacks->a->previous;
 	stacks->rra++;
-	secure_write(1, "rra\n", 4);
+	if (stacks->print)
+		secure_write(1, "rra\n", 4);
 }
 
 void	rrb(t_stacks *stacks)
