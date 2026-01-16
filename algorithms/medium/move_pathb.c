@@ -104,10 +104,12 @@ int	get_pre_move_b(t_stacks *stacks, t_tab *one_preset, int range)
 		}
 	}
 	else
+	{
 		while (!in_range(tmp->index, one_preset->max_range, range))
 		{
 			i++;
 			tmp = tmp->previous;
 		}
+	}
 	return (i);
 }

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 #include "medium_headers.h"
-#include <stdio.h>
+
 void	move_rr_rrr(t_stacks *stacks, int move, char c)
 {
 	int	i;
@@ -46,7 +46,7 @@ void	path_rr_rrr(int value, t_stacks *stacks, t_tab *one_preset, int range)
 {
 	int	move_a;
 	int	final_move;
-	
+
 	final_move = get_pre_move_b(stacks, one_preset, range);
 	if (wich_path_a(value, stacks) == 1
 		&& wich_path(stacks, one_preset->max_range, range, 'b'))
@@ -64,7 +64,6 @@ void	path_rr_rrr(int value, t_stacks *stacks, t_tab *one_preset, int range)
 			final_move = move_a;
 		move_rr_rrr(stacks, final_move, 'e');
 	}
-
 }
 
 void	push_range_to_b(t_stacks *stacks, t_tab *one_preset, int range)

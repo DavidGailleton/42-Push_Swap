@@ -55,7 +55,7 @@ void	adaptive(t_stacks *stacks, char **tab)
 	while (!ft_isdigit(tab[i][0]) && tab[i])
 		i++;
 	disorder = stacks->disorder;
-	if (disorder < 0.3)
+	if (disorder < 0.2)
 		simple(stacks);
 	else if (disorder < 0.5)
 		medium(stacks);

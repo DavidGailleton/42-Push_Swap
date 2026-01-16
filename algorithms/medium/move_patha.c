@@ -12,7 +12,7 @@
 
 #include "medium_headers.h"
 #include "push_swap.h"
-#include <stdio.h>
+
 static int	is_border_a(int value, t_stacks *stacks)
 {
 	t_stack	*tmp;
@@ -22,7 +22,7 @@ static int	is_border_a(int value, t_stacks *stacks)
 	tmp = assign_stack(stacks, 'a');
 	if ((value < tmp->index && check_order(tmp))
 		|| (value > tmp->index && value > tmp->previous->index
-		&& check_order(stacks->a)))
+			&& check_order(stacks->a)))
 		return (1);
 	return (0);
 }

@@ -15,9 +15,9 @@
 
 int	get_value_finded(t_stacks *stacks, t_tab *one_preset, int range)
 {
-	int	value;
+	int		value;
 	t_stack	*tmp;
-	
+
 	tmp = assign_stack(stacks, 'b');
 	if (wich_path(stacks, one_preset->max_range, range, 'b'))
 	{

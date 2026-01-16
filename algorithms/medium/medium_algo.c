@@ -34,7 +34,7 @@ void	bucket_algo(t_stacks *stacks, t_tab *preset, int range)
 	t_tab	*tmp;
 
 	tmp = preset;
-	while(stacks->a)
+	while (stacks->a)
 		pb(stacks);
 	while (preset)
 	{
