@@ -21,13 +21,13 @@ int	get_value_finded(t_stacks *stacks, t_tab *one_preset, int range)
 	tmp = assign_stack(stacks, 'b');
 	if (wich_path(stacks, one_preset->max_range, range, 'b'))
 	{
-		while (!in_range(tmp->value, one_preset->max_range, range))
+		while (!in_range(tmp->index, one_preset->max_range, range))
 			tmp = tmp->next;
 	}
 	else
-		while (!in_range(tmp->value, one_preset->max_range, range))
+		while (!in_range(tmp->index, one_preset->max_range, range))
 			tmp = tmp->previous;
-	value = tmp->value;
+	value = tmp->index;
 	return (value);
 }
 

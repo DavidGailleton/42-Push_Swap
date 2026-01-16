@@ -20,8 +20,8 @@ static int	is_border_a(int value, t_stacks *stacks)
 	if (!stacks->a)
 		return (1);
 	tmp = assign_stack(stacks, 'a');
-	if ((value < tmp->value && check_order(tmp))
-		|| (value > tmp->value && value > tmp->previous->value
+	if ((value < tmp->index && check_order(tmp))
+		|| (value > tmp->index && value > tmp->previous->index
 		&& check_order(stacks->a)))
 		return (1);
 	return (0);
@@ -34,12 +34,12 @@ int	move_left_to_right(int value, t_stacks *stacks, int is_move)
 
 	i = 0;
 	tmp = assign_stack(stacks, 'a');
-	while (value > tmp->value && !is_move)
+	while (value > tmp->index && !is_move)
 	{
 		tmp = tmp->next;
 		i++;
 	}
-	while (value > stacks->a->value && is_move)
+	while (value > stacks->a->index && is_move)
 		ra(stacks);
 	return (i);
 }
@@ -51,12 +51,12 @@ int	move_right_to_left(int value, t_stacks *stacks, int is_move)
 
 	tmp = assign_stack(stacks, 'a');
 	i = 0;
-	while (value < tmp->previous->value && !is_move)
+	while (value < tmp->previous->index && !is_move)
 	{
 		tmp = tmp->previous;
 		i++;
 	}
-	while (value < stacks->a->previous->value && is_move)
+	while (value < stacks->a->previous->index && is_move)
 		rra(stacks);
 	return (i);
 }

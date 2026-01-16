@@ -81,7 +81,7 @@ void	push_range_to_b(t_stacks *stacks, t_tab *one_preset, int range)
 			path_rr_rrr(value, stacks, one_preset, range);
 		}
 		normal_move_path(stacks, one_preset, range);
-		move_ra_rra(stacks->b->value, stacks);
+		move_ra_rra(stacks->b->index, stacks);
 		pa(stacks);
 		put_in_order_ra_rra(stacks);
 		one_preset->nb_in--;
