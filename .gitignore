@@ -64,3 +64,6 @@ checker_linux
 
 # File obj
 obj/
+
+#playtest
+playtest.sh
