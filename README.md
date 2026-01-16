@@ -63,8 +63,12 @@ https://en.wikipedia.org/wiki/Sorting_algorithm
 - **For BUCKET SORT**  
 https://www.meilisearch.com/blog/bucket-sort-guide
 
-- **For BUCKET SORT**  
+- **For RADIX**  
 https://www.geeksforgeeks.org/dsa/radix-sort/
+
+### AI
+
+AI was utilized to provide a reminder on how to include obj files within a subfolder for the Makefile.
 
 ## Additional sections may be required depending on the project 
 
