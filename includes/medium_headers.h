@@ -13,6 +13,8 @@
 #ifndef MEDIUM_HEADERS_H
 # define MEDIUM_HEADERS_H
 
+# include "push_swap.h"
+
 typedef struct s_tab
 {
 	int				max_range;
@@ -25,13 +27,8 @@ int		wich_path(t_stacks *stacks, int max_range, int range, char c);
 int		stack_len(t_stack *stack);
 void	bucket_algo(t_stacks *stacks, t_tab *preset, int range);
 /* SORT UTILS FILES */
-void	sort_from_left(t_stacks *stacks);
-void	sort_from_right(t_stacks *stacks);
 void	push_range_to_b(t_stacks *stacks, t_tab *one_preset, int range);
 void	normal_move_path(t_stacks *stacks, t_tab *one_preset, int range);
-void	opti_path(t_stacks *stacks, t_tab *one_preset, int range, int val);
-void	opti2_move_path(t_stacks *stacks, t_tab *one_preset, int range);
-int		sort_path(t_stacks *stacks, int value);
 t_stack	*assign_stack(t_stacks *stacks, char c);
 int		get_value_finded(t_stacks *stacks, t_tab *one_preset, int range);
 /* MEDIUM UTILS FILES */
@@ -43,5 +40,13 @@ int		in_range(int value, int max_range, int range);
 int		get_number_in_range(int max_range, t_stack *a, int range);
 /* UTILS STRUCT TAB FILE */
 t_tab	*get_tabs(t_stack *first, int range);
+/* MOVE PATH FILES*/
+int		get_pre_move_b(t_stacks *stacks, t_tab *one_preset, int range);
+int		move_left_to_right(int value, t_stacks *stacks, int is_move);
+int		move_right_to_left(int value, t_stacks *stacks, int is_move);
+int		wich_path_a(int value, t_stacks *stacks);
+void	move_ra_rra(int value, t_stacks *stacks);
+void	path_rr_rrr(int value, t_stacks *stacks, t_tab *one_preset, int range);
+void	put_in_order_ra_rra(t_stacks *stacks);
 
 #endif

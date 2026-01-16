@@ -13,76 +13,58 @@
 #include "push_swap.h"
 #include "medium_headers.h"
 #include <stdio.h>
-
-static int	move_next(t_stack *tmp, int value)
+void	move_rr_rrr(t_stacks *stacks, int move, char c)
 {
 	int	i;
 
 	i = 0;
-	if (tmp->previous->value < value)
-		return (70000);
-	while (tmp->value < value)
+	while (i < move && c == 's')
 	{
-		tmp = tmp->next;
+		rr(stacks);
 		i++;
 	}
-	return (i);
+	while (i < move && c == 'e')
+	{
+		i++;
+		rrr(stacks);
+	}
 }
 
-static int	number_move_reverse(t_stacks *stacks, int value, char start_end)
+void	put_in_order_ra_rra(t_stacks *stacks)
 {
-	int		i;
-	t_stack	*tmp;
+	int	i;
 
 	i = 0;
-	tmp = stacks->a;
-	if (start_end == 's')
+	while (!check_order(stacks->a) && i < 50)
 	{
-		i = move_next(tmp, value);
-	}
-	else
-	{
-		tmp = tmp->previous;
-		while (tmp->value > value)
-		{
-			tmp = tmp->previous;
-			i++;
-		}
-	}
-	return (i);
-}
-
-int	sort_path(t_stacks *stacks, int value)
-{
-	int	start_path;
-	int	end_path;
-
-	start_path = number_move_reverse(stacks, value, 's');
-	if (start_path == 0)
-		return (1);
-	end_path = number_move_reverse(stacks, value, 'e');
-	if (start_path < end_path)
-		return (1);
-	return (0);
-}
-
-static void	sort_little_pile(t_stacks *stacks)
-{
-	if (!stacks->a)
-	{
-		pa(stacks);
-		return ;
-	}
-	if (stacks->a->previous->value < stacks->b->value)
-	{
-		pa(stacks);
 		ra(stacks);
-		return ;
+		i++;
 	}
-	if (sort_path(stacks, stacks->b->value))
-		sort_from_left(stacks);
-	else
-		sort_from_right(stacks);
+}
+
+void	path_rr_rrr(int value, t_stacks *stacks, t_tab *one_preset, int range)
+{
+	int	move_a;
+	int	final_move;
+	
+	final_move = get_pre_move_b(stacks, one_preset, range);
+	if (wich_path_a(value, stacks) == 1
+		&& wich_path(stacks, one_preset->max_range, range, 'b'))
+	{
+		move_a = move_left_to_right(value, stacks, 0);
+		if (move_a < final_move)
+			final_move = move_a;
+		move_rr_rrr(stacks, final_move, 's');
+	}
+	else if (wich_path_a(value, stacks) == 0
+		&& !wich_path(stacks, one_preset->max_range, range, 'b'))
+	{
+		move_a = move_right_to_left(value, stacks, 0);
+		if (move_a < final_move)
+			final_move = move_a;
+		move_rr_rrr(stacks, final_move, 'e');
+	}
+
 }
 
 void	push_range_to_b(t_stacks *stacks, t_tab *one_preset, int range)
@@ -93,16 +75,15 @@ void	push_range_to_b(t_stacks *stacks, t_tab *one_preset, int range)
 	i = 0;
 	while (one_preset->nb_in > 0)
 	{
-		if (i > 0)
+		if (stacks->a)
 		{
 			value = get_value_finded(stacks, one_preset, range);
-			opti_path(stacks, one_preset, range, value);
+			path_rr_rrr(value, stacks, one_preset, range);
 		}
 		normal_move_path(stacks, one_preset, range);
-		opti2_move_path(stacks, one_preset, range);
-		sort_little_pile(stacks);
-		while (stacks->a->value > stacks->a->previous->value)
-			ra(stacks);
+		move_ra_rra(stacks->b->value, stacks);
+		pa(stacks);
+		put_in_order_ra_rra(stacks);
 		one_preset->nb_in--;
 		i++;
 		if (!check_order(stacks->a))
