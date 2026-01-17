@@ -29,6 +29,9 @@ static int	push_swap(char **tab, int len, int mod)
 	indexer(stacks);
 	if (check_order(stacks->a))
 	{
+		flags(0, pos_bench(tab, mod), tab, stacks);
+		if (stacks->bench == 1)
+			print_bench(stacks);
 		free_all(stacks);
 		return (0);
 	}
