@@ -46,14 +46,10 @@ void	complex(t_stacks *stacks)
 	radix(stacks);
 }
 
-void	adaptive(t_stacks *stacks, char **tab)
+void	adaptive(t_stacks *stacks)
 {
-	int		i;
 	float	disorder;
 
-	i = 0;
-	while (!ft_isdigit(tab[i][0]) && tab[i])
-		i++;
 	disorder = stacks->disorder;
 	if (disorder < 0.2)
 		simple(stacks);
@@ -61,5 +57,4 @@ void	adaptive(t_stacks *stacks, char **tab)
 		medium(stacks);
 	else
 		complex(stacks);
-	return ;
 }

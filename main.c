@@ -27,16 +27,8 @@ static int	push_swap(char **tab, int len, int mod)
 	if (!stacks)
 		return (0);
 	indexer(stacks);
-	if (check_order(stacks->a))
-	{
-		flags(0, pos_bench(tab, mod), tab, stacks);
-		if (stacks->bench == 1)
-			print_bench(stacks);
-		free_all(stacks);
-		return (0);
-	}
-	stacks->disorder = compute_disorder(tab, wich_mod(mod));
-	flags(pos_flag(tab, mod), pos_bench(tab, mod), tab, stacks);
+	if (!check_order(stacks->a))
+		flags(stacks);
 	if (stacks->bench == 1)
 		print_bench(stacks);
 	free_all(stacks);

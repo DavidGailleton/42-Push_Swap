@@ -65,6 +65,25 @@ static void	set_t_stacks(t_stacks *stacks)
 	stacks->rrr = 0;
 }
 
+static void	set_flags(int argc, char **argv, t_stacks *stacks)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (ft_strncmp(argv[i], "--simple", ft_strlen(argv[i])))
+			stacks->algo = 1;
+		else if (ft_strncmp(argv[i], "--medium", ft_strlen(argv[i])))
+			stacks->algo = 2;
+		else if (ft_strncmp(argv[i], "--complex", ft_strlen(argv[i])))
+			stacks->algo = 3;
+		if (ft_strncmp(argv[i], "--bench", ft_strlen(argv[i])))
+			stacks->bench = 1;
+		i++;
+	}
+}
+
 t_stacks	*init_stacks(int argc, char **argv, int mod)
 {
 	t_stacks	*stacks;
@@ -81,5 +100,7 @@ t_stacks	*init_stacks(int argc, char **argv, int mod)
 		return (NULL);
 	}
 	stacks->a = a;
+	set_flags(argc, argv, stacks);
+	stacks->disorder = compute_disorder(argv, wich_mod(mod));
 	return (stacks);
 }
