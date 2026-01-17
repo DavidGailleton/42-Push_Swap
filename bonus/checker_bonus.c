@@ -58,16 +58,14 @@ static int	tester(t_stacks *stacks)
 	while (buf)
 	{
 		if (!apply_operation(stacks, buf))
-			break ;
+		{
+			secure_write(2, "Error\n", 6);
+			return (0);
+		}
 		free(buf);
 		buf = get_next_line(0);
 	}
-	if (!is_stacks_b_empty(stacks))
-	{
-		secure_write(1, "KO\n", 3);
-		return (0);
-	}
-	if (!check_order(stacks->a))
+	if (!is_stacks_b_empty(stacks) || !check_order(stacks->a))
 	{
 		secure_write(1, "KO\n", 3);
 		return (0);
