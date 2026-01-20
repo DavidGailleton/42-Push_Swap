@@ -40,7 +40,7 @@ static void	print_disorder(t_stacks *stacks)
 
 static void	print_algo(t_stacks *stacks)
 {
-	secure_write(2, "[bench] algo: ", 14);
+	secure_write(2, "[bench] strategy: ", 18);
 	if (stacks->algo == 0)
 	{
 		secure_write(2, "Adaptive", 8);

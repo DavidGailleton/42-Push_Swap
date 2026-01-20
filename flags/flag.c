@@ -30,9 +30,9 @@ void	flags(t_stacks *stacks)
 {
 	if (stacks->algo == 1)
 		simple(stacks);
-	if (stacks->algo == 1)
+	else if (stacks->algo == 2)
 		medium(stacks);
-	if (stacks->algo == 1)
+	else if (stacks->algo == 3)
 		complex(stacks);
 	else
 		adaptive(stacks);
